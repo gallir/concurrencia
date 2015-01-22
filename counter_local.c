@@ -7,7 +7,7 @@
 
 
 #define NUM_THREADS	 2
-#define MAX_COUNT 100000000
+#define MAX_COUNT 10000000
 
 // Just used to send the index of the id
 struct tdata {
