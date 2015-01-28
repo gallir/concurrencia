@@ -14,19 +14,22 @@ struct tdata {
 	int tid;
 };
 
-// Used for swapping in __sync_bool_compare_and_swap
-// It's volatile to make the assignment mutex = 0 inmediately visible to others processors
-// You can use also barriers or the same compare_and_swap
-int mutex = 0;
+// Used for get&add, the first is the number obtained by a process
+// The second is the next turn
+int number = 0;
+int turn = 0;
 
 int counter = 0;
 
 void lock(int i) {
-	while(! __sync_bool_compare_and_swap(&mutex, 0, 1));
+	int current;
+
+	current = __sync_fetch_and_add(&number, 1);
+	while(current != turn);
 }
 
 void unlock(int i) {
-	mutex = 0;
+	__sync_fetch_and_add(&turn, 1);
 }
 	
 void *count(void *ptr) {

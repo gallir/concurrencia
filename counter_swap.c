@@ -14,15 +14,13 @@ struct tdata {
 	int tid;
 };
 
-// Used for swapping in __sync_bool_compare_and_swap
-// It's volatile to make the assignment mutex = 0 inmediately visible to others processors
-// You can use also barriers or the same compare_and_swap
+// Used for swapping in _sync_lock_test_and_set which is actually a swap.
 int mutex = 0;
 
 int counter = 0;
 
 void lock(int i) {
-	while(! __sync_bool_compare_and_swap(&mutex, 0, 1));
+	while(__sync_lock_test_and_set(&mutex, 1));
 }
 
 void unlock(int i) {
