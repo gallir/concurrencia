@@ -12,22 +12,18 @@ struct tdata {
 	int tid;
 };
 
-// Used for get&add, the first is the number obtained by a process
-// The second is the next turn
-int number = 0;
-int turn = 0;
+int mutex = 0;
 
 int counter = 0;
 
 void lock() {
 	int current;
 
-	current = __sync_fetch_and_add(&number, 1);
-	while(current != turn);
+	while(__sync_lock_test_and_set(&mutex, 1));
 }
 
 void unlock() {
-	__sync_fetch_and_add(&turn, 1);
+	mutex = 0;
 }
 	
 void *count(void *ptr) {
