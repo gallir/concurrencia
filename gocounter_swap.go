@@ -1,4 +1,4 @@
-/* Implements mutual exclusion with sync/mutex */
+/* Implements mutual exclusion with atomic.CompareAndSwapInt32 */
 
 package main
 
@@ -14,12 +14,12 @@ const (
 )
 
 var (
-	counter = 0
-	mutex int32 = 0
+	counter int
+	mutex int32 
 )
 
 func lock() {
-	for ! atomic.CompareAndSwapInt32(&mutex, 0, 1) {}
+	for ! atomic.CompareAndSwapInt32(&mutex, 0, 1) {} // While it returns false
 }
 
 func unlock() {

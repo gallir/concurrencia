@@ -1,5 +1,3 @@
-// Compiled with gcc -O -pthread -o counter counter.c 
-
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>

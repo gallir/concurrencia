@@ -1,5 +1,3 @@
-// Compiled with gcc -O -pthread -o counter counter.c 
-
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,8 +13,6 @@ struct tdata {
 };
 
 // Used for swapping in __sync_bool_compare_and_swap
-// It's volatile to make the assignment mutex = 0 inmediately visible to others processors
-// You can use also barriers or the same compare_and_swap
 int mutex = 0;
 
 int counter = 0;
