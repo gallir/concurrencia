@@ -1,4 +1,4 @@
-/* Implements mutual exclusion with sync/mutex */
+/* Implements mutual exclusion with atomic.CompareAndSwapInt32 */
 
 package main
 

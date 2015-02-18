@@ -1,4 +1,4 @@
-/* Implements mutual exclusion with atomic.CompareAndSwapInt32 */
+/* Implements mutual exclusion with atomic.SwapInt32 */
 
 package main
 
@@ -19,7 +19,7 @@ var (
 )
 
 func lock() {
-	for ! atomic.CompareAndSwapInt32(&mutex, 0, 1) {} // While it returns false
+	for atomic.SwapInt32(&mutex, 1) == 1 {} // While it returns 1
 }
 
 func unlock() {
