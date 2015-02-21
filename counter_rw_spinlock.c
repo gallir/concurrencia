@@ -24,7 +24,7 @@ void reader_lock() {
 			sched_yield(); // Release the CPU
 		}
 
-		unsigned int old = (rw_lock & 0x7fffffff);
+		unsigned int old = rw_lock & 0x7fffffff;
 		unsigned int new = old + 1;
 
 		if (__sync_bool_compare_and_swap(&rw_lock, old, new)) {
@@ -39,8 +39,8 @@ void writer_lock() {
 			sched_yield(); // Release the CPU
 		}
 
-		unsigned int old = (rw_lock & 0x7fffffff);
-		unsigned int new = (old | 0x80000000);
+		unsigned int old = rw_lock & 0x7fffffff;
+		unsigned int new = old | 0x80000000;
 
 		if (__sync_bool_compare_and_swap(&rw_lock, old, new)) {
 			// wait for readers
@@ -74,7 +74,6 @@ void *count(void *ptr) {
 		// now we check the reader_lock works
 		reader_lock();
 		int tmp = counter;
-		sched_yield(); // Force to leave CPU 
 		assert(tmp == counter); // Should still be the same value
 		reader_unlock();
 	}
