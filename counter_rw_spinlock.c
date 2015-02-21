@@ -59,7 +59,6 @@ void reader_unlock() {
 void writer_unlock() {
 	assert(rw_lock == 0x80000000); // It should be so
 	rw_lock = 0;
-	//__sync_bool_compare_and_swap(&rw_lock, 0x80000000, 0);
 }
 
 
@@ -72,14 +71,12 @@ void *count(void *ptr) {
 		counter += 1; // The global variable, i.e. the critical section
 		writer_unlock();
 
-		/*
 		// now we check the reader_lock works
 		reader_lock();
 		int tmp = counter;
-		sched_yield();
-		assert(tmp == counter);
+		sched_yield(); // Force to leave CPU 
+		assert(tmp == counter); // Should still be the same value
 		reader_unlock();
-		*/
 	}
 
 	printf("End %d counter: %d\n", tid, counter);
