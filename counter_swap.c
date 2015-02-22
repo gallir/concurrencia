@@ -12,7 +12,7 @@ struct tdata {
 	int tid;
 };
 
-// Used for swapping in _sync_lock_test_and_set which is actually a swap.
+// Used for swapping in _sync_lock_test_and_set which is actually a getAndSet.
 int mutex = 0;
 
 int counter = 0;

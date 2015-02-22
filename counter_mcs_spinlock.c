@@ -18,14 +18,14 @@ struct mcs_spinlock {
 	unsigned locked;
 };
 
-struct mcs_spinlock *MCSlock = NULL;
+struct mcs_spinlock *mcs_tail = NULL;
 
 int counter = 0;
 
 void lock(struct mcs_spinlock *node) {
 	node->next = NULL;
 	struct mcs_spinlock *predecessor = node;
-	predecessor = __sync_lock_test_and_set(&MCSlock, predecessor); // Swap
+	predecessor = __sync_lock_test_and_set(&mcs_tail, predecessor); // it's equivalent to fetchAndStore
 	if (predecessor != NULL) {
 		node->locked = 1;
 		predecessor->next = node;
@@ -35,12 +35,15 @@ void lock(struct mcs_spinlock *node) {
 
 void unlock(struct mcs_spinlock *node) {
 	if (! node->next) {
-		if (__sync_bool_compare_and_swap(&MCSlock, node, NULL) ) {
+		if (__sync_bool_compare_and_swap(&mcs_tail, node, NULL) ) {
 			return;
+		} else {
+			// Another process executed fetchAndStore but
+			// didn't asssign next yet, so wait
+			while (! node->next);
 		}
 	}
 
-	while (! node->next);
 	node->next->locked = 0;
 }
 	
