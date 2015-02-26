@@ -1,6 +1,6 @@
 // This code implements an FAULTY concurrent stack
 // It's suffers of the ABA problem it will generate a Segmentation Fault
-// Bit it works in ARM because the macro translate to load-linked/store-conditional
+// In ARM the macro translates to load-linked/store-conditional
 
 #include <pthread.h>
 #include <stdio.h>
@@ -55,8 +55,7 @@ void *add_elements(void *ptr) {
 	struct node *e;
 
 	for (i=0; i < elems; i++) {
-		//e = pop(&free_nodes); // Get an element from the free list
-		e = NULL;
+		e = pop(&free_nodes); // Get an element from the free list
 		if (! e) {
 			e = malloc(sizeof(struct node));
 		}
