@@ -12,18 +12,17 @@ struct tdata {
 	int tid;
 };
 
-int mutex = 0;
+char mutex = 0;
 
 int counter = 0;
 
-void lock(int i) {
-	int local = 1;
-	do {
-		__atomic_exchange(&mutex, &local, &local, __ATOMIC_SEQ_CST);
-	} while (local);
+void lock() {
+	int current;
+
+	while(__atomic_test_and_set(&mutex, __ATOMIC_SEQ_CST));
 }
 
-void unlock(int i) {
+void unlock() {
 	mutex = 0;
 }
 	
@@ -32,9 +31,9 @@ void *count(void *ptr) {
 	int tid = ((struct tdata *) ptr)->tid;
 
 	for (i=0; i < max; i++) {
-		lock(tid);
+		lock();
 		counter += 1; // The global variable, i.e. the critical section
-		unlock(tid);
+		unlock();
 	}
 
 	printf("End %d counter: %d\n", tid, counter);
