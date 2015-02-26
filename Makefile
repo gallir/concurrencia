@@ -1,8 +1,9 @@
 CC=gcc
 CFLAGS=-pthread
 
-ifeq ($(UNAME_P),x86_64)
-    CCFLAGS += -mcx16
+UNAME := $(shell uname -i)
+ifeq ($(UNAME),x86_64)
+    CFLAGS += -mcx16
 endif
 
 SOURCES=$(wildcard *.c)
