@@ -1,5 +1,10 @@
 CC=gcc
-CFLAGS=-pthread -mcx16
+CFLAGS=-pthread
+
+ifeq ($(UNAME_P),x86_64)
+    CCFLAGS += -mcx16
+endif
+
 SOURCES=$(wildcard *.c)
 PROGS=$(patsubst %.c,%,$(SOURCES))
 
@@ -9,10 +14,10 @@ GO_PROGS=$(patsubst %.go,%,$(GO_SOURCES))
 all: $(PROGS) $(GO_PROGS)
 
 %: %.c
-	$(CC) $(CFLAGS) -o $@ $<
+	- $(CC) $(CFLAGS) -o $@ $<
 
 %: %.go
-	go build $<
+	- go build $<
 
 EXES=$(basename $(wildcard *.c *.go ))
 
