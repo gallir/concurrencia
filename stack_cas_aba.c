@@ -9,7 +9,7 @@
 
 
 #define NUM_THREADS	     4
-#define OPERATIONS      100000
+#define OPERATIONS      1000000
 
 // Just used to send the index of the id
 struct tdata {
@@ -32,26 +32,22 @@ struct node *free_nodes = NULL;
 void push(struct node **head, struct node *e) {
 	struct node *tmp;
 
-	do {
-		e->next = tmp = *head;
-	} while (! __atomic_compare_exchange_n(head, &tmp, e, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST));
+	e->next = *head;
+	while (! __atomic_compare_exchange(head, &e->next, &e, 0, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
 }
 
 struct node *pop(struct node **head) {
 	struct node *result, *old_head;
 	struct node *tmp;
 
-	do {
-		tmp = old_head = *head;
-		if (! old_head) {
-			return NULL;
-		}
-	} while (! __atomic_compare_exchange_n(head, &tmp, old_head->next, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST));
+	old_head = *head;
+	if (! old_head) {
+		return NULL;
+	}
+	while (! __atomic_compare_exchange(head, &old_head, &old_head->next, 0, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
 
 	return old_head;
 }
-		
-
 
 void *add_elements(void *ptr) {
 	long i, elems = OPERATIONS/NUM_THREADS;
@@ -59,7 +55,11 @@ void *add_elements(void *ptr) {
 	struct node *e;
 
 	for (i=0; i < elems; i++) {
-		e = pop(&free_nodes); // Get an element from the free list
+		//e = pop(&free_nodes); // Get an element from the free list
+		e = NULL;
+		if (! e) {
+			e = malloc(sizeof(struct node));
+		}
 		e->data.tid = tid;
 		e->data.c = i;
 		push(&head, e);
@@ -78,12 +78,6 @@ int main (int argc, char *argv[]) {
 	struct tdata id[NUM_THREADS];
 	struct node *e;
 
-	for (i=0; i < OPERATIONS; i++) {
-		// Add an elements
-		e = malloc(sizeof(struct node));
-		push(&free_nodes, e);
-	}
-		
 	for(i=0; i<NUM_THREADS; i++){
 		id[i].tid = i;
 		rc = pthread_create(&threads[i], NULL, add_elements, (void *) &id[i]);
@@ -96,6 +90,5 @@ int main (int argc, char *argv[]) {
 	for(i=0; i<NUM_THREADS; i++){
 		pthread_join(threads[i], NULL);
 	}
-
 }
 

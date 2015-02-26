@@ -12,14 +12,14 @@ struct tdata {
 	int tid;
 };
 
-// Used for swapping in __sync_bool_compare_and_swap
-int mutex = 0;
+// Used for swapping in testAndSet
+char mutex = 0;
 
 int counter = 0;
 
 void lock(int i) {
-	while(mutex || ! __sync_bool_compare_and_swap(&mutex, 0, 1)) {
-		sched_yield();
+	while( mutex || __atomic_test_and_set(&mutex, __ATOMIC_SEQ_CST)) {
+		// sched_yield();
 	}
 }
 

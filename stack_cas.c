@@ -4,11 +4,10 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <stdint.h>
-#include <stdatomic.h>
 
 
 #define NUM_THREADS		 4
-#define OPERATIONS		100000
+#define OPERATIONS		1000000
 
 // Just used to send the index of the id
 struct tdata {
@@ -34,28 +33,28 @@ struct node_head stack_head;
 struct node_head free_nodes;
 
 void push(struct node_head *head, struct node *e) {
-	struct node_head old_head;
-	struct node_head next;
+	struct node_head old_head, next;
+
+	__atomic_load(head, &old_head, __ATOMIC_RELAXED);
 	do {
-		__atomic_load(head, &old_head, __ATOMIC_RELAXED);
 		next.aba = old_head.aba + 1;
 		next.node = e;
 		e->next = old_head.node;
-	} while (! atomic_compare_exchange_weak(head, &old_head, next));
+	} while (! __atomic_compare_exchange(head, &old_head, &next, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
 }
 
 
 struct node *pop(struct node_head *head) {
-	struct node_head old_head;
-	struct node_head next;
+	struct node_head old_head, next;
+
+	__atomic_load(head, &old_head, __ATOMIC_RELAXED);
 	do {
-		__atomic_load(head, &old_head, __ATOMIC_RELAXED);
 		if (! old_head.node) {
 			return NULL;
 		}
 		next.aba = old_head.aba + 1;
 		next.node = old_head.node->next;
-	} while (! atomic_compare_exchange_weak(head, &old_head, next));
+	} while (! __atomic_compare_exchange(head, &old_head, &next, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
 
 	return old_head.node;
 }
@@ -67,6 +66,9 @@ void *add_elements(void *ptr) {
 
 	for (i=0; i < elems; i++) {
 		e = pop(&free_nodes); // Get an element from the free list
+		if (! e) { // If there is none, reserve memory
+			e = malloc(sizeof(struct node));
+		}
 		e->data.tid = tid;
 		e->data.c = i;
 		push(&stack_head, e);
@@ -84,12 +86,6 @@ int main (int argc, char *argv[]) {
 	int rc, i;
 	struct tdata id[NUM_THREADS];
 	struct node *e, *tmp;
-
-	// Do a malloc for all possible nodes and add them to a free list
-	for (i=0; i < OPERATIONS; i++) {
-		e = malloc(sizeof(struct node));
-		push(&free_nodes, e);
-	}
 
 	for(i=0; i<NUM_THREADS; i++){
 		id[i].tid = i;

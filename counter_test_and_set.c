@@ -17,13 +17,12 @@ char mutex = 0;
 int counter = 0;
 
 void lock() {
-	int current;
-
-	while(__atomic_test_and_set(&mutex, __ATOMIC_SEQ_CST));
+	while(__atomic_test_and_set(&mutex, __ATOMIC_RELAXED));
 }
 
 void unlock() {
 	mutex = 0;
+	// Recomended is __atomic_clear(&mutex,...) but we already have cache coherence
 }
 	
 void *count(void *ptr) {

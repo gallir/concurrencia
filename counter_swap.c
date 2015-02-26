@@ -19,7 +19,7 @@ int counter = 0;
 void lock(int i) {
 	int local = 1;
 	do {
-		__atomic_exchange(&mutex, &local, &local, __ATOMIC_SEQ_CST);
+		__atomic_exchange(&mutex, &local, &local, __ATOMIC_RELAXED);
 	} while (local);
 }
 

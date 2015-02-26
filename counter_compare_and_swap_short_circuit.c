@@ -12,13 +12,16 @@ struct tdata {
 	int tid;
 };
 
-// Used for swapping in __sync_bool_compare_and_swap
 int mutex = 0;
 
 int counter = 0;
 
 void lock(int i) {
-	while(mutex || ! __sync_bool_compare_and_swap(&mutex, 0, 1));
+	int local = 0;
+	while (mutex || ! __atomic_compare_exchange_n(&mutex, &local, 1, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED)) {
+		sched_yield();
+		local = 0;
+	}
 }
 
 void unlock(int i) {

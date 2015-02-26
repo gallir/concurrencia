@@ -23,9 +23,9 @@ struct mcs_spinlock *mcs_tail = NULL;
 int counter = 0;
 
 void lock(struct mcs_spinlock *node) {
-	node->next = NULL;
 	struct mcs_spinlock *predecessor = node;
-	predecessor = __sync_lock_test_and_set(&mcs_tail, predecessor); // it's equivalent to fetchAndStore
+	node->next = NULL;
+	predecessor = __atomic_exchange_n(&mcs_tail, node, __ATOMIC_RELAXED);
 	if (predecessor != NULL) {
 		node->locked = 1;
 		predecessor->next = node;
@@ -34,19 +34,20 @@ void lock(struct mcs_spinlock *node) {
 }
 
 void unlock(struct mcs_spinlock *node) {
-	if (! node->next) {
-		if (__sync_bool_compare_and_swap(&mcs_tail, node, NULL) ) {
+	struct mcs_spinlock *last = node;
+
+	if (! node->next) { // I'm he last in the queue
+		if (__atomic_compare_exchange_n(&mcs_tail, &last, NULL, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED) ) {
 			return;
 		} else {
-			// Another process executed fetchAndStore but
+			// Another process executed exchange but
 			// didn't asssign next yet, so wait
 			while (! node->next);
 		}
 	}
-
 	node->next->locked = 0;
 }
-	
+
 void *count(void *ptr) {
 	long i, max = MAX_COUNT/NUM_THREADS;
 	int tid = ((struct tdata *) ptr)->tid;

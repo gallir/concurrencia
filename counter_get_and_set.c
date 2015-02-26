@@ -19,7 +19,7 @@ int counter = 0;
 void lock() {
 	int current;
 
-	while(__sync_lock_test_and_set(&mutex, 1));
+	while(__atomic_exchange_n(&mutex, 1, __ATOMIC_SEQ_CST));
 }
 
 void unlock() {
