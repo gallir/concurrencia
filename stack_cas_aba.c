@@ -1,6 +1,6 @@
 // This code implements an FAULTY concurrent stack
-// It's suffers of the ABA problem
-// Sometimes (or most) of the times it will generate a Segmentation Fault
+// It's suffers of the ABA problem it will generate a Segmentation Fault
+// Bit it works in ARM because the macro translate to load-linked/store-conditional
 
 #include <pthread.h>
 #include <stdio.h>
