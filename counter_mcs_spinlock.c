@@ -41,7 +41,7 @@ void unlock(struct mcs_spinlock *node) {
 			return;
 		} else {
 			// Another process executed exchange but
-			// didn't asssign next yet, so wait
+			// didn't asssign our next yet, so wait
 			while (! node->next);
 		}
 	}
@@ -85,4 +85,3 @@ int main (int argc, char *argv[]) {
 	printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT);
 	return 0;
 }
-
