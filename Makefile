@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-pthread
+CFLAGS=-pthread -mcx16
 SOURCES=$(wildcard *.c)
 PROGS=$(patsubst %.c,%,$(SOURCES))
 
