@@ -30,15 +30,12 @@ struct node *head = NULL;
 struct node *free_nodes = NULL;
 
 void push(struct node **head, struct node *e) {
-	struct node *tmp;
-
 	e->next = *head;
 	while (! __atomic_compare_exchange(head, &e->next, &e, 0, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
 }
 
 struct node *pop(struct node **head) {
 	struct node *result, *old_head;
-	struct node *tmp;
 
 	old_head = *head;
 	if (! old_head) {
@@ -90,4 +87,3 @@ int main (int argc, char *argv[]) {
 		pthread_join(threads[i], NULL);
 	}
 }
-
