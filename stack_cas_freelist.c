@@ -1,6 +1,5 @@
 // This code implements an FAULTY concurrent stack
 // It's suffers of the ABA problem it will generate a Segmentation Fault
-// In ARM the macro translates to load-linked/store-conditional
 
 #include <pthread.h>
 #include <stdio.h>
@@ -31,17 +30,18 @@ struct node *free_nodes = NULL;
 
 void push(struct node **head, struct node *e) {
 	e->next = *head;
-	while (! __atomic_compare_exchange(head, &e->next, &e, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
+	while (! __atomic_compare_exchange(head, &e->next, &e, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST));
 }
 
 struct node *pop(struct node **head) {
 	struct node *result, *old_head;
 
 	old_head = *head;
-	if (! old_head) {
-		return NULL;
-	}
-	while (! __atomic_compare_exchange(head, &old_head, &old_head->next, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
+	do {
+		if (! old_head) {
+			return NULL;
+		}
+	} while (! __atomic_compare_exchange(head, &old_head, &old_head->next, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST));
 
 	return old_head;
 }
@@ -57,6 +57,7 @@ void *add_elements(void *ptr) {
 		if (! e) {
 			// It was empty, request memory
 			e = malloc(sizeof(struct node));
+			printf("%d malloc\n", tid);
 		}
 		e->data.tid = tid;
 		e->data.c = i;
@@ -64,7 +65,10 @@ void *add_elements(void *ptr) {
 		// Pop an element and add it to the free list
 		e = pop(&head);
 		if (e) {
+			e->next = NULL;
 			push(&free_nodes, e);
+		} else {
+			printf("Error in %d it shouldn't be empty\n", tid);
 		}
 	}
 

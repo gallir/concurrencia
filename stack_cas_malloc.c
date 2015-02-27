@@ -29,17 +29,18 @@ struct node *head = NULL;
 
 void push(struct node **head, struct node *e) {
 	e->next = *head;
-	while (! __atomic_compare_exchange(head, &e->next, &e, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
+	while (! __atomic_compare_exchange(head, &e->next, &e, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST));
 }
 
 struct node *pop(struct node **head) {
 	struct node *result, *old_head;
 
 	old_head = *head;
-	if (! old_head) {
-		return NULL;
-	}
-	while (! __atomic_compare_exchange(head, &old_head, &old_head->next, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
+	do {
+		if (! old_head) {
+			return NULL;
+		}
+	} while (! __atomic_compare_exchange(head, &old_head, &old_head->next, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST));
 
 	return old_head;
 }
@@ -57,7 +58,10 @@ void *add_elements(void *ptr) {
 		// Pop an element and add it to the free list
 		e = pop(&head);
 		if (e) {
+			e->next = NULL;
 			free(e);
+		} else {
+			printf("Error in %d it shouldn't be empty\n", tid);
 		}
 	}
 
