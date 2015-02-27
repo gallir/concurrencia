@@ -31,7 +31,7 @@ struct node *free_nodes = NULL;
 
 void push(struct node **head, struct node *e) {
 	e->next = *head;
-	while (! __atomic_compare_exchange(head, &e->next, &e, 0, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
+	while (! __atomic_compare_exchange(head, &e->next, &e, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
 }
 
 struct node *pop(struct node **head) {
@@ -41,7 +41,7 @@ struct node *pop(struct node **head) {
 	if (! old_head) {
 		return NULL;
 	}
-	while (! __atomic_compare_exchange(head, &old_head, &old_head->next, 0, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
+	while (! __atomic_compare_exchange(head, &old_head, &old_head->next, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
 
 	return old_head;
 }
@@ -52,8 +52,10 @@ void *add_elements(void *ptr) {
 	struct node *e;
 
 	for (i=0; i < elems; i++) {
-		e = pop(&free_nodes); // Get an element from the free list
+		// Get an element from the free list
+		e = pop(&free_nodes);
 		if (! e) {
+			// It was empty, request memory
 			e = malloc(sizeof(struct node));
 		}
 		e->data.tid = tid;
@@ -61,7 +63,9 @@ void *add_elements(void *ptr) {
 		push(&head, e);
 		// Pop an element and add it to the free list
 		e = pop(&head);
-		push(&free_nodes, e);
+		if (e) {
+			push(&free_nodes, e);
+		}
 	}
 
 	printf("End %d\n", tid);
