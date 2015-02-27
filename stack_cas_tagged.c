@@ -7,7 +7,7 @@
 
 
 #define NUM_THREADS		 4
-#define OPERATIONS		1000000
+#define OPERATIONS       10000000
 
 // Just used to send the index of the id
 struct tdata {
