@@ -41,7 +41,7 @@ void push(struct node_head *head, struct node *e) {
 		next.aba = old_head.aba + 1;
 		next.node = e;
 		e->next = old_head.node;
-	} while (! __atomic_compare_exchange(head, &old_head, &next, 0, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
+	} while (! __atomic_compare_exchange(head, &old_head, &next, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST));
 }
 
 
@@ -49,14 +49,14 @@ struct node *pop(struct node_head *head) {
 	struct node_head old_head, next;
 
 	// The structure is not an "atomic register", we must force the atomic load
-	__atomic_load(head, &old_head, __ATOMIC_RELAXED);
+	__atomic_load(head, &old_head, __ATOMIC_SEQ_CST);
 	do {
 		if (! old_head.node) {
 			return NULL;
 		}
 		next.aba = old_head.aba + 1;
 		next.node = old_head.node->next;
-	} while (! __atomic_compare_exchange(head, &old_head, &next, 0, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
+	} while (! __atomic_compare_exchange(head, &old_head, &next, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST));
 
 	return old_head.node;
 }
