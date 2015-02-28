@@ -7,7 +7,7 @@ PROGS=$(patsubst %.c,%,$(SOURCES))
 
 all: $(PROGS)
 
-%: %.c
+%: %.c $(LIBS)
 	$(CC) $(CFLAGS) $(LIBS) -o $@ $<
 
 .PHONY: clean

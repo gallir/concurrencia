@@ -67,7 +67,6 @@ int main (int argc, char *argv[]) {
 	pthread_t threads[NUM_THREADS];
 	int rc, i;
 	struct tdata id[NUM_THREADS];
-	struct node *e;
 
 	for(i=0; i<NUM_THREADS; i++){
 		id[i].tid = i;

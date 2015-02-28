@@ -34,7 +34,7 @@ void push(struct node **head, struct node *e) {
 }
 
 struct node *pop(struct node **head) {
-	struct node *result, *old_head;
+	struct node *old_head;
 
 	old_head = *head;
 	do {
