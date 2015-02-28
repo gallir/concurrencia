@@ -1,20 +1,16 @@
 CC=gcc
 CFLAGS=-pthread
+LIBS=stack_llsc.s
 
-SOURCES=$(wildcard *.s)
-PROGS=$(patsubst %.s,%,$(SOURCES))
+SOURCES=$(wildcard *.c)
+PROGS=$(patsubst %.c,%,$(SOURCES))
 
 all: $(PROGS)
 
-%: %.s
-	- $(CC) $(CFLAGS) -o $@ $<
-
-
-EXES=$(basename $(wildcard *.s))
+%: %.c
+	$(CC) $(CFLAGS) $(LIBS) -o $@ $<
 
 .PHONY: clean
 clean:
-	-rm -f $(PROGS) $(EXES)
+	-rm -f $(PROGS) 
 
-print-%:
-	@echo $* = $($*)
