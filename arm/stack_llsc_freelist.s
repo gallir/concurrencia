@@ -43,21 +43,21 @@ push:
 	str	r2, [r3]
 	mov	r0, r0	@ nop
 .L3:
-	mcr	p15, 0, r0, c7, c10, 5
+	mcr	p15, 0, r0, c7, c10, 5 @ Memory barrier
 	ldr	r4, [fp, #-8]
-	ldrex	r1, [r4]
+	ldrex	r1, [r4] @ Load link of head
 
 	ldr	r3, [fp, #-12]
 	mov	r2, r3
 	ldr	r3, [fp, #-12]
 	mov	ip, r3
-	ldr	r0, [r2]
+	ldr	r0, [r2] @ Load e->next
 .L4:
 	cmp	r1, r0
 	bne	.L5
-	strex	lr, ip, [r4]
+	strex	lr, ip, [r4] @ Store to head
 	cmp	lr, #0
-	bne	.L3
+	bne	.L3 @ If strex failed return to the beginning of the loop
 .L5:
 	mcr	p15, 0, r0, c7, c10, 5
 	moveq	r3, #1
@@ -94,21 +94,21 @@ pop:
 	mov	r3, #0
 	b	.L11
 .L7:
-	mcr	p15, 0, r0, c7, c10, 5
+	mcr	p15, 0, r0, c7, c10, 5 @ Memory barrier
 	ldr	r2, [fp, #-16]
-	ldrex	r1, [r2]
+	ldrex	r1, [r2] @ Load link of head
 
 	ldr	r3, [fp, #-8]
 	ldr	r3, [r3]
 	mov	ip, r3
 	sub	r3, fp, #8
-	ldr	r0, [r3]
+	ldr	r0, [r3] @ Load old_head
 .L12:
 	cmp	r1, r0
 	bne	.L13
-	strex	lr, ip, [r2]
+	strex	lr, ip, [r2] @ Store to head
 	cmp	lr, #0
-	bne	.L7
+	bne	.L7 @ return to the beginning of the loop
 .L13:
 	mcr	p15, 0, r0, c7, c10, 5
 	moveq	r2, #1
