@@ -25,8 +25,11 @@ push:
 
 .PUSH_BEGIN:
 	mcr	p15, 0, r0, c7, c10, 5
+	ldr	r3, [r0]		@ Load content of head
+	str	r3, [r1] 		@ Store e->next
 	ldrex	r2, [r0]		@ Load content of head
-	str	r2, [r1] 		@ Store e->next
+	cmp     r3, r2
+	bne	.PUSH_BEGIN		@ Head has changed
 	strex	lr, r1, [r0]		@ Store in head
 	cmp	lr, #0
 	bne	.PUSH_BEGIN		@ Failed, restart
@@ -46,16 +49,16 @@ pop:
 
 .POP_BEGIN:
 	mcr	p15, 0, r0, c7, c10, 5
-	ldrex	r3, [r0]
-	str	r3, [fp, #-8]	@store in old_head
-.IF_NULL:
+	ldr	r3, [r0]
 	cmp	r3, #0
-	bne	.NOT_NULL
-	strex	lr, r3, [r0]	@ Dummy store to clean exclusive access, no clrex in Raspberry1
-	b	.POP_RETURN
-.NOT_NULL:
-	ldr	ip, [r3]	@ Next
-	strex	lr, ip, [r0]
+	beq	.POP_RETURN
+
+	str	r3, [fp, #-8]	@store in old_head
+	ldr	r4, [r3]	@ Next
+	ldrex	r2, [r0]
+	cmp     r3, r2
+	bne	.POP_BEGIN		@ Head has changed
+	strex	lr, r4, [r0]
 	cmp	lr, #0
 	bne	.POP_BEGIN
 	mcr	p15, 0, r0, c7, c10, 5
