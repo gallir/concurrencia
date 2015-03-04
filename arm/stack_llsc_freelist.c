@@ -1,4 +1,4 @@
-// Implementation of a concurent stack for ARM with LL/SC
+// Implementation of a concurrent stack for ARM with LL/SC
 
 #include <pthread.h>
 #include <stdio.h>
