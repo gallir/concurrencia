@@ -19,7 +19,6 @@ int counter = 0;
 void lock(int i) {
     int local = 0;
     while (mutex || ! __atomic_compare_exchange_n(&mutex, &local, 1, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED)) {
-        sched_yield();
         local = 0;
     }
 }
