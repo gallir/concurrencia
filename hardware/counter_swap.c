@@ -18,9 +18,10 @@ int counter = 0;
 
 void lock(int i) {
     int local = 1;
-    do {
+
+    while (local) {
         __atomic_exchange(&mutex, &local, &local, __ATOMIC_RELAXED);
-    } while (local);
+	}
 }
 
 void unlock(int i) {
