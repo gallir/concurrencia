@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <stdint.h>
 
 
 #define NUM_THREADS      4
@@ -12,19 +13,24 @@ struct tdata {
     int tid;
 };
 
-// Used for swapping in testAndSet
-unsigned char mutex = 0;
+struct tickets {
+	uint8_t turn;
+	uint8_t number;
+};
+
+struct tickets ticket_lock;
 
 int counter = 0;
 
-void lock(int i) {
-    while( mutex || __atomic_test_and_set(&mutex, __ATOMIC_SEQ_CST)) {
-        // sched_yield();
-    }
+void lock() {
+	uint8_t my_number;
+
+	my_number =  __atomic_fetch_add(&ticket_lock.number, 1, __ATOMIC_RELAXED);
+	while (my_number != ticket_lock.turn);
 }
 
-void unlock(int i) {
-    mutex = 0;
+void unlock() {
+    __atomic_fetch_add(&ticket_lock.turn, 1, __ATOMIC_RELAXED);
 }
     
 void *count(void *ptr) {
@@ -32,9 +38,9 @@ void *count(void *ptr) {
     int tid = ((struct tdata *) ptr)->tid;
 
     for (i=0; i < max; i++) {
-        lock(tid);
+        lock();
         counter += 1; // The global variable, i.e. the critical section
-        unlock(tid);
+        unlock();
     }
 
     printf("End %d counter: %d\n", tid, counter);
