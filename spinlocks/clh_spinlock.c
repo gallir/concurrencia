@@ -12,30 +12,44 @@ struct tdata {
     int tid;
 };
 
-int mutex = 0;
+// Struct for CLH spinlock
+// http://ftp.cs.rochester.edu/u/scott/papers/2001_PPoPP_Timeout.pdf
+struct clh_node {
+    unsigned char locked;
+    struct clh_node *prev;
+};
+
+struct clh_node lock_node; // point to an unowned node
+struct clh_node *clh_lock = &lock_node; 
 
 int counter = 0;
 
-void lock(int i) {
-    int local = 1;
+void lock(struct clh_node *node) {
+    struct clh_node *predecessor;
 
-    while (local) {
-        __atomic_exchange(&mutex, &local, &local, __ATOMIC_RELAXED);
-    }
+    node->locked = 1;
+    node->prev = __atomic_exchange_n(&clh_lock, node, __ATOMIC_RELAXED);
+    predecessor = node->prev;
+    while (predecessor->locked);
 }
 
-void unlock(int i) {
-    mutex = 0;
+void unlock(struct clh_node **node) {
+    struct clh_node *pred = (*node)->prev;
+    (*node)->locked = 0;
+    *node = pred;
 }
-    
+
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
     int tid = ((struct tdata *) ptr)->tid;
 
+    struct clh_node *node;
+    node = malloc(sizeof(struct clh_node));
+
     for (i=0; i < max; i++) {
-        lock(tid);
+        lock(node);
         counter += 1; // The global variable, i.e. the critical section
-        unlock(tid);
+        unlock(&node);
     }
 
     printf("End %d counter: %d\n", tid, counter);
@@ -63,4 +77,3 @@ int main (int argc, char *argv[]) {
     printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT);
     return 0;
 }
-

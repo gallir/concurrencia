@@ -20,7 +20,7 @@ void lock(int i) {
     int local = 0;
     while (mutex || ! __atomic_compare_exchange_n(&mutex, &local, 1, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED)) {
         local = 0;
-		sched_yield();
+        sched_yield();
     }
 }
 

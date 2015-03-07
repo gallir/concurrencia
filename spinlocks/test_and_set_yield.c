@@ -18,7 +18,7 @@ int counter = 0;
 
 void lock() {
     while(mutex || __atomic_test_and_set(&mutex, __ATOMIC_RELAXED))
-		sched_yield();
+        sched_yield();
 }
 
 void unlock() {
