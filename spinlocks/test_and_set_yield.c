@@ -12,7 +12,7 @@ struct tdata {
     int tid;
 };
 
-char mutex = 0;
+unsigned char mutex = 0;
 
 int counter = 0;
 

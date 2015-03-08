@@ -13,7 +13,6 @@ struct tdata {
     int tid;
 };
 
-// Used for swapping in __sync_bool_compare_and_swap
 unsigned int rw_lock = 0; // We use 32 bits
 
 int counter = 0;
@@ -71,11 +70,13 @@ void *count(void *ptr) {
         counter += 1; // The global variable, i.e. the critical section
         writer_unlock();
 
+/*
         // now we check the reader_lock works
         reader_lock();
         int tmp = counter;
         assert(tmp == counter); // Should still be the same value
         reader_unlock();
+*/
     }
 
     printf("End %d counter: %d\n", tid, counter);

@@ -14,8 +14,8 @@ struct tdata {
 };
 
 struct tickets {
-	uint8_t turn;
-	uint8_t number;
+    uint8_t turn;
+    uint8_t number;
 };
 
 struct tickets ticket_lock;
@@ -23,10 +23,10 @@ struct tickets ticket_lock;
 int counter = 0;
 
 void lock() {
-	uint8_t my_number;
+    uint8_t my_number;
 
-	my_number =  __atomic_fetch_add(&ticket_lock.number, 1, __ATOMIC_RELAXED);
-	while (my_number != ticket_lock.turn);
+    my_number =  __atomic_fetch_add(&ticket_lock.number, 1, __ATOMIC_RELAXED);
+    while (my_number != ticket_lock.turn);
 }
 
 void unlock() {

@@ -15,7 +15,7 @@ struct tdata {
 // Struct for MCS spinlock
 struct mcs_spinlock {
     struct mcs_spinlock *next;
-    unsigned locked;
+    unsigned char locked;
 };
 
 struct mcs_spinlock *mcs_tail = NULL;
