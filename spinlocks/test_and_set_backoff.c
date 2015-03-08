@@ -28,7 +28,6 @@ void backoff(int failures) {
     }
 
     deadline.tv_nsec = 1 + rand() % limit;
-    printf("failures: %d delay: %ld\n", failures, deadline.tv_nsec);
     clock_nanosleep(CLOCK_REALTIME, 0, &deadline, NULL);
 }
 
