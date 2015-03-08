@@ -16,13 +16,13 @@ unsigned char mutex = 0;
 
 int counter = 0;
 
-#define FAILURES_BACKOFF_LIMIT 12 // ~ 4096 in nanoseconds
+#define FAILURES_LIMIT 12 // ~ 4096 in nanoseconds
 void backoff(int failures) {
     struct timespec deadline = { .tv_sec = 0 };
     unsigned limit;
 
-    if (failures > FAILURES_BACKOFF_LIMIT) {
-        limit = 1 << FAILURES_BACKOFF_LIMIT;
+    if (failures > FAILURES_LIMIT) {
+        limit = 1 << FAILURES_LIMIT;
     } else {
         limit = 1 << failures;
     }
