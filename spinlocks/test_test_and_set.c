@@ -17,7 +17,7 @@ char mutex = 0;
 int counter = 0;
 
 void lock() {
-    while(mutex || __atomic_test_and_set(&mutex, __ATOMIC_RELAXED));
+    while(mutex || __atomic_test_and_set(&mutex, __ATOMIC_SEQ_CST));
 }
 
 void unlock() {

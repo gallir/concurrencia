@@ -20,7 +20,7 @@ void *count(void *ptr) {
     int c;
 
     for (i=0; i < max; i++) {
-        c = __atomic_add_fetch(&counter, 1, __ATOMIC_RELAXED);
+        c = __atomic_add_fetch(&counter, 1, __ATOMIC_SEQ_CST);
     }
 
     printf("End %d counter: %d\n", tid, c);

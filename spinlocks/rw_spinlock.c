@@ -26,7 +26,7 @@ void reader_lock() {
         unsigned int old = rw_lock & 0x7fffffff;
         unsigned int new = old + 1;
 
-        if (__atomic_compare_exchange_n(&rw_lock, &old, new, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED)) {
+        if (__atomic_compare_exchange_n(&rw_lock, &old, new, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST)) {
             return;
         }
     }
@@ -41,7 +41,7 @@ void writer_lock() {
         unsigned int old = rw_lock & 0x7fffffff;
         unsigned int new = old | 0x80000000;
 
-        if (__atomic_compare_exchange_n(&rw_lock, &old, new, 1, __ATOMIC_RELAXED, __ATOMIC_RELAXED)) {
+        if (__atomic_compare_exchange_n(&rw_lock, &old, new, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST)) {
             // wait for readers
             while (rw_lock & 0x7fffffff) {
                 sched_yield(); // Release the CPU
@@ -52,7 +52,7 @@ void writer_lock() {
 }
 
 void reader_unlock() {
-    __atomic_fetch_add(&rw_lock, -1, __ATOMIC_RELAXED);
+    __atomic_fetch_add(&rw_lock, -1, __ATOMIC_SEQ_CST);
 }
 
 void writer_unlock() {

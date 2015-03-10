@@ -22,7 +22,7 @@ int counter = 0;
 void lock() {
     int current;
 
-    current = __atomic_fetch_add(&number, 1, __ATOMIC_RELAXED);
+    current = __atomic_fetch_add(&number, 1, __ATOMIC_SEQ_CST);
     while(current != turn);
 }
 

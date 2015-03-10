@@ -25,12 +25,12 @@ int counter = 0;
 void lock() {
     uint8_t my_number;
 
-    my_number =  __atomic_fetch_add(&ticket_lock.number, 1, __ATOMIC_RELAXED);
+    my_number =  __atomic_fetch_add(&ticket_lock.number, 1, __ATOMIC_SEQ_CST);
     while (my_number != ticket_lock.turn);
 }
 
 void unlock() {
-    __atomic_fetch_add(&ticket_lock.turn, 1, __ATOMIC_RELAXED);
+    __atomic_fetch_add(&ticket_lock.turn, 1, __ATOMIC_SEQ_CST);
 }
     
 void *count(void *ptr) {

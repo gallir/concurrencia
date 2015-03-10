@@ -33,7 +33,7 @@ void backoff(int failures) {
 
 void lock() {
     unsigned failures = 0;
-    while(mutex || __atomic_test_and_set(&mutex, __ATOMIC_RELAXED)) {
+    while(mutex || __atomic_test_and_set(&mutex, __ATOMIC_SEQ_CST)) {
         backoff(++failures);
     }
 }

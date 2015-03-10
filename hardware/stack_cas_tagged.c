@@ -36,7 +36,7 @@ void push(struct node_head *head, struct node *e) {
     struct node_head old_head, next;
 
     // The structure is not an "atomic register", we must force the atomic load
-    __atomic_load(head, &old_head, __ATOMIC_RELAXED);
+    __atomic_load(head, &old_head, __ATOMIC_SEQ_CST);
     do {
         next.aba = old_head.aba + 1;
         next.node = e;
