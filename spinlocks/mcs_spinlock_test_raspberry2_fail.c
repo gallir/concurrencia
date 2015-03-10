@@ -32,7 +32,6 @@ void lock(struct mcs_spinlock *node) {
     if (predecessor != NULL) {
         node->locked = 1;
         predecessor->next = node;
-        __atomic_thread_fence (__ATOMIC_SEQ_CST);
         while (node->locked);
     }
 }
@@ -50,7 +49,6 @@ void unlock(struct mcs_spinlock *node) {
     }
     node->next->locked = 0;
     node->next = NULL;
-    __atomic_thread_fence (__ATOMIC_SEQ_CST);
 }
 
 void *count(void *ptr) {
