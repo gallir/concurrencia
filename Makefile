@@ -1,9 +1,13 @@
 CC=gcc
 CFLAGS=-pthread
 
-UNAME := $(shell uname -i)
-ifeq ($(UNAME),x86_64)
+UNAME := $(shell uname -a)
+ifeq ($(findstring x86_64,$(UNAME)),x86_64)
     CFLAGS += -mcx16
+endif
+
+ifeq ($(findstring armv7l,$(UNAME)),armv7l)
+    CFLAGS += -march=armv7-a
 endif
 
 SOURCES=$(wildcard *.c)
