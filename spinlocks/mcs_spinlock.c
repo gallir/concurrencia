@@ -25,19 +25,18 @@ int counter = 0;
 void lock(struct mcs_spinlock *node) {
     struct mcs_spinlock *predecessor = node;
     node->next = NULL;
+    node->locked = 1;
     predecessor = __atomic_exchange_n(&mcs_tail, node, __ATOMIC_SEQ_CST);
     if (predecessor != NULL) {
-        node->locked = 1;
         predecessor->next = node;
-        __atomic_thread_fence (__ATOMIC_SEQ_CST);
         while (node->locked);
     }
+    node->locked = 0;
 }
 
 void unlock(struct mcs_spinlock *node) {
     struct mcs_spinlock *last = node;
 
-    __atomic_thread_fence (__ATOMIC_SEQ_CST);
     if (! node->next) { // I'm the last in the queue
         if (__atomic_compare_exchange_n(&mcs_tail, &last, NULL, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST) ) {
             return;
@@ -46,7 +45,11 @@ void unlock(struct mcs_spinlock *node) {
             // didn't asssign our next yet, so wait
             while (! node->next);
         }
+    } else {
+        // We force a memory barrier to ensure the critical section was executed before the next
+        __atomic_thread_fence (__ATOMIC_SEQ_CST);
     }
+
     node->next->locked = 0;
 }
 
