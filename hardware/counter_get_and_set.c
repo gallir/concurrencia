@@ -23,6 +23,7 @@ void lock() {
 }
 
 void unlock() {
+    __atomic_thread_fence(__ATOMIC_RELEASE);
     mutex = 0;
 }
     

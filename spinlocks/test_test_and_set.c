@@ -21,8 +21,8 @@ void lock() {
 }
 
 void unlock() {
+    __atomic_thread_fence(__ATOMIC_RELEASE);
     mutex = 0;
-    // Recomended is __atomic_clear(&mutex,...) but we already have cache coherence
 }
     
 void *count(void *ptr) {

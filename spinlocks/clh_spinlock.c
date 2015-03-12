@@ -35,10 +35,12 @@ void lock(struct clh_node *node) {
 
 void unlock(struct clh_node **node) {
     struct clh_node *pred = (*node)->prev;
+    struct clh_node *tmp = *node;
 
-    (*node)->locked = 0;
     *node = pred;
-    __atomic_thread_fence (__ATOMIC_SEQ_CST);
+    // Ensure previous instructions are finished before releasing the lock
+    __atomic_thread_fence (__ATOMIC_RELEASE);
+    tmp->locked = 0;
 }
 
 void *count(void *ptr) {
