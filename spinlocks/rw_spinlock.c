@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
-#include <assert.h>
 
 
 #define NUM_THREADS      4
@@ -50,7 +49,6 @@ void reader_unlock() {
 }
 
 void writer_unlock() {
-    assert(rw_lock == 0x80000000); // It should be so
     rw_lock = 0;
 }
 
