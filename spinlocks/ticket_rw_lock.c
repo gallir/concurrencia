@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
-#include <assert.h>
+#include <stdint.h>
 
 
 #define NUM_THREADS      4
@@ -13,47 +13,45 @@ struct tdata {
     int tid;
 };
 
-unsigned int rw_lock = 0; // We use 32 bits
+struct ticket_rw {
+    uint8_t number;
+    union {
+        uint16_t both;
+        struct {
+            uint8_t write;
+            uint8_t read;
+        };
+    };
+};
+
+struct ticket_rw rw_lock;
 
 int counter = 0;
 
-void reader_lock() {
-    while (1) {
-        while(rw_lock & 0x80000000);
-
-        unsigned int old = rw_lock & 0x7fffffff;
-        unsigned int new = old + 1;
-
-        if (__atomic_compare_exchange_n(&rw_lock, &old, new, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST)) {
-            return;
-        }
-    }
-}
-
 void writer_lock() {
-    while (1) {
-        while(rw_lock & 0x80000000);
+    uint32_t number = __atomic_fetch_add(&rw_lock.number, 1, __ATOMIC_RELAXED);
 
-        unsigned int old = rw_lock & 0x7fffffff;
-        unsigned int new = old | 0x80000000;
-
-        if (__atomic_compare_exchange_n(&rw_lock, &old, new, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST)) {
-            // wait for readers
-            while (rw_lock & 0x7fffffff);
-            return;
-        }
-    }
-}
-
-void reader_unlock() {
-    __atomic_fetch_add(&rw_lock, -1, __ATOMIC_RELAXED);
+    while (number != rw_lock.write);
 }
 
 void writer_unlock() {
-    assert(rw_lock == 0x80000000); // It should be so
-    rw_lock = 0;
+    struct ticket_rw tmp;
+    tmp.write = rw_lock.write + 1;
+    tmp.read = rw_lock.read + 1;
+    rw_lock.both = tmp.both; // It's a 16 bits copy, atomic
+    __atomic_thread_fence (__ATOMIC_RELEASE);
 }
 
+void reader_lock() {
+    uint32_t number = __atomic_fetch_add(&rw_lock.number, 1, __ATOMIC_RELAXED);
+
+    while (number != rw_lock.read);
+    rw_lock.read++;
+}
+
+void reader_unlock() {
+    __atomic_add_fetch(&rw_lock.write, 1, __ATOMIC_RELAXED);
+}
 
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
