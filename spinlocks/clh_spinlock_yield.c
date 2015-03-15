@@ -20,7 +20,7 @@ struct clh_node {
 };
 
 struct clh_node lock_node; // point to an unowned node
-struct clh_node *clh_lock = &lock_node; 
+struct clh_node *tail = &lock_node;
 
 int counter = 0;
 
@@ -28,7 +28,7 @@ void lock(struct clh_node *node) {
     struct clh_node *predecessor;
 
     node->locked = 1;
-    node->prev = __atomic_exchange_n(&clh_lock, node, __ATOMIC_SEQ_CST);
+    node->prev = __atomic_exchange_n(&tail, node, __ATOMIC_SEQ_CST);
     predecessor = node->prev;
     while (predecessor->locked) {
         sched_yield();
