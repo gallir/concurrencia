@@ -27,8 +27,7 @@ void lock(struct clh_node *node) {
     struct clh_node *predecessor;
 
     node->locked = 1;
-    node->prev = __atomic_exchange_n(&tail, node, __ATOMIC_SEQ_CST);
-    predecessor = node->prev;
+    predecessor = node->prev = __atomic_exchange_n(&tail, node, __ATOMIC_SEQ_CST);
     while (predecessor->locked) {
         sched_yield();
     }
