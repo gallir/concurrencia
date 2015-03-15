@@ -13,7 +13,7 @@ struct tdata {
 };
 
 // Struct for CLH spinlock
-// http://ftp.cs.rochester.edu/u/scott/papers/2001_PPoPP_Timeout.pdf
+// *prev is the node previous in the queue
 struct clh_node {
     unsigned char locked;
     struct clh_node *prev;
@@ -37,10 +37,8 @@ void unlock(struct clh_node **node) {
     struct clh_node *pred = (*node)->prev;
     struct clh_node *tmp = *node;
 
-    *node = pred;
-    // Ensure previous instructions are finished before releasing the lock
-    __atomic_thread_fence (__ATOMIC_RELEASE);
-    tmp->locked = 0;
+    *node = pred; // Take the previous node, we reuse it
+    __atomic_store_n(&tmp->locked, 0, __ATOMIC_RELEASE);
 }
 
 void *count(void *ptr) {
