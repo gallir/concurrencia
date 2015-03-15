@@ -14,8 +14,8 @@ struct tdata {
 };
 
 struct tickets {
-    uint8_t turn;
-    uint8_t number;
+    uint16_t turn;
+    uint16_t number;
 };
 
 struct tickets ticket_lock;
@@ -23,7 +23,7 @@ struct tickets ticket_lock;
 int counter = 0;
 
 void lock() {
-    uint8_t my_number;
+    uint16_t my_number;
 
     my_number =  __atomic_fetch_add(&ticket_lock.number, 1, __ATOMIC_SEQ_CST);
     while (my_number != ticket_lock.turn) {
@@ -34,7 +34,7 @@ void lock() {
 void unlock() {
     __atomic_fetch_add(&ticket_lock.turn, 1, __ATOMIC_SEQ_CST);
 }
-    
+
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
     int tid = ((struct tdata *) ptr)->tid;
@@ -70,4 +70,3 @@ int main (int argc, char *argv[]) {
     printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT);
     return 0;
 }
-
