@@ -29,7 +29,7 @@ struct ticket_rw rw_lock;
 int counter = 0;
 
 void writer_lock() {
-    uint32_t number = __atomic_fetch_add(&rw_lock.number, 1, __ATOMIC_RELAXED);
+    uint16_t number = __atomic_fetch_add(&rw_lock.number, 1, __ATOMIC_RELAXED);
 
     while (number != rw_lock.writer_turn);
 }
@@ -42,7 +42,7 @@ void writer_unlock() {
 }
 
 void reader_lock() {
-    uint32_t number = __atomic_fetch_add(&rw_lock.number, 1, __ATOMIC_RELAXED);
+    uint16_t number = __atomic_fetch_add(&rw_lock.number, 1, __ATOMIC_RELAXED);
 
     while (number != rw_lock.reader_turn);
     rw_lock.reader_turn++;
