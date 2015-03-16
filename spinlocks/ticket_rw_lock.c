@@ -14,12 +14,12 @@ struct tdata {
 };
 
 struct ticket_rw {
-    uint8_t number;
+    uint16_t number;
     union {
-        uint16_t both;
+        uint32_t combined;
         struct {
-            uint8_t write;
-            uint8_t read;
+            uint16_t writer_turn;
+            uint16_t reader_turn;
         };
     };
 };
@@ -31,26 +31,25 @@ int counter = 0;
 void writer_lock() {
     uint32_t number = __atomic_fetch_add(&rw_lock.number, 1, __ATOMIC_RELAXED);
 
-    while (number != rw_lock.write);
+    while (number != rw_lock.writer_turn);
 }
 
 void writer_unlock() {
     struct ticket_rw tmp;
-    tmp.write = rw_lock.write + 1;
-    tmp.read = rw_lock.read + 1;
-    rw_lock.both = tmp.both; // It's a 16 bits copy, atomic
-    __atomic_thread_fence (__ATOMIC_RELEASE);
+    tmp.writer_turn = rw_lock.writer_turn + 1;
+    tmp.reader_turn = rw_lock.reader_turn + 1;
+    __atomic_store_n(&rw_lock.combined, tmp.combined, __ATOMIC_RELEASE);
 }
 
 void reader_lock() {
     uint32_t number = __atomic_fetch_add(&rw_lock.number, 1, __ATOMIC_RELAXED);
 
-    while (number != rw_lock.read);
-    rw_lock.read++;
+    while (number != rw_lock.reader_turn);
+    rw_lock.reader_turn++;
 }
 
 void reader_unlock() {
-    __atomic_add_fetch(&rw_lock.write, 1, __ATOMIC_RELAXED);
+    __atomic_add_fetch(&rw_lock.writer_turn, 1, __ATOMIC_RELAXED);
 }
 
 void *count(void *ptr) {

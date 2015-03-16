@@ -22,12 +22,12 @@ int counter = 0;
 void lock() {
     int current;
 
-    current = __atomic_fetch_add(&number, 1, __ATOMIC_SEQ_CST);
+    current = __atomic_fetch_add(&number, 1, __ATOMIC_RELAXED);
     while(current != turn);
 }
 
 void unlock() {
-    __atomic_fetch_add(&turn, 1, __ATOMIC_SEQ_CST);
+    __atomic_fetch_add(&turn, 1, __ATOMIC_RELEASE);
 }
     
 void *count(void *ptr) {
