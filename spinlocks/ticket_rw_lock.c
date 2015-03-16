@@ -49,7 +49,7 @@ void reader_lock() {
 }
 
 void reader_unlock() {
-    __atomic_add_fetch(&rw_lock.writer_turn, 1, __ATOMIC_RELAXED);
+    __atomic_fetch_add(&rw_lock.writer_turn, 1, __ATOMIC_RELAXED);
 }
 
 void *count(void *ptr) {
