@@ -15,7 +15,7 @@ struct tdata {
 
 
 
-#define PADDING  2
+#define PADDING  32
 #define SIZE (NUM_THREADS * PADDING)
 uint16_t tail;
 uint8_t flag[SIZE];
