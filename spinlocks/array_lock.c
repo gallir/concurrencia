@@ -14,7 +14,6 @@ struct tdata {
 };
 
 
-
 #define PADDING  32
 #define SIZE (NUM_THREADS * PADDING)
 uint16_t tail;
@@ -41,7 +40,7 @@ void *count(void *ptr) {
 
     for (i=0; i < max; i++) {
         lock(&my_index);
-        counter += 1; // The global variable, i.e. the critical section
+        counter += 1;
         unlock(&my_index);
     }
 

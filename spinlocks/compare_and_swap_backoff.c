@@ -53,7 +53,7 @@ void *count(void *ptr) {
 
     for (i=0; i < max; i++) {
         lock(tid);
-        counter += 1; // The global variable, i.e. the critical section
+        counter += 1;
         unlock(tid);
     }
 

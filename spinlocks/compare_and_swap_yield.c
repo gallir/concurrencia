@@ -28,14 +28,14 @@ void unlock(int i) {
     __atomic_thread_fence(__ATOMIC_RELEASE);
     mutex = 0;
 }
-    
+
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
     int tid = ((struct tdata *) ptr)->tid;
 
     for (i=0; i < max; i++) {
         lock(tid);
-        counter += 1; // The global variable, i.e. the critical section
+        counter += 1;
         unlock(tid);
     }
 
@@ -64,4 +64,3 @@ int main (int argc, char *argv[]) {
     printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT);
     return 0;
 }
-
