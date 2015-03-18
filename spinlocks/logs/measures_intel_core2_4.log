@@ -1,0 +1,213 @@
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 15
+model name	: Intel(R) Core(TM)2 Quad CPU    Q6600  @ 2.40GHz
+stepping	: 11
+microcode	: 0xb6
+cpu MHz		: 1603.000
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 4799.82
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 15
+model name	: Intel(R) Core(TM)2 Quad CPU    Q6600  @ 2.40GHz
+stepping	: 11
+microcode	: 0xb6
+cpu MHz		: 1603.000
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 4799.82
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 15
+model name	: Intel(R) Core(TM)2 Quad CPU    Q6600  @ 2.40GHz
+stepping	: 11
+microcode	: 0xb6
+cpu MHz		: 1603.000
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 4799.82
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 15
+model name	: Intel(R) Core(TM)2 Quad CPU    Q6600  @ 2.40GHz
+stepping	: 11
+microcode	: 0xb6
+cpu MHz		: 1603.000
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 4799.82
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+-----------
+
+-- [ticket_lock] --
+End 0 counter: 9996771
+End 1 counter: 9997622
+End 2 counter: 9998048
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:03.46, user 13.85, sys 0.00
+End 0 counter: 9982401
+End 1 counter: 9983317
+End 2 counter: 9997089
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:03.45, user 13.80, sys 0.00
+End 0 counter: 9999255
+End 3 counter: 9999887
+End 2 counter: 10000000
+End 1 counter: 9999938
+Counter value: 10000000 Expected: 10000000
+ times: real 0:03.46, user 13.85, sys 0.00
+End 0 counter: 9994278
+End 1 counter: 9994888
+End 2 counter: 9996955
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:03.55, user 14.18, sys 0.00
+---
+
+-- [array_lock] --
+End 0 counter: 9996456
+End 1 counter: 9997632
+End 2 counter: 9997854
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.55, user 10.19, sys 0.00
+End 0 counter: 9996201
+End 1 counter: 9997352
+End 2 counter: 9997864
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.55, user 10.18, sys 0.00
+End 0 counter: 9984859
+End 1 counter: 9986024
+End 2 counter: 9994581
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.54, user 10.18, sys 0.00
+End 0 counter: 9998062
+End 1 counter: 9999380
+End 2 counter: 9999588
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.53, user 10.14, sys 0.00
+---
+
+-- [mcs_spinlock] --
+End 0 counter: 9996569
+End 1 counter: 9997407
+End 2 counter: 9997883
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.83, user 7.33, sys 0.01
+End 0 counter: 9986502
+End 1 counter: 9987405
+End 2 counter: 9989321
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.06, user 8.24, sys 0.00
+End 0 counter: 9997405
+End 1 counter: 9998235
+End 2 counter: 9998903
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.88, user 7.53, sys 0.00
+End 0 counter: 9994003
+End 1 counter: 9994719
+End 2 counter: 9995037
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.55, user 6.20, sys 0.00
+---
+
+-- [clh_spinlock] --
+End 0 counter: 9994059
+End 1 counter: 9995616
+End 2 counter: 9996287
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.31, user 9.23, sys 0.00
+End 0 counter: 9905218
+End 1 counter: 9906762
+End 2 counter: 9999957
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.21, user 8.80, sys 0.00
+End 1 counter: 9956277
+End 0 counter: 9998069
+End 2 counter: 9999267
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.32, user 9.27, sys 0.00
+End 0 counter: 9950870
+End 1 counter: 9952334
+End 3 counter: 10000000
+End 2 counter: 9999955
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.24, user 8.95, sys 0.00
+---
