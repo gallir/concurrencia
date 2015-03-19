@@ -2,13 +2,14 @@
 
 import sys
 import re
+import argparse
 
 logs = {}
 algorithms = []
 
 def main():
     #print("\t")
-    for l in sys.argv[1:]:
+    for l in configuration.filenames:
         author = l[9:]
         author = author.replace(".log", "")
         #print(author)
@@ -51,8 +52,10 @@ def main():
         l = logs[author]
         print("%s" % (author)),
         for a in algorithms:
-            print("\t%5.3f" % (sum(l["alg"][a])/len(l["alg"][a]),)),
-            #print("\t%5.3f\t%5.3f" % ( sum(l["real"][a])/len(l["real"][a]), sum(l["alg"][a])/len(l["alg"][a])  )),
+            if configuration.real:
+                print("\t%5.3f" % (sum(l["real"][a])/len(l["real"][a]),)),
+            else:
+                print("\t%5.3f" % (sum(l["alg"][a])/len(l["alg"][a]),)),
         print("\t%d" % (sum(l["cores"].values())))
 
 
@@ -80,4 +83,9 @@ def times(line):
     return None
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--real", "-r", action="store_true", help="Clocki times")
+    parser.add_argument('filenames', nargs='*')
+    configuration = parser.parse_args()
+
     main()
