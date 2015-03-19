@@ -1,0 +1,36 @@
+#! /bin/bash
+
+EXE="array_lock_variable_size"
+
+make &> /dev/null
+
+
+if [ -x /usr/bin/time ]
+then 
+	TIME='/usr/bin/time -f "  times: real %E, user %U, sys %S"'
+else
+	TIME=time
+fi
+
+
+for size in 1 2 4 8 16 32 128 256
+do
+	
+	OUT="measure_array_$size.log"
+	echo "Saving out to $OUT"
+	echo "-----------" >> $OUT
+	
+	echo >> $OUT
+	echo -- \[array_$size\] -- >> $OUT
+	for i in `seq 4`
+	do
+		(eval $TIME ./$EXE $size) &>> $OUT
+		echo -n " [$i]" 
+		sleep 1
+	done
+	echo
+
+	echo --- >> $OUT
+done
+
+ 
