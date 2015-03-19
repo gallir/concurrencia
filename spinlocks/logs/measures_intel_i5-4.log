@@ -1,0 +1,537 @@
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2520M CPU @ 2.50GHz
+stepping	: 7
+microcode	: 0x28
+cpu MHz		: 799.902
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4983.96
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2520M CPU @ 2.50GHz
+stepping	: 7
+microcode	: 0x28
+cpu MHz		: 813.183
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4983.96
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2520M CPU @ 2.50GHz
+stepping	: 7
+microcode	: 0x28
+cpu MHz		: 1399.804
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4983.96
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2520M CPU @ 2.50GHz
+stepping	: 7
+microcode	: 0x28
+cpu MHz		: 900.781
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4983.96
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+-----------
+
+-- [test_and_set] --
+End 3 counter: 5189047
+End 0 counter: 5266561
+End 2 counter: 9983798
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.40, user 4.62, sys 0.00
+End 3 counter: 8656925
+End 1 counter: 8657393
+End 2 counter: 9946619
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.52, user 5.36, sys 0.00
+End 2 counter: 5097548
+End 3 counter: 5108657
+End 1 counter: 9945876
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.34, user 4.46, sys 0.00
+End 1 counter: 6637301
+End 0 counter: 6699781
+End 3 counter: 9872088
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.48, user 5.26, sys 0.00
+---
+
+-- [test_test_and_set] --
+End 0 counter: 8038488
+End 1 counter: 8359224
+End 2 counter: 9164991
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.59, user 2.14, sys 0.00
+End 2 counter: 7511737
+End 3 counter: 8785145
+End 1 counter: 9656284
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.58, user 2.18, sys 0.00
+End 1 counter: 8533730
+End 0 counter: 9345818
+End 2 counter: 9840163
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.81, user 3.14, sys 0.00
+End 1 counter: 9125208
+End 0 counter: 9490504
+End 3 counter: 9869655
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.81, user 3.09, sys 0.00
+---
+
+-- [test_and_set_yield] --
+End 0 counter: 7233856
+End 1 counter: 7565656
+End 2 counter: 9509777
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.24, user 0.33, sys 0.50
+End 1 counter: 5900924
+End 0 counter: 9373162
+End 3 counter: 9910684
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.28, user 0.40, sys 0.51
+End 1 counter: 7150522
+End 0 counter: 7377291
+End 3 counter: 9644519
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.24, user 0.36, sys 0.53
+End 0 counter: 8787557
+End 3 counter: 8836440
+End 1 counter: 9677375
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.25, user 0.38, sys 0.57
+---
+
+-- [test_and_set_backoff] --
+End 0 counter: 6837745
+End 3 counter: 8067057
+End 2 counter: 9069923
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.31, user 0.35, sys 0.02
+End 0 counter: 6767565
+End 2 counter: 7486205
+End 1 counter: 8742735
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.35, user 0.40, sys 0.05
+End 0 counter: 9153221
+End 2 counter: 9273103
+End 1 counter: 9960045
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.31, user 0.37, sys 0.05
+End 3 counter: 8667664
+End 1 counter: 9413781
+End 0 counter: 9527567
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.29, user 0.29, sys 0.07
+---
+
+-- [swap] --
+End 3 counter: 5423509
+End 2 counter: 5730406
+End 1 counter: 7950862
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.82, user 2.67, sys 0.00
+End 0 counter: 5336919
+End 1 counter: 5337549
+End 3 counter: 7871630
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.38, user 4.87, sys 0.01
+End 0 counter: 5362381
+End 1 counter: 7537018
+End 2 counter: 9956454
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.65, user 5.93, sys 0.00
+End 0 counter: 5569837
+End 2 counter: 9908343
+End 1 counter: 9942499
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.20, user 7.67, sys 0.00
+---
+
+-- [test_swap] --
+End 1 counter: 9134477
+End 2 counter: 9281192
+End 3 counter: 9819250
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.97, user 3.74, sys 0.00
+End 1 counter: 9630784
+End 3 counter: 9840051
+End 2 counter: 9903674
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.08, user 4.20, sys 0.00
+End 1 counter: 9151459
+End 0 counter: 9411785
+End 3 counter: 9820809
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.05, user 4.06, sys 0.00
+End 1 counter: 7213415
+End 0 counter: 7224405
+End 3 counter: 9883507
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.74, user 2.84, sys 0.00
+---
+
+-- [swap_yield] --
+End 0 counter: 9115199
+End 2 counter: 9236470
+End 3 counter: 9903849
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.23, user 0.32, sys 0.49
+End 0 counter: 7409760
+End 2 counter: 7884621
+End 1 counter: 9615898
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.29, user 0.42, sys 0.60
+End 1 counter: 8366524
+End 2 counter: 8771623
+End 0 counter: 9997500
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.27, user 0.35, sys 0.57
+End 1 counter: 8035853
+End 0 counter: 8905753
+End 2 counter: 9720417
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.30, user 0.46, sys 0.59
+---
+
+-- [swap_backoff] --
+End 1 counter: 8491991
+End 0 counter: 9144436
+End 2 counter: 9637576
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.29, user 0.32, sys 0.03
+End 0 counter: 8795865
+End 3 counter: 9101752
+End 1 counter: 9870543
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.34, user 0.41, sys 0.02
+End 3 counter: 7377680
+End 0 counter: 9249338
+End 2 counter: 9407143
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.33, user 0.38, sys 0.04
+End 1 counter: 7426295
+End 2 counter: 8144247
+End 0 counter: 9373170
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.39, user 0.48, sys 0.03
+---
+
+-- [compare_and_swap] --
+End 1 counter: 5890428
+End 3 counter: 6223815
+End 2 counter: 9933719
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:03.52, user 13.27, sys 0.00
+End 0 counter: 6458062
+End 2 counter: 6672295
+End 1 counter: 9425251
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:04.17, user 15.76, sys 0.00
+End 1 counter: 6356641
+End 0 counter: 7965728
+End 2 counter: 9908368
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:05.32, user 19.45, sys 0.00
+End 1 counter: 6386827
+End 3 counter: 6835251
+End 2 counter: 9355456
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:04.39, user 16.46, sys 0.00
+---
+
+-- [test_compare_and_swap] --
+End 3 counter: 7326505
+End 2 counter: 8096518
+End 0 counter: 9939773
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.84, user 2.93, sys 0.00
+End 0 counter: 8057590
+End 3 counter: 9761315
+End 2 counter: 9941914
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.95, user 3.53, sys 0.00
+End 0 counter: 9783573
+End 2 counter: 9943705
+End 1 counter: 9998368
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.04, user 4.01, sys 0.00
+End 3 counter: 8217204
+End 0 counter: 9876546
+End 1 counter: 9981173
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.92, user 3.45, sys 0.00
+---
+
+-- [compare_and_swap_yield] --
+End 2 counter: 8728589
+End 3 counter: 9341643
+End 0 counter: 9976101
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.31, user 0.43, sys 0.66
+End 1 counter: 8406438
+End 2 counter: 8632763
+End 3 counter: 9985708
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.26, user 0.37, sys 0.54
+End 3 counter: 8020335
+End 0 counter: 8182322
+End 1 counter: 9962423
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.23, user 0.31, sys 0.45
+End 1 counter: 7790450
+End 0 counter: 8140778
+End 3 counter: 9605998
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.27, user 0.38, sys 0.63
+---
+
+-- [compare_and_swap_backoff] --
+End 2 counter: 5837007
+End 0 counter: 7598080
+End 1 counter: 9949829
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.26, user 0.29, sys 0.02
+End 2 counter: 9426250
+End 3 counter: 9639239
+End 0 counter: 9981414
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.39, user 0.48, sys 0.06
+End 2 counter: 5734024
+End 1 counter: 9159249
+End 0 counter: 9929631
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.35, user 0.41, sys 0.03
+End 2 counter: 7170431
+End 3 counter: 7640033
+End 1 counter: 8780675
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.27, user 0.31, sys 0.01
+---
+
+-- [ticket_lock] --
+End 0 counter: 9897930
+End 2 counter: 9902737
+End 3 counter: 9912852
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.01, user 3.93, sys 0.00
+End 2 counter: 9955569
+End 1 counter: 9959189
+End 3 counter: 9968507
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.01, user 3.98, sys 0.00
+End 0 counter: 9995058
+End 3 counter: 9995648
+End 2 counter: 9999232
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.00, user 3.84, sys 0.00
+End 2 counter: 9975006
+End 1 counter: 9976560
+End 3 counter: 9987166
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.02, user 4.00, sys 0.00
+---
+
+-- [array_lock] --
+End 0 counter: 9991135
+End 1 counter: 9995303
+End 2 counter: 9996811
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.84, user 3.25, sys 0.00
+End 1 counter: 9991722
+End 0 counter: 9992007
+End 2 counter: 9992367
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.99, user 3.88, sys 0.00
+End 0 counter: 9880099
+End 3 counter: 9999921
+End 2 counter: 10000000
+End 1 counter: 9999923
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.77, user 3.02, sys 0.00
+End 0 counter: 9998664
+End 3 counter: 10000000
+End 1 counter: 9998704
+End 2 counter: 9999235
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.02, user 3.94, sys 0.00
+---
+
+-- [mcs_spinlock] --
+End 0 counter: 9950076
+End 1 counter: 9953536
+End 2 counter: 9954364
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.94, user 3.61, sys 0.00
+End 0 counter: 9997304
+End 2 counter: 9998295
+End 1 counter: 9999570
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.95, user 3.71, sys 0.00
+End 0 counter: 9997918
+End 1 counter: 9998089
+End 2 counter: 9998810
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.83, user 3.25, sys 0.00
+End 0 counter: 9999517
+End 1 counter: 9999629
+End 2 counter: 9999998
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.92, user 3.57, sys 0.00
+---
+
+-- [clh_spinlock] --
+End 1 counter: 9992042
+End 0 counter: 9993235
+End 2 counter: 9993826
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.88, user 3.41, sys 0.00
+End 0 counter: 9982307
+End 2 counter: 9991897
+End 1 counter: 9997196
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.84, user 3.26, sys 0.00
+End 2 counter: 9987563
+End 0 counter: 9987568
+End 1 counter: 9987495
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.91, user 3.56, sys 0.00
+End 1 counter: 9983388
+End 2 counter: 9983431
+End 0 counter: 9983549
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.88, user 3.42, sys 0.00
+---
