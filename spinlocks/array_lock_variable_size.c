@@ -52,12 +52,12 @@ int main (int argc, char *argv[]) {
     int rc, i;
     struct tdata id[NUM_THREADS];
 
-	if (argc != 2 || (PADDING = atol(argv[1])) <= 0) {
-		puts("Specify the padding size in bytes");
-		exit(1);
-	}
-	SIZE = NUM_THREADS * PADDING;
-	flag = malloc(SIZE);
+    if (argc != 2 || (PADDING = atol(argv[1])) <= 0) {
+        puts("Specify the padding size in bytes");
+        exit(1);
+    }
+    SIZE = NUM_THREADS * PADDING;
+    flag = malloc(SIZE);
     flag[0] = 1;
 
     for(i=0; i<NUM_THREADS; i++){
