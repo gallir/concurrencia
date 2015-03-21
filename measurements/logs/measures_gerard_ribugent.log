@@ -1,0 +1,424 @@
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz
+stepping	: 7
+microcode	: 0x1a
+cpu MHz		: 1600.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6784.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz
+stepping	: 7
+microcode	: 0x1a
+cpu MHz		: 1600.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6784.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz
+stepping	: 7
+microcode	: 0x1a
+cpu MHz		: 1600.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6784.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz
+stepping	: 7
+microcode	: 0x1a
+cpu MHz		: 1600.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6784.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz
+stepping	: 7
+microcode	: 0x1a
+cpu MHz		: 1600.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6784.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz
+stepping	: 7
+microcode	: 0x1a
+cpu MHz		: 1600.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6784.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz
+stepping	: 7
+microcode	: 0x1a
+cpu MHz		: 2200.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6784.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz
+stepping	: 7
+microcode	: 0x1a
+cpu MHz		: 1600.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6784.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+-----------
+
+-- [simple_spinlock] --
+End 6 counter: 3897849
+End 2 counter: 3977662
+End 4 counter: 7142240
+End 7 counter: 8881092
+End 3 counter: 9019045
+End 0 counter: 9381109
+End 5 counter: 9717483
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.00, user 6.35, sys 0.00
+End 6 counter: 4197097
+End 7 counter: 5207450
+End 3 counter: 7344669
+End 5 counter: 9244593
+End 0 counter: 9297642
+End 1 counter: 9549435
+End 2 counter: 9565801
+End 4 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.07, user 6.62, sys 0.00
+End 7 counter: 3809082
+End 4 counter: 3879799
+End 6 counter: 7556347
+End 0 counter: 9293210
+End 1 counter: 9729129
+End 2 counter: 9976392
+End 5 counter: 9995489
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.01, user 6.45, sys 0.00
+End 0 counter: 7527945
+End 5 counter: 7736495
+End 2 counter: 9229166
+End 1 counter: 9435506
+End 7 counter: 9466413
+End 6 counter: 9702772
+End 3 counter: 9962316
+End 4 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.37, user 9.41, sys 0.00
+---
+
+-- [ticket_lock] --
+End 0 counter: 9918606
+End 1 counter: 9921555
+End 2 counter: 9922999
+End 3 counter: 9997440
+End 5 counter: 9997578
+End 6 counter: 9997850
+End 4 counter: 9998797
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.26, user 9.69, sys 0.00
+End 2 counter: 9959899
+End 1 counter: 9960131
+End 0 counter: 9964722
+End 7 counter: 9993179
+End 5 counter: 9995011
+End 3 counter: 9997202
+End 4 counter: 9998296
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.15, user 8.97, sys 0.00
+End 1 counter: 9960248
+End 0 counter: 9960499
+End 2 counter: 9963517
+End 3 counter: 9994633
+End 6 counter: 9995251
+End 5 counter: 9995999
+End 7 counter: 9996917
+End 4 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.12, user 8.73, sys 0.00
+End 0 counter: 9962354
+End 1 counter: 9963681
+End 2 counter: 9965529
+End 3 counter: 9995785
+End 4 counter: 9996287
+End 5 counter: 9996334
+End 6 counter: 9998811
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.37, user 10.37, sys 0.00
+---
+
+-- [array_lock] --
+End 0 counter: 9970161
+End 2 counter: 9970188
+End 1 counter: 9970099
+End 7 counter: 9977270
+End 5 counter: 9977966
+End 3 counter: 9999997
+End 4 counter: 10000000
+End 6 counter: 9999999
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.02, user 7.92, sys 0.00
+End 0 counter: 9982965
+End 1 counter: 9985641
+End 2 counter: 9985934
+End 4 counter: 9986180
+End 7 counter: 9986321
+End 3 counter: 9986585
+End 5 counter: 9999154
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.24, user 9.48, sys 0.00
+End 0 counter: 9943728
+End 1 counter: 9946290
+End 2 counter: 9999928
+End 5 counter: 9999958
+End 6 counter: 9999932
+End 4 counter: 9999933
+End 7 counter: 9999929
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.28, user 9.80, sys 0.00
+End 0 counter: 9469392
+End 2 counter: 9999952
+End 4 counter: 10000000
+End 3 counter: 9999955
+End 6 counter: 9999957
+End 7 counter: 9999956
+End 1 counter: 9999962
+End 5 counter: 9999953
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.28, user 9.72, sys 0.00
+---
+
+-- [mcs_spinlock] --
+End 0 counter: 9983611
+End 1 counter: 9985970
+End 3 counter: 9986262
+End 4 counter: 9986282
+End 2 counter: 9986271
+End 6 counter: 9999409
+End 5 counter: 9999456
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.12, user 8.66, sys 0.00
+End 0 counter: 9971123
+End 1 counter: 9973369
+End 2 counter: 9973627
+End 3 counter: 9973711
+End 4 counter: 9999959
+End 5 counter: 9999960
+End 6 counter: 9999997
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.94, user 7.34, sys 0.00
+End 0 counter: 9748897
+End 3 counter: 9975410
+End 1 counter: 9975434
+End 7 counter: 9975418
+End 2 counter: 9975412
+End 6 counter: 9983227
+End 5 counter: 9983246
+End 4 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.00, user 7.75, sys 0.00
+End 0 counter: 9952516
+End 1 counter: 9955418
+End 4 counter: 9997527
+End 7 counter: 9997536
+End 6 counter: 9997533
+End 3 counter: 9997618
+End 5 counter: 9997685
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.06, user 8.10, sys 0.00
+---
+
+-- [clh_spinlock] --
+End 0 counter: 9946845
+End 1 counter: 9980366
+End 3 counter: 9982641
+End 2 counter: 9983168
+End 4 counter: 9983750
+End 6 counter: 9999578
+End 5 counter: 9999688
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.47, user 17.37, sys 0.00
+End 0 counter: 9967994
+End 1 counter: 9968303
+End 3 counter: 9974552
+End 4 counter: 9974751
+End 2 counter: 9975053
+End 5 counter: 9976345
+End 7 counter: 9990750
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.86, user 6.73, sys 0.00
+End 1 counter: 9988580
+End 0 counter: 9989814
+End 2 counter: 9993605
+End 3 counter: 9993662
+End 4 counter: 9993786
+End 6 counter: 9995153
+End 5 counter: 9995159
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.01, user 7.76, sys 0.00
+End 0 counter: 9989667
+End 1 counter: 9989978
+End 3 counter: 9990040
+End 2 counter: 9994255
+End 4 counter: 9994273
+End 5 counter: 9995448
+End 7 counter: 9999971
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.02, user 7.76, sys 0.00
+---

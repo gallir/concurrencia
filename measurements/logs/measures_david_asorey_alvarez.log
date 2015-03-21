@@ -1,0 +1,416 @@
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2680 0 @ 2.70GHz
+stepping	: 2
+cpu MHz		: 2700.000
+cache size	: 20480 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology tsc_reliable nonstop_tsc aperfmperf unfair_spinlock pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt aes xsave avx hypervisor lahf_lm ida arat epb pln pts dts
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2680 0 @ 2.70GHz
+stepping	: 2
+cpu MHz		: 2700.000
+cache size	: 20480 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology tsc_reliable nonstop_tsc aperfmperf unfair_spinlock pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt aes xsave avx hypervisor lahf_lm ida arat epb pln pts dts
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2680 0 @ 2.70GHz
+stepping	: 2
+cpu MHz		: 2700.000
+cache size	: 20480 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology tsc_reliable nonstop_tsc aperfmperf unfair_spinlock pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt aes xsave avx hypervisor lahf_lm ida arat epb pln pts dts
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2680 0 @ 2.70GHz
+stepping	: 2
+cpu MHz		: 2700.000
+cache size	: 20480 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology tsc_reliable nonstop_tsc aperfmperf unfair_spinlock pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt aes xsave avx hypervisor lahf_lm ida arat epb pln pts dts
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2680 0 @ 2.70GHz
+stepping	: 2
+cpu MHz		: 2700.000
+cache size	: 20480 KB
+physical id	: 1
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology tsc_reliable nonstop_tsc aperfmperf unfair_spinlock pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt aes xsave avx hypervisor lahf_lm ida arat epb pln pts dts
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2680 0 @ 2.70GHz
+stepping	: 2
+cpu MHz		: 2700.000
+cache size	: 20480 KB
+physical id	: 1
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology tsc_reliable nonstop_tsc aperfmperf unfair_spinlock pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt aes xsave avx hypervisor lahf_lm ida arat epb pln pts dts
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2680 0 @ 2.70GHz
+stepping	: 2
+cpu MHz		: 2700.000
+cache size	: 20480 KB
+physical id	: 1
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology tsc_reliable nonstop_tsc aperfmperf unfair_spinlock pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt aes xsave avx hypervisor lahf_lm ida arat epb pln pts dts
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2680 0 @ 2.70GHz
+stepping	: 2
+cpu MHz		: 2700.000
+cache size	: 20480 KB
+physical id	: 1
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology tsc_reliable nonstop_tsc aperfmperf unfair_spinlock pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt aes xsave avx hypervisor lahf_lm ida arat epb pln pts dts
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+-----------
+
+-- [simple_spinlock] --
+End 6 counter: 1877964
+End 1 counter: 3831899
+End 0 counter: 3927452
+End 7 counter: 5199455
+End 5 counter: 6774697
+End 4 counter: 9206904
+End 2 counter: 9831482
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.71, user 3.66, sys 0.04
+End 5 counter: 1728735
+End 4 counter: 4156835
+End 1 counter: 4655980
+End 2 counter: 8698496
+End 0 counter: 8702781
+End 7 counter: 9109692
+End 3 counter: 9705164
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.81, user 4.59, sys 0.04
+End 3 counter: 3279231
+End 1 counter: 6460639
+End 4 counter: 6705403
+End 7 counter: 8394703
+End 6 counter: 8960037
+End 2 counter: 9447990
+End 5 counter: 9660511
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.01, user 6.48, sys 0.07
+End 1 counter: 1522358
+End 6 counter: 4517658
+End 0 counter: 5261574
+End 3 counter: 5480175
+End 2 counter: 9285867
+End 4 counter: 9474788
+End 5 counter: 9829474
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:00.80, user 4.36, sys 0.05
+---
+
+-- [ticket_lock] --
+End 0 counter: 9987626
+End 5 counter: 9989540
+End 7 counter: 9995180
+End 2 counter: 9997879
+End 3 counter: 9999133
+End 6 counter: 9999237
+End 4 counter: 9999390
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.94, user 15.03, sys 0.14
+End 0 counter: 9920780
+End 1 counter: 9969172
+End 3 counter: 9975858
+End 5 counter: 9990675
+End 4 counter: 9993393
+End 7 counter: 9996224
+End 6 counter: 9999849
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.89, user 14.56, sys 0.15
+End 4 counter: 9924105
+End 5 counter: 9943050
+End 0 counter: 9965747
+End 3 counter: 9986855
+End 1 counter: 9992069
+End 7 counter: 9994721
+End 2 counter: 9999910
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.17, user 16.60, sys 0.22
+End 0 counter: 9933539
+End 3 counter: 9984736
+End 2 counter: 9993345
+End 5 counter: 9995465
+End 6 counter: 9996647
+End 7 counter: 9997631
+End 4 counter: 9999395
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.13, user 16.36, sys 0.18
+---
+
+-- [array_lock] --
+End 0 counter: 9988981
+End 1 counter: 9998240
+End 2 counter: 9998998
+End 4 counter: 9999246
+End 7 counter: 9999716
+End 3 counter: 9999932
+End 5 counter: 9999962
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.00, user 15.36, sys 0.18
+End 0 counter: 9991151
+End 1 counter: 9995554
+End 3 counter: 9997561
+End 2 counter: 9998717
+End 4 counter: 9998754
+End 5 counter: 9999914
+End 6 counter: 9999954
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.00, user 15.38, sys 0.19
+End 0 counter: 9990904
+End 1 counter: 9996439
+End 4 counter: 9998622
+End 5 counter: 9998752
+End 2 counter: 9998781
+End 6 counter: 9998865
+End 7 counter: 9999298
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.01, user 15.47, sys 0.18
+End 0 counter: 9994921
+End 2 counter: 9998349
+End 6 counter: 9998871
+End 1 counter: 9999291
+End 4 counter: 9999757
+End 7 counter: 9999784
+End 3 counter: 9999942
+End 5 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.10, user 16.13, sys 0.20
+---
+
+-- [mcs_spinlock] --
+End 0 counter: 9986023
+End 3 counter: 9999037
+End 2 counter: 9999136
+End 6 counter: 9999356
+End 4 counter: 9999411
+End 5 counter: 9999563
+End 1 counter: 9999589
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.07, user 15.92, sys 0.19
+End 0 counter: 9992210
+End 2 counter: 9998965
+End 1 counter: 9999129
+End 4 counter: 9999330
+End 3 counter: 9999345
+End 6 counter: 9999624
+End 5 counter: 9999771
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.13, user 16.30, sys 0.20
+End 0 counter: 9992955
+End 1 counter: 9998626
+End 4 counter: 9999296
+End 3 counter: 9999587
+End 5 counter: 9999589
+End 6 counter: 9999682
+End 7 counter: 9999726
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.95, user 15.00, sys 0.18
+End 0 counter: 9988364
+End 3 counter: 9999014
+End 1 counter: 9999611
+End 4 counter: 9999690
+End 5 counter: 9999806
+End 6 counter: 9999846
+End 7 counter: 9999863
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.96, user 15.08, sys 0.21
+---
+
+-- [clh_spinlock] --
+End 0 counter: 9974477
+End 1 counter: 9993544
+End 2 counter: 9994373
+End 4 counter: 9995861
+End 3 counter: 9996172
+End 6 counter: 9996372
+End 5 counter: 9999915
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.32, user 10.18, sys 0.11
+End 0 counter: 9966240
+End 2 counter: 9996454
+End 1 counter: 9996641
+End 3 counter: 9998242
+End 4 counter: 9998593
+End 5 counter: 9999761
+End 6 counter: 9999976
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.31, user 10.19, sys 0.07
+End 0 counter: 9969375
+End 1 counter: 9994818
+End 2 counter: 9996851
+End 4 counter: 9998986
+End 3 counter: 9999262
+End 6 counter: 9999927
+End 5 counter: 9999973
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.41, user 10.89, sys 0.08
+End 0 counter: 9986521
+End 1 counter: 9994988
+End 2 counter: 9996990
+End 3 counter: 9998297
+End 4 counter: 9999258
+End 5 counter: 9999705
+End 7 counter: 9999994
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.28, user 9.95, sys 0.08
+---

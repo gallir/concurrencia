@@ -1,0 +1,452 @@
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+stepping	: 3
+microcode	: 0x19
+cpu MHz		: 900.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt
+bugs		:
+bogomips	: 8003.84
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+stepping	: 3
+microcode	: 0x19
+cpu MHz		: 899.843
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt
+bugs		:
+bogomips	: 8003.84
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+stepping	: 3
+microcode	: 0x19
+cpu MHz		: 895.312
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt
+bugs		:
+bogomips	: 8003.84
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+stepping	: 3
+microcode	: 0x19
+cpu MHz		: 895.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt
+bugs		:
+bogomips	: 8003.84
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+stepping	: 3
+microcode	: 0x19
+cpu MHz		: 808.125
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt
+bugs		:
+bogomips	: 8003.84
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+stepping	: 3
+microcode	: 0x19
+cpu MHz		: 893.125
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt
+bugs		:
+bogomips	: 8003.84
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+stepping	: 3
+microcode	: 0x19
+cpu MHz		: 844.687
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt
+bugs		:
+bogomips	: 8003.84
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+stepping	: 3
+microcode	: 0x19
+cpu MHz		: 851.250
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt
+bugs		:
+bogomips	: 8003.84
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+-----------
+
+-- [simple_spinlock] --
+End 6 counter: 4556680
+End 0 counter: 4657889
+End 2 counter: 9577524
+End 1 counter: 9757646
+End 4 counter: 9763610
+End 3 counter: 9807447
+End 5 counter: 9984249
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.966s user	0m6.690s sys	0m0.003s
+End 1 counter: 7410478
+End 4 counter: 8111088
+End 6 counter: 9631887
+End 7 counter: 9642509
+End 0 counter: 9701597
+End 5 counter: 9705032
+End 2 counter: 9988923
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m1.160s  user	0m8.677s  sys	0m0.000s
+End 1 counter: 7346897
+End 7 counter: 7847084
+End 4 counter: 9382029
+End 0 counter: 9514078
+End 5 counter: 9519614
+End 6 counter: 9529863
+End 2 counter: 9940725
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m1.157s  user	0m8.583s  sys	0m0.007s
+End 1 counter: 7230270
+End 4 counter: 9810044
+End 6 counter: 9851495
+End 2 counter: 9887690
+End 7 counter: 9956180
+End 0 counter: 9963644
+End 5 counter: 9964021
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m1.187s  user	0m9.070s  sys	0m0.000s
+---
+
+-- [ticket_lock] --
+End 0 counter: 9995965
+End 3 counter: 9996571
+End 1 counter: 9996852
+End 2 counter: 9997314
+End 5 counter: 9999038
+End 7 counter: 9999882
+End 6 counter: 9999993
+End 4 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m1.046s  user	0m8.340s  sys	0m0.000s
+End 0 counter: 9996188
+End 4 counter: 9998705
+End 1 counter: 9998784
+End 6 counter: 9999015
+End 5 counter: 9999104
+End 3 counter: 9999111
+End 2 counter: 9999105
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m1.039s  user	0m8.300s  sys	0m0.000s
+End 0 counter: 9910141
+End 1 counter: 9914040
+End 2 counter: 9914085
+End 7 counter: 9939905
+End 6 counter: 9978150
+End 5 counter: 9999906
+End 4 counter: 9999975
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.990s  user	0m7.837s  sys	0m0.007s
+End 0 counter: 9978167
+End 5 counter: 9981108
+End 4 counter: 9981576
+End 1 counter: 9981579
+End 2 counter: 9981785
+End 3 counter: 9981796
+End 6 counter: 9995125
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.982s  user	0m7.837s  sys	0m0.000s
+---
+
+-- [array_lock] --
+End 0 counter: 9962342
+End 3 counter: 9962718
+End 1 counter: 9963274
+End 2 counter: 9963440
+End 7 counter: 9974330
+End 5 counter: 9974405
+End 4 counter: 9999999
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.882s  user	0m7.013s  sys	0m0.000s
+End 0 counter: 9982574
+End 4 counter: 9985660
+End 1 counter: 9985664
+End 5 counter: 9985742
+End 3 counter: 9985820
+End 2 counter: 9985842
+End 6 counter: 9994031
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.809s  user	0m6.463s  sys	0m0.000s
+End 0 counter: 9989386
+End 4 counter: 9992312
+End 1 counter: 9992317
+End 5 counter: 9992406
+End 2 counter: 9992472
+End 3 counter: 9992471
+End 7 counter: 9999999
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.854s  user	0m6.813s  sys	0m0.000s
+End 0 counter: 9862999
+End 1 counter: 9865806
+End 2 counter: 9866089
+End 3 counter: 9999995
+End 6 counter: 10000000
+End 7 counter: 9999999
+End 4 counter: 9999997
+End 5 counter: 9999998
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.883s  user	0m6.863s  sys	0m0.000s
+---
+
+-- [mcs_spinlock] --
+End 0 counter: 9894108
+End 1 counter: 9898281
+End 2 counter: 9898527
+End 7 counter: 9959348
+End 5 counter: 9997214
+End 4 counter: 9997215
+End 3 counter: 9997213
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.769s  user	0m6.067s  sys	0m0.003s
+End 0 counter: 9970667
+End 4 counter: 9973561
+End 1 counter: 9973567
+End 5 counter: 9973628
+End 3 counter: 9973673
+End 2 counter: 9973675
+End 6 counter: 9987501
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.752s  user	0m5.993s  sys	0m0.000s
+End 0 counter: 9993257
+End 3 counter: 9995947
+End 1 counter: 9995946
+End 5 counter: 9996101
+End 2 counter: 9996113
+End 4 counter: 9996123
+End 7 counter: 10000000
+End 6 counter: 9999999
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.811s  user	0m6.423s  sys	0m0.003s
+End 0 counter: 8717613
+End 6 counter: 9888990
+End 1 counter: 9999995
+End 7 counter: 9999998
+End 4 counter: 9999996
+End 2 counter: 9999997
+End 3 counter: 9999999
+End 5 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.870s  user	0m6.730s  sys	0m0.000s
+---
+
+-- [clh_spinlock] --
+End 4 counter: 9963497
+End 3 counter: 9964096
+End 1 counter: 9964117
+End 2 counter: 9964191
+End 0 counter: 9964537
+End 5 counter: 9964802
+End 6 counter: 9991997
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.627s  user	0m4.997s  sys	0m0.000s
+End 1 counter: 9965068
+End 3 counter: 9966163
+End 4 counter: 9966176
+End 0 counter: 9966408
+End 2 counter: 9966630
+End 5 counter: 9966746
+End 6 counter: 9999994
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.644s  user	0m5.130s  sys	0m0.003s
+End 1 counter: 9979734
+End 3 counter: 9986150
+End 2 counter: 9986209
+End 4 counter: 9986786
+End 0 counter: 9987230
+End 5 counter: 9987366
+End 6 counter: 9993503
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.661s  user	0m5.273s  sys	0m0.000s
+End 1 counter: 9951515
+End 4 counter: 9951733
+End 3 counter: 9951791
+End 2 counter: 9952330
+End 0 counter: 9952382
+End 6 counter: 9983219
+End 7 counter: 9999998
+End 5 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+
+real	0m0.707s  user	0m5.593s  sys	0m0.003s
+---

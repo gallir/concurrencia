@@ -1,0 +1,432 @@
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 21
+model		: 2
+model name	: AMD FX(tm)-8350 Eight-Core Processor
+stepping	: 0
+microcode	: 0x6000822
+cpu MHz		: 1400.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 16
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb arat cpb hw_pstate npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold vmmcall bmi1
+bogomips	: 8027.10
+TLB size	: 1536 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb eff_freq_ro
+
+processor	: 1
+vendor_id	: AuthenticAMD
+cpu family	: 21
+model		: 2
+model name	: AMD FX(tm)-8350 Eight-Core Processor           
+stepping	: 0
+microcode	: 0x6000822
+cpu MHz		: 1400.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 17
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb arat cpb hw_pstate npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold vmmcall bmi1
+bogomips	: 8027.10
+TLB size	: 1536 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb eff_freq_ro
+
+processor	: 2
+vendor_id	: AuthenticAMD
+cpu family	: 21
+model		: 2
+model name	: AMD FX(tm)-8350 Eight-Core Processor           
+stepping	: 0
+microcode	: 0x6000822
+cpu MHz		: 1400.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 18
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb arat cpb hw_pstate npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold vmmcall bmi1
+bogomips	: 8027.10
+TLB size	: 1536 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb eff_freq_ro
+
+processor	: 3
+vendor_id	: AuthenticAMD
+cpu family	: 21
+model		: 2
+model name	: AMD FX(tm)-8350 Eight-Core Processor           
+stepping	: 0
+microcode	: 0x6000822
+cpu MHz		: 1400.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 19
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb arat cpb hw_pstate npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold vmmcall bmi1
+bogomips	: 8027.10
+TLB size	: 1536 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb eff_freq_ro
+
+processor	: 4
+vendor_id	: AuthenticAMD
+cpu family	: 21
+model		: 2
+model name	: AMD FX(tm)-8350 Eight-Core Processor           
+stepping	: 0
+microcode	: 0x6000822
+cpu MHz		: 1400.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 8
+core id		: 4
+cpu cores	: 4
+apicid		: 20
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb arat cpb hw_pstate npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold vmmcall bmi1
+bogomips	: 8027.10
+TLB size	: 1536 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb eff_freq_ro
+
+processor	: 5
+vendor_id	: AuthenticAMD
+cpu family	: 21
+model		: 2
+model name	: AMD FX(tm)-8350 Eight-Core Processor           
+stepping	: 0
+microcode	: 0x6000822
+cpu MHz		: 1400.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 8
+core id		: 5
+cpu cores	: 4
+apicid		: 21
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb arat cpb hw_pstate npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold vmmcall bmi1
+bogomips	: 8027.10
+TLB size	: 1536 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb eff_freq_ro
+
+processor	: 6
+vendor_id	: AuthenticAMD
+cpu family	: 21
+model		: 2
+model name	: AMD FX(tm)-8350 Eight-Core Processor           
+stepping	: 0
+microcode	: 0x6000822
+cpu MHz		: 1400.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 8
+core id		: 6
+cpu cores	: 4
+apicid		: 22
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb arat cpb hw_pstate npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold vmmcall bmi1
+bogomips	: 8027.10
+TLB size	: 1536 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb eff_freq_ro
+
+processor	: 7
+vendor_id	: AuthenticAMD
+cpu family	: 21
+model		: 2
+model name	: AMD FX(tm)-8350 Eight-Core Processor           
+stepping	: 0
+microcode	: 0x6000822
+cpu MHz		: 1400.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 8
+core id		: 7
+cpu cores	: 4
+apicid		: 23
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb arat cpb hw_pstate npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold vmmcall bmi1
+bogomips	: 8027.10
+TLB size	: 1536 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb eff_freq_ro
+
+-----------
+
+-- [simple_spinlock] --
+End 3 counter: 8926525
+End 7 counter: 9844748
+End 1 counter: 9864435
+End 2 counter: 9978437
+End 6 counter: 9978613
+End 5 counter: 9980462
+End 0 counter: 9992072
+End 4 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.47, user 19.36, sys 0.00
+End 0 counter: 8433484
+End 5 counter: 9198615
+End 6 counter: 9332204
+End 7 counter: 9705961
+End 4 counter: 9759295
+End 2 counter: 9760374
+End 1 counter: 9775619
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.34, user 18.08, sys 0.00
+End 6 counter: 8796941
+End 7 counter: 9030444
+End 5 counter: 9734586
+End 1 counter: 9773156
+End 0 counter: 9963430
+End 4 counter: 9998197
+End 2 counter: 9999627
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.41, user 18.75, sys 0.00
+End 7 counter: 8854461
+End 6 counter: 9334084
+End 0 counter: 9645724
+End 2 counter: 9894175
+End 1 counter: 9894800
+End 3 counter: 9971250
+End 4 counter: 9994589
+End 5 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.49, user 19.08, sys 0.00
+---
+
+-- [ticket_lock] --
+End 2 counter: 9994107
+End 4 counter: 9999040
+End 3 counter: 9999085
+End 0 counter: 9999090
+End 1 counter: 9999129
+End 5 counter: 9999745
+End 6 counter: 9999812
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:05.65, user 45.12, sys 0.00
+End 0 counter: 9087694
+End 7 counter: 9994914
+End 3 counter: 9995017
+End 4 counter: 9995036
+End 1 counter: 9995050
+End 5 counter: 9995360
+End 2 counter: 9999956
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:05.81, user 45.80, sys 0.00
+End 1 counter: 9996228
+End 2 counter: 9996208
+End 3 counter: 9996224
+End 5 counter: 9996599
+End 6 counter: 9996725
+End 7 counter: 9997200
+End 0 counter: 9999080
+End 4 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:05.83, user 46.53, sys 0.00
+End 0 counter: 9969362
+End 5 counter: 9989387
+End 1 counter: 9989652
+End 4 counter: 9990194
+End 6 counter: 9990646
+End 2 counter: 9997254
+End 3 counter: 9997385
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:05.82, user 46.45, sys 0.00
+---
+
+-- [array_lock] --
+End 0 counter: 9990218
+End 1 counter: 9995768
+End 3 counter: 9995983
+End 2 counter: 9995988
+End 4 counter: 9996055
+End 5 counter: 9996191
+End 7 counter: 9997516
+End 6 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.39, user 19.11, sys 0.00
+End 0 counter: 9985163
+End 2 counter: 9995970
+End 3 counter: 9996089
+End 4 counter: 9996177
+End 1 counter: 9996226
+End 5 counter: 9999993
+End 6 counter: 9999995
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.41, user 19.19, sys 0.00
+End 0 counter: 9984394
+End 1 counter: 9989425
+End 3 counter: 9989614
+End 2 counter: 9989631
+End 7 counter: 9989865
+End 5 counter: 9997343
+End 6 counter: 9997372
+End 4 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.20, user 17.58, sys 0.00
+End 0 counter: 8724162
+End 5 counter: 9999992
+End 2 counter: 9999994
+End 3 counter: 9999997
+End 6 counter: 9999996
+End 4 counter: 10000000
+End 1 counter: 9999993
+End 7 counter: 9999998
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.54, user 19.78, sys 0.00
+---
+
+-- [mcs_spinlock] --
+End 0 counter: 9503236
+End 1 counter: 9977298
+End 7 counter: 9984116
+End 5 counter: 9984198
+End 4 counter: 9995500
+End 6 counter: 9995501
+End 2 counter: 9995499
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.51, user 19.82, sys 0.00
+End 0 counter: 9969048
+End 1 counter: 9987340
+End 3 counter: 9988106
+End 2 counter: 9988245
+End 4 counter: 9988297
+End 5 counter: 9988360
+End 6 counter: 9988452
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.39, user 19.09, sys 0.00
+End 0 counter: 9980416
+End 2 counter: 9987723
+End 3 counter: 9987737
+End 1 counter: 9987890
+End 7 counter: 9999950
+End 5 counter: 9999949
+End 4 counter: 10000000
+End 6 counter: 9999951
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.10, user 16.73, sys 0.00
+End 0 counter: 9037463
+End 1 counter: 9999991
+End 5 counter: 9999993
+End 7 counter: 9999999
+End 4 counter: 9999996
+End 3 counter: 9999997
+End 6 counter: 9999994
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.41, user 19.00, sys 0.00
+---
+
+-- [clh_spinlock] --
+End 2 counter: 9990609
+End 1 counter: 9993488
+End 0 counter: 9993873
+End 4 counter: 9993991
+End 3 counter: 9994038
+End 5 counter: 9994143
+End 6 counter: 9994595
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.07, user 16.57, sys 0.00
+End 0 counter: 9980222
+End 1 counter: 9990832
+End 3 counter: 9990853
+End 2 counter: 9991032
+End 4 counter: 9991229
+End 5 counter: 9991293
+End 6 counter: 9991351
+End 7 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.10, user 16.75, sys 0.00
+End 2 counter: 9975825
+End 0 counter: 9977389
+End 1 counter: 9977585
+End 7 counter: 9991659
+End 4 counter: 9992096
+End 5 counter: 9992105
+End 6 counter: 9997546
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.12, user 16.92, sys 0.00
+End 0 counter: 9956515
+End 2 counter: 9988481
+End 1 counter: 9988551
+End 3 counter: 9988858
+End 4 counter: 9992637
+End 6 counter: 9999978
+End 7 counter: 9999986
+End 5 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.02, user 16.09, sys 0.00
+---
