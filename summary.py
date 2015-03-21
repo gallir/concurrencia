@@ -52,10 +52,13 @@ def main():
         l = logs[author]
         print("%s" % (author)),
         for a in algorithms:
-            if configuration.real:
-                print("\t%5.3f" % (sum(l["real"][a])/len(l["real"][a]),)),
-            else:
-                print("\t%5.3f" % (sum(l["alg"][a])/len(l["alg"][a]),)),
+            try:
+                if configuration.real:
+                    print("\t%5.3f" % (sum(l["real"][a])/len(l["real"][a]),)),
+                else:
+                    print("\t%5.3f" % (sum(l["alg"][a])/len(l["alg"][a]),)),
+            except: 
+				print("\t0"),
         print("\t%d" % (sum(l["cores"].values())))
 
 
