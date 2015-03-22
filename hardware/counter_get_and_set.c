@@ -17,8 +17,6 @@ int mutex = 0;
 int counter = 0;
 
 void lock() {
-    int current;
-
     while(__atomic_exchange_n(&mutex, 1, __ATOMIC_SEQ_CST));
 }
 
@@ -26,7 +24,7 @@ void unlock() {
     __atomic_thread_fence(__ATOMIC_RELEASE);
     mutex = 0;
 }
-    
+
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
     int tid = ((struct tdata *) ptr)->tid;
@@ -62,4 +60,3 @@ int main (int argc, char *argv[]) {
     printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT);
     return 0;
 }
-
