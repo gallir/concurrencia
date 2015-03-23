@@ -20,7 +20,7 @@ void lock(int i) {
     int local;
     do {
         local = 0;  
-    } while (! __atomic_compare_exchange_n(&mutex, &local, 1, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST));
+    } while (! __atomic_compare_exchange_n(&mutex, &local, 1, 0, __ATOMIC_RELAXED, __ATOMIC_RELAXED));
 }
 
 void unlock(int i) {
