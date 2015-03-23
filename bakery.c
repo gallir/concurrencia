@@ -31,6 +31,7 @@ void lock(int i) {
     int j;
 
     choosing[i] = 1;
+    __atomic_thread_fence(__ATOMIC_RELEASE);
     number[i] = max(number, NUM_THREADS) + 1;
     __atomic_thread_fence(__ATOMIC_SEQ_CST);
     choosing[i] = 0;
