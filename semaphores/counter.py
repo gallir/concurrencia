@@ -7,6 +7,7 @@ THREADS = 4
 MAX_COUNT = 10000000
 
 counter = 0
+mutex = threading.Semaphore(1)
 
 class myThread(threading.Thread):
     def __init__(self, threadID):
@@ -18,7 +19,9 @@ class myThread(threading.Thread):
         print("Thread {}".format(self.threadID))
 
         for i in range(MAX_COUNT/THREADS):
+            mutex.acquire()
             counter += 1
+            mutex.release()
         
 
 threads = []

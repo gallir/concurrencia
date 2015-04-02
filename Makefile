@@ -16,10 +16,16 @@ PROGS=$(patsubst %.c,%,$(SOURCES))
 GO_SOURCES=$(wildcard *.go)
 GO_PROGS=$(patsubst %.go,%,$(GO_SOURCES))
 
-all: $(PROGS) $(GO_PROGS)
+JAVA_SOURCES=$(wildcard *.java)
+JAVA_PROGS=$(patsubst %.java,%.class,$(JAVA_SOURCES))
+
+all: $(PROGS) $(GO_PROGS) $(JAVA_PROGS)
 
 %: %.c
 	- $(CC) $(CFLAGS) -o $@ $<
+
+%.class: %.java
+	- javac $<
 
 %: %.go
 	- go build $<
