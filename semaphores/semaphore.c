@@ -13,7 +13,7 @@ struct tdata {
 };
 
 int counter = 0;
-sem_t mutex;
+sem_t mutex; // Used for a unnamed POSIX semaphore
 
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
@@ -34,7 +34,7 @@ int main (int argc, char *argv[]) {
     int rc, i;
     struct tdata id[NUM_THREADS];
 
-    sem_init(&mutex, 0, 1);
+    sem_init(&mutex, 0, 1); // Semaphore initialización
     for(i=0; i<NUM_THREADS; i++){
         id[i].tid = i;
         rc = pthread_create(&threads[i], NULL, count, (void *) &id[i]);

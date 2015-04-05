@@ -12,7 +12,9 @@ struct tdata {
 };
 
 int counter = 0;
+/* POSIX Thread mutex */
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+/* Don't confuse it with POSIX Semaphore */
 
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
