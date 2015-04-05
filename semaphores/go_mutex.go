@@ -10,7 +10,7 @@ import (
 
 const (
     MAX_COUNT  = 10000000
-    GOROUTINES = 2
+    GOROUTINES = 4
 )
 
 var counter = 0
