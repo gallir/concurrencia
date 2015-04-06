@@ -9,9 +9,9 @@ MAX_COUNT = 10000000
 counter = 0
 mutex = threading.RLock()
 
-class myThread(threading.Thread):
+class MyThread(threading.Thread):
     def __init__(self, threadID):
-        threading.Thread.__init__(self)
+        super(MyThread, self).__init__()
         self.threadID = threadID
 
     def run(self):
