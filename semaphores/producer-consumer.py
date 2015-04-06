@@ -26,7 +26,6 @@ class Producer(threading.Thread):
             with mutex:
                 buffer.append(data)
             notEmpty.release()
-            time.sleep(0.01)
 
 class Consumer(threading.Thread):
     def run(self):
@@ -47,12 +46,14 @@ def main():
     for i in range(CONSUMERS):
         c = Consumer()
         threads.append(c)
-        c.start();
 
     for i in range(PRODUCERS):
         p = Producer()
         threads.append(p)
-        p.start();
+
+    # Start all threads
+    for t in threads:
+        t.start()
 
     # Wait for all threads to complete
     for t in threads:

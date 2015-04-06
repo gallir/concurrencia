@@ -22,20 +22,23 @@ class myThread(threading.Thread):
             mutex.acquire()
             counter += 1
             mutex.release()
-        
 
-threads = []
+def main():
+    threads = []
 
-for i in range(THREADS):
-    # Create new threads
-    t = myThread(i)
-    threads.append(t)
-    t.start() # start the thread
+    for i in range(THREADS):
+        t = myThread(i)
+        threads.append(t)
 
-# Wait for all threads to complete
-for t in threads:
-    t.join()
+    # Start all threads
+    for t in threads:
+        t.start()
 
-print("Counter value: %d Expected: %d\n" % (counter, MAX_COUNT))
+    # Wait for all threads to complete
+    for t in threads:
+        t.join()
 
+    print("Counter value: %d Expected: %d\n" % (counter, MAX_COUNT))
 
+if __name__ == "__main__":
+    main()
