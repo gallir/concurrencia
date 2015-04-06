@@ -9,9 +9,9 @@ MAX_COUNT = 10000000
 counter = 0
 mutex = threading.Semaphore(1)
 
-class myThread(threading.Thread):
+class MyThread(threading.Thread):
     def __init__(self, threadID):
-        threading.Thread.__init__(self)
+        super(MyThread, self).__init__()
         self.threadID = threadID
 
     def run(self):
@@ -23,16 +23,13 @@ class myThread(threading.Thread):
                 counter += 1
 
 
-threads = []
+# Create new threads
+threads = [MyThread(i) for i in range(THREADS)]
 
-for i in range(THREADS):
-    # Create new threads
-    t = myThread(i)
-    threads.append(t)
-    t.start() # start the thread
+# Start threads
+for t in threads: t.start()
 
 # Wait for all threads to complete
-for t in threads:
-    t.join()
+for t in threads: t.join()
 
 print("Counter value: %d Expected: %d\n" % (counter, MAX_COUNT))
