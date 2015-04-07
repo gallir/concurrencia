@@ -7,7 +7,7 @@ THREADS = 4
 MAX_COUNT = 10000000
 
 counter = 0
-mutex = threading.RLock()
+mutex = threading.Lock()
 
 class MyThread(threading.Thread):
     def __init__(self, threadID):
@@ -27,7 +27,7 @@ def main():
 
     for i in range(THREADS):
         # Create new threads
-        t = myThread(i)
+        t = MyThread(i)
         threads.append(t)
 
     # Start all threads

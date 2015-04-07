@@ -9,7 +9,7 @@ PRODUCERS = 2
 CONSUMERS = 2
 
 buffer = []
-mutex = threading.RLock()
+mutex = threading.Lock()
 notFull = threading.Semaphore(BUFFER_SIZE)
 notEmpty = threading.Semaphore(0)
 
