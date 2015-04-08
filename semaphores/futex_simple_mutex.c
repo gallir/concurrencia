@@ -29,11 +29,12 @@ int mutex = 0;
 void lock(int *futex) {
     int c = 0;
     __atomic_compare_exchange_n(futex, &c, 1, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
-    if (c != 0) {
-        if (c != 2) {
+
+    if (c != 0) { // There is contention
+        if (c != 2) { // Assign 2 if it was 1 before
             c = __atomic_exchange_n(futex, 2, __ATOMIC_SEQ_CST);
         }
-        while (c != 0) {
+        while (c != 0) { // Wait until is unlocked
             syscall(__NR_futex, futex, FUTEX_WAIT, 2, NULL, 0, 0);
             c = __atomic_exchange_n(futex, 2, __ATOMIC_SEQ_CST);
         }
@@ -42,6 +43,7 @@ void lock(int *futex) {
 
 void unlock(int *futex) {
     if (__atomic_fetch_sub(futex, 1, __ATOMIC_SEQ_CST) != 1) {
+        // There are waiters, wake one
         *futex = 0;
         syscall(__NR_futex, futex, FUTEX_WAKE, 1, NULL, 0, 0);
     }
