@@ -15,8 +15,8 @@ const (
 
 var (
     counter int
-    number uint32
-    turn uint32 = 1 // AddUint32 returns the new value
+    number  uint32
+    turn    uint32 = 1 // AddUint32 returns the new value
 )
 
 func lock() {
@@ -25,7 +25,8 @@ func lock() {
     current = atomic.AddUint32(&number, 1)
     /* We have to use LoadUint32 because there is no volatile vars
        and turn is read from the local cache */
-    for current != atomic.LoadUint32(&turn) {}
+    for current != atomic.LoadUint32(&turn) {
+    }
 }
 
 func unlock() {
@@ -54,5 +55,5 @@ func main() {
         <-done
     }
 
-    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT);
+    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT)
 }

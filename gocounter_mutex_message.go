@@ -18,7 +18,7 @@ var counter = 0
 
 func run(id, counts int, done, mutex chan bool) {
     for i := 0; i < counts; i++ {
-        <- mutex
+        <-mutex
         counter++
         mutex <- true
     }
@@ -40,5 +40,5 @@ func main() {
         <-done
     }
 
-    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT);
+    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT)
 }

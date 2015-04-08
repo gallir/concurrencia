@@ -14,12 +14,13 @@ const (
 )
 
 var (
-    counter = 0
-    mutex int32 = 0
+    counter       = 0
+    mutex   int32 = 0
 )
 
 func lock() {
-    for mutex != 0  || ! atomic.CompareAndSwapInt32(&mutex, 0, 1) {}
+    for mutex != 0 || !atomic.CompareAndSwapInt32(&mutex, 0, 1) {
+    }
 }
 
 func unlock() {
@@ -48,5 +49,5 @@ func main() {
         <-done
     }
 
-    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT);
+    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT)
 }

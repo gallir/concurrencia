@@ -32,5 +32,5 @@ func main() {
         <-done
     }
 
-    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT);
+    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT)
 }
