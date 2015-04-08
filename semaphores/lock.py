@@ -7,9 +7,10 @@ THREADS = 4
 MAX_COUNT = 10000000
 
 counter = 0
-mutex = threading.Lock()
+
 
 class MyThread(threading.Thread):
+    mutex = threading.Lock()
     def __init__(self, threadID):
         super(MyThread, self).__init__()
         self.threadID = threadID
@@ -19,9 +20,9 @@ class MyThread(threading.Thread):
         print("Thread {}".format(self.threadID))
 
         for i in range(MAX_COUNT/THREADS):
-            mutex.acquire()
+            MyThread.mutex.acquire()
             counter += 1
-            mutex.release()
+            MyThread.mutex.release()
 
 def main():
     threads = []
