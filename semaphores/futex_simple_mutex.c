@@ -26,12 +26,11 @@ struct simple_futex mutex;
 
 /* Simple FUTEX mutex implementation */
 void lock(struct simple_futex *futex) {
-    int c;
+    int local;
 
     while (1) {
-        c = 0;
-        __atomic_compare_exchange_n(&futex->available, &c, 1, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
-        if (c == 0) return; // No contention
+        local = __atomic_exchange_n(&futex->available, 1, __ATOMIC_SEQ_CST);
+        if (local == 0) return; // No contention
 
         __atomic_fetch_add(&futex->waiters, 1, __ATOMIC_SEQ_CST);
         syscall(__NR_futex, &futex->available, FUTEX_WAIT, 1, NULL, 0, 0);
