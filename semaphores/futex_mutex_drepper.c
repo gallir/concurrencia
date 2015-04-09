@@ -15,34 +15,39 @@ struct tdata {
 
 int counter = 0;
 
-
-struct simple_futex {
-    int available; // it takes 0 or 1
-    int waiters; // The number of processes in the futex queue
-};
-
-struct simple_futex mutex;
+// It's used as futex
+int mutex = 0;
 
 
-/* Simple FUTEX mutex implementation */
-void lock(struct simple_futex *futex) {
-    int c;
+/* Simple FUTEX implementation
+ * based on http://www.akkadia.org/drepper/futex.pdf
+ * It doesn't overflow, values:
+ * 0: unlocked
+ * 1: locked, no waiters
+ * 2: locked, one or more waiters
+ */
+void lock(int *futex) {
+    int c = 0;
 
-    while (1) {
-        c = 0;
-        __atomic_compare_exchange_n(&futex->available, &c, 1, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
-        if (c == 0) return; // No contention
+    __atomic_compare_exchange_n(futex, &c, 1, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
 
-        __atomic_fetch_add(&futex->waiters, 1, __ATOMIC_SEQ_CST);
-        syscall(__NR_futex, &futex->available, FUTEX_WAIT, 1, NULL, 0, 0);
-        __atomic_fetch_sub(&futex->waiters, 1, __ATOMIC_SEQ_CST);
+    if (c == 0) return; // No contention
+
+    if (c != 2) { // Assign 2 if it was 1 before
+        c = __atomic_exchange_n(futex, 2, __ATOMIC_SEQ_CST);
+    }
+
+    while (c != 0) { // Wait until is unlocked
+        syscall(__NR_futex, futex, FUTEX_WAIT, 2, NULL, 0, 0);
+        c = __atomic_exchange_n(futex, 2, __ATOMIC_SEQ_CST);
     }
 }
 
-void unlock(struct simple_futex *futex) {
-    __atomic_store_n(&futex->available, 0, __ATOMIC_RELEASE);
-    if (futex->waiters > 0) {
-        syscall(__NR_futex, &futex->available, FUTEX_WAKE, 1, NULL, 0, 0);
+void unlock(int *futex) {
+    if (__atomic_fetch_sub(futex, 1, __ATOMIC_SEQ_CST) != 1) {
+        // There are waiters, wake one
+        *futex = 0;
+        syscall(__NR_futex, futex, FUTEX_WAKE, 1, NULL, 0, 0);
     }
 }
 /* END FUTEX */
