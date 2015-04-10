@@ -14,10 +14,7 @@ struct tdata {
     int tid;
 };
 
-int counter = 0;
-
 /* Simple FUTEX semaphore with spinlocks */
-
 typedef struct futex_sem {
     unsigned char spinlock;
     int futex;
@@ -66,6 +63,8 @@ void signal(futex_sem_t *sem) {
 
 futex_sem_t mutex = {.value = 1};
 
+int counter = 0;
+
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
     int tid = ((struct tdata *) ptr)->tid;
@@ -93,11 +92,6 @@ int main (int argc, char *argv[]) {
             exit(-1);
         }
     }
-
-        while (counter < MAX_COUNT) {
-            printf("counter: %d sem: %d\n", counter, mutex.value);
-            sleep(5);
-        }
 
     for(i=0; i<NUM_THREADS; i++){
         pthread_join(threads[i], NULL);

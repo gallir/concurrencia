@@ -14,35 +14,34 @@ struct tdata {
     int tid;
 };
 
-int counter = 0;
-
-
-struct simple_futex {
+/* Simple fair FUTEX mutex implementation */
+typedef struct simple_futex {
     unsigned number;
     unsigned turn;
-};
-
-struct simple_futex mutex;
+} simple_futex;
 
 
-/* Simple fair FUTEX mutex implementation */
-void lock(struct simple_futex *futex) {
+void lock(simple_futex *futex) {
     unsigned number = __atomic_fetch_add(&futex->number, 1, __ATOMIC_SEQ_CST);
     unsigned turn = futex->turn;
 
     while (number != turn) {
-        syscall(__NR_futex, &futex->turn, FUTEX_WAIT, turn, NULL, 0, 1 << (turn % 32));
+        syscall(__NR_futex, &futex->turn, FUTEX_WAIT, turn, NULL, 0, 0);
         turn = futex->turn;
     }
 }
 
-void unlock(struct simple_futex *futex) {
+void unlock(simple_futex *futex) {
     __atomic_fetch_add(&futex->turn, 1, __ATOMIC_RELEASE);
     if (futex->number >= futex->turn) {
-        syscall(__NR_futex, &futex->turn, FUTEX_WAKE, INT_MAX, NULL, 0,  1 << (futex->turn % 32));
+        syscall(__NR_futex, &futex->turn, FUTEX_WAKE, INT_MAX, NULL, 0, 0);
     }
 }
 /* END FUTEX */
+
+int counter = 0;
+simple_futex mutex;
+
 
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;

@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <linux/futex.h>
 #include <sys/syscall.h>
+#include <limits.h>
 
 #define NUM_THREADS      4
 #define MAX_COUNT 10000000
@@ -13,36 +14,35 @@ struct tdata {
     int tid;
 };
 
-/* Simple FUTEX mutex implementation */
+int counter = 0;
 
-typedef struct simple_futex {
-    int locked; // it takes 0 or 1
-    int waiters; // The number of processes in the futex queue
-} simple_futex;
 
+struct simple_futex {
+    unsigned number;
+    unsigned turn;
+};
+
+struct simple_futex mutex;
+
+
+/* Simple fair FUTEX mutex implementation */
 void lock(struct simple_futex *futex) {
-    int local;
+    unsigned number = __atomic_fetch_add(&futex->number, 1, __ATOMIC_SEQ_CST);
+    unsigned turn = futex->turn;
 
-    while (1) {
-        local = __atomic_exchange_n(&futex->locked, 1, __ATOMIC_SEQ_CST);
-        if (local == 0) return; // No contention
-
-        __atomic_fetch_add(&futex->waiters, 1, __ATOMIC_SEQ_CST);
-        syscall(__NR_futex, &futex->locked, FUTEX_WAIT, 1, NULL, 0, 0);
-        __atomic_fetch_sub(&futex->waiters, 1, __ATOMIC_SEQ_CST);
+    while (number != turn) {
+        syscall(__NR_futex, &futex->turn, FUTEX_WAIT_BITSET, turn, NULL, 0, 1 << (turn % 32));
+        turn = futex->turn;
     }
 }
 
 void unlock(struct simple_futex *futex) {
-    __atomic_store_n(&futex->locked, 0, __ATOMIC_RELEASE);
-    if (futex->waiters > 0) {
-        syscall(__NR_futex, &futex->locked, FUTEX_WAKE, 1, NULL, 0, 0);
+    __atomic_fetch_add(&futex->turn, 1, __ATOMIC_RELEASE);
+    if (futex->number >= futex->turn) {
+        syscall(__NR_futex, &futex->turn, FUTEX_WAKE_BITSET, INT_MAX, NULL, 0,  1 << (futex->turn % 32));
     }
 }
 /* END FUTEX */
-
-struct simple_futex mutex;
-int counter = 0;
 
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;

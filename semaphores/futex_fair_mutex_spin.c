@@ -14,35 +14,47 @@ struct tdata {
     int tid;
 };
 
-int counter = 0;
-
-
-struct simple_futex {
+/* Simple fair FUTEX mutex implementation */
+typedef struct simple_futex {
     unsigned number;
     unsigned turn;
-};
+    unsigned current;
+} simple_futex;
 
-struct simple_futex mutex;
+void lock(simple_futex *futex) {
+    unsigned number = __atomic_fetch_add(&futex->number, 1, __ATOMIC_RELAXED);
+    unsigned turn;
 
+    int tries = 0;
+    while (number != futex->turn && tries < 100) {
+        tries++;
+        sched_yield();
+    }
 
-/* Simple fair FUTEX mutex implementation */
-void lock(struct simple_futex *futex) {
-    unsigned number = __atomic_fetch_add(&futex->number, 1, __ATOMIC_SEQ_CST);
-    unsigned turn = futex->turn;
-
-    while (number != turn) {
+    turn = futex->turn;
+    while (number != (turn = futex->turn)) {
         syscall(__NR_futex, &futex->turn, FUTEX_WAIT, turn, NULL, 0, 0);
         turn = futex->turn;
     }
+    futex->current = number;
 }
 
-void unlock(struct simple_futex *futex) {
-    __atomic_fetch_add(&futex->turn, 1, __ATOMIC_RELEASE);
-    if (futex->number >= futex->turn) {
+void unlock(simple_futex *futex) {
+    int current = __atomic_add_fetch(&futex->turn, 1, __ATOMIC_RELEASE);
+    int tries = 0;
+
+    while (current > futex->current && tries < 100) {
+        tries++;
+    }
+
+    if (current > futex->current) {
         syscall(__NR_futex, &futex->turn, FUTEX_WAKE, INT_MAX, NULL, 0, 0);
     }
 }
 /* END FUTEX */
+
+simple_futex mutex;
+int counter = 0;
 
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
