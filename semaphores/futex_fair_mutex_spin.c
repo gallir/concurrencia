@@ -26,7 +26,7 @@ void lock(simple_futex *futex) {
     unsigned turn;
 
     int tries = 0;
-    while (number > futex->turn && tries < 100) {
+    while (number != futex->turn && tries < 100) {
         tries++;
         sched_yield();
     }
@@ -43,7 +43,7 @@ void unlock(simple_futex *futex) {
     int current = __atomic_add_fetch(&futex->turn, 1, __ATOMIC_RELEASE);
     int tries = 0;
 
-    while (current > futex->current && tries < 100) {
+    while (current != futex->current && tries < 100) {
         tries++;
     }
 

@@ -22,8 +22,8 @@ typedef struct futex_sem {
 } futex_sem_t;
 
 void wait(futex_sem_t *sem) {
-    int value = __atomic_fetch_sub(&sem->value, 1, __ATOMIC_RELAXED);
-    if (value <= 0) {
+    int value = __atomic_sub_fetch(&sem->value, 1, __ATOMIC_RELAXED);
+    if (value < 0) {
         syscall(__NR_futex, &sem->futex, FUTEX_WAIT, sem->futex, NULL, 0, 0);
     }
 }
