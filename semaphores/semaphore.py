@@ -27,7 +27,7 @@ def main():
     threads = []
 
     for i in range(THREADS):
-        t = myThread(i)
+        t = MyThread(i)
         threads.append(t)
 
     # Start all threads
