@@ -26,13 +26,13 @@ void lock(simple_futex *futex) {
     unsigned turn;
 
     int tries = 0;
-    while (number != futex->turn && tries < 100) {
+    while (number > futex->turn && tries < 100) {
         tries++;
         sched_yield();
     }
 
     turn = futex->turn;
-    while (number != (turn = futex->turn)) {
+    while (number != turn) {
         syscall(__NR_futex, &futex->turn, FUTEX_WAIT, turn, NULL, 0, 0);
         turn = futex->turn;
     }

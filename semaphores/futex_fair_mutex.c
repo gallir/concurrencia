@@ -32,8 +32,8 @@ void lock(simple_futex *futex) {
 }
 
 void unlock(simple_futex *futex) {
-    __atomic_fetch_add(&futex->turn, 1, __ATOMIC_RELEASE);
-    if (futex->number >= futex->turn) {
+    int current = __atomic_add_fetch(&futex->turn, 1, __ATOMIC_RELEASE);
+    if (futex->number >= current) {
         syscall(__NR_futex, &futex->turn, FUTEX_WAKE, INT_MAX, NULL, 0, 0);
     }
 }
