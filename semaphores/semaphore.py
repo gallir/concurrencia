@@ -7,27 +7,27 @@ THREADS = 4
 MAX_COUNT = 10000000
 
 
-class MyThread(threading.Thread):
+class Sem(threading.Thread):
     mutex = threading.Semaphore(1)
     counter = 0
 
     def __init__(self, threadID):
-        super(MyThread, self).__init__()
+        super(Sem, self).__init__()
         self.threadID = threadID
 
     def run(self):
         print("Thread {}".format(self.threadID))
 
         for i in range(MAX_COUNT/THREADS):
-            MyThread.mutex.acquire()
-            MyThread.counter += 1
-            MyThread.mutex.release()
+            Sem.mutex.acquire()
+            Sem.counter += 1
+            Sem.mutex.release()
 
 def main():
     threads = []
 
     for i in range(THREADS):
-        t = MyThread(i)
+        t = Sem(i)
         threads.append(t)
 
     # Start all threads
@@ -38,7 +38,7 @@ def main():
     for t in threads:
         t.join()
 
-    print("Counter value: %d Expected: %d\n" % (MyThread.counter, MAX_COUNT))
+    print("Counter value: %d Expected: %d\n" % (Sem.counter, MAX_COUNT))
 
 if __name__ == "__main__":
     main()
