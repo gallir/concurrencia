@@ -6,21 +6,20 @@ import time
 THREADS = 4
 MAX_COUNT = 10000000
 
-counter = 0
-mutex = threading.Lock()
 
 class MyThread(threading.Thread):
+    counter = 0
+    mutex = threading.Lock()
     def __init__(self, threadID):
         super(MyThread, self).__init__()
         self.threadID = threadID
 
     def run(self):
-        global counter
         print("Thread {}".format(self.threadID))
 
         for i in range(MAX_COUNT/THREADS):
-            with mutex:
-                counter += 1
+            with MyThread.mutex:
+                MyThread.counter += 1
 
 def main():
     threads = []
@@ -38,7 +37,7 @@ def main():
     for t in threads:
         t.join()
 
-    print("Counter value: %d Expected: %d\n" % (counter, MAX_COUNT))
+    print("Counter value: %d Expected: %d\n" % (MyThread.counter, MAX_COUNT))
 
 
 if __name__ == "__main__":

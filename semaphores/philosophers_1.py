@@ -6,10 +6,10 @@ import time
 PHILOSOPHERS = 5
 EAT_COUNT = 100
 
-forks = []
-philosophers = []
-
 class Philosopher(threading.Thread):
+    forks = []
+    philosophers = []
+
     def __init__(self, id):
         super(Philosopher, self).__init__()
         self.id = id
@@ -19,15 +19,15 @@ class Philosopher(threading.Thread):
 
     def pickForks(self):
         if self.id < self.right():
-            forks[self.id].acquire()
-            forks[self.right()].acquire()
+            Philosopher.forks[self.id].acquire()
+            Philosopher.forks[self.right()].acquire()
         else:
-            forks[self.right()].acquire()
-            forks[self.id].acquire()
+            Philosopher.forks[self.right()].acquire()
+            Philosopher.forks[self.id].acquire()
 
     def releaseForks(self):
-        forks[self.id].release()
-        forks[self.right()].release()
+        Philosopher.forks[self.id].release()
+        Philosopher.forks[self.right()].release()
 
 
     def think(self):
@@ -49,15 +49,15 @@ def main():
 
     # Initialize forks locks and philosophers threads
     for i in range(PHILOSOPHERS):
-        forks.append(threading.Lock())
-        philosophers.append(Philosopher(i))
+        Philosopher.forks.append(threading.Lock())
+        Philosopher.philosophers.append(Philosopher(i))
 
     # Start all threads
-    for p in philosophers:
+    for p in Philosopher.philosophers:
         p.start()
 
     # Wait for all threads to complete
-    for p in philosophers:
+    for p in Philosopher.philosophers:
         p.join()
 
 

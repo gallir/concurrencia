@@ -16,7 +16,6 @@ class MyThread(threading.Thread):
         self.threadID = threadID
 
     def run(self):
-        global counter
         print("Thread {}".format(self.threadID))
 
         for i in range(MAX_COUNT/THREADS):

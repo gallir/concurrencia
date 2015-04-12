@@ -10,12 +10,12 @@ THINKING = 0
 HUNGRY = 1
 EATING = 2
 
-mutex = threading.Lock()
-status = []
-sync = []
-philosophers = []
-
 class Philosopher(threading.Thread):
+    mutex = threading.Lock()
+    status = []
+    sync = []
+    philosophers = []
+
     def __init__(self, id):
         super(Philosopher, self).__init__()
         self.id = id
@@ -27,23 +27,23 @@ class Philosopher(threading.Thread):
         return (i + 1) % PHILOSOPHERS
 
     def checkNeighbors(self, i):
-        if status[i] == HUNGRY and status[self.left(i)] != EATING and status[self.right(i)] != EATING:
-            status[i] = EATING
-            sync[i].release()
+        if Philosopher.status[i] == HUNGRY and Philosopher.status[self.left(i)] != EATING and Philosopher.status[self.right(i)] != EATING:
+            Philosopher.status[i] = EATING
+            Philosopher.sync[i].release()
 
     def pickForks(self):
-        mutex.acquire()
-        status[self.id] = HUNGRY
+        Philosopher.mutex.acquire()
+        Philosopher.status[self.id] = HUNGRY
         self.checkNeighbors(self.id)
-        mutex.release()
-        sync[self.id].acquire()
+        Philosopher.mutex.release()
+        Philosopher.sync[self.id].acquire()
 
     def releaseForks(self):
-        mutex.acquire()
-        status[self.id] = THINKING
+        Philosopher.mutex.acquire()
+        Philosopher.status[self.id] = THINKING
         self.checkNeighbors(self.left(self.id))
         self.checkNeighbors(self.right(self.id))
-        mutex.release()
+        Philosopher.mutex.release()
 
     def think(self):
         time.sleep(0.05)
@@ -64,16 +64,16 @@ def main():
 
     # Initialize status', sync semaphores and philosophers threads
     for i in range(PHILOSOPHERS):
-        status.append(THINKING)
-        sync.append(threading.Semaphore(0))
-        philosophers.append(Philosopher(i))
+        Philosopher.status.append(THINKING)
+        Philosopher.sync.append(threading.Semaphore(0))
+        Philosopher.philosophers.append(Philosopher(i))
 
     # Start all threads
-    for p in philosophers:
+    for p in Philosopher.philosophers:
         p.start()
 
     # Wait for all threads to complete
-    for p in philosophers:
+    for p in Philosopher.philosophers:
         p.join()
 
 
