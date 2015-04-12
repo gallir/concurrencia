@@ -9,8 +9,8 @@ MAX_COUNT = 10000000
 
 
 class RW(threading.Thread):
-    mutex = threading.Lock()
-    gate = threading.Lock()
+    writer = threading.Lock()
+    mx = threading.Lock()
     readers = 0
 
     counter = 0
@@ -19,24 +19,24 @@ class RW(threading.Thread):
         self.threadID = threadID
 
     def reader_lock(self):
-        RW.gate.acquire()
+        RW.mx.acquire()
         RW.readers += 1
         if RW.readers == 1:
-            RW.mutex.acquire()
-        RW.gate.release()
+            RW.writer.acquire()
+        RW.mx.release()
 
     def reader_unlock(self):
-        RW.gate.acquire()
+        RW.mx.acquire()
         RW.readers -= 1
         if RW.readers == 0:
-            RW.mutex.release()
-        RW.gate.release()
+            RW.writer.release()
+        RW.mx.release()
 
     def writer_lock(self):
-        RW.mutex.acquire()
+        RW.writer.acquire()
 
     def writer_unlock(self):
-        RW.mutex.release()
+        RW.writer.release()
 
     def run(self):
         print("Thread {}".format(self.threadID))
