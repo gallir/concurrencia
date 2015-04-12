@@ -58,7 +58,7 @@ def main():
                 else:
                     print("\t%5.3f" % (sum(l["alg"][a])/len(l["alg"][a]),)),
             except: 
-				print("\t0"),
+                print("\t0"),
         print("\t%d" % (sum(l["cores"].values())))
 
 
