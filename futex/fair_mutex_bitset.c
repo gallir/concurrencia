@@ -40,7 +40,7 @@ void lock(simple_futex_t *futex) {
 void unlock(simple_futex_t *futex) {
     int current = __atomic_add_fetch(&futex->turn, 1, __ATOMIC_RELEASE);
     if (futex->number >= current) {
-        syscall(__NR_futex, &futex->turn, FUTEX_WAKE_BITSET, INT_MAX, NULL, 0,  MASK(current));
+        syscall(__NR_futex, &futex->turn, FUTEX_WAKE_BITSET, INT_MAX, NULL, 0, MASK(current));
     }
 }
 /* END FUTEX */
