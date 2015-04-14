@@ -13,13 +13,7 @@ struct tdata {
     int tid;
 };
 
-int counter = 0;
-
-// It's used as futex
-int mutex = 0;
-
-
-/* Simple FUTEX implementation
+/* Drepper mutex implementation
  * based on http://www.akkadia.org/drepper/futex.pdf
  * It doesn't overflow, values:
  * 0: unlocked
@@ -51,6 +45,13 @@ void unlock(int *futex) {
     }
 }
 /* END FUTEX */
+
+
+int counter = 0;
+
+// It's used as futex
+int mutex = 0;
+
 
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;

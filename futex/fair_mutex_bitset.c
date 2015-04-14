@@ -22,9 +22,9 @@ typedef struct simple_futex {
     unsigned number;
     unsigned turn;
     unsigned current;
-} simple_futex;
+} simple_futex_t;
 
-void lock(simple_futex *futex) {
+void lock(simple_futex_t *futex) {
     unsigned number = __atomic_fetch_add(&futex->number, 1, __ATOMIC_SEQ_CST);
     unsigned turn = futex->turn;
 
@@ -35,7 +35,7 @@ void lock(simple_futex *futex) {
     futex->current = number;
 }
 
-void unlock(simple_futex *futex) {
+void unlock(simple_futex_t *futex) {
     int current = __atomic_add_fetch(&futex->turn, 1, __ATOMIC_RELEASE);
     if (futex->number >= current) {
         syscall(__NR_futex, &futex->turn, FUTEX_WAKE_BITSET, INT_MAX, NULL, 0,  1 << (current % 32));
@@ -43,7 +43,7 @@ void unlock(simple_futex *futex) {
 }
 /* END FUTEX */
 
-simple_futex mutex;
+simple_futex_t mutex;
 int counter = 0;
 
 void *count(void *ptr) {

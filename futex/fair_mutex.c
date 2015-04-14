@@ -18,10 +18,10 @@ struct tdata {
 typedef struct simple_futex {
     unsigned number;
     unsigned turn;
-} simple_futex;
+} simple_futex_t;
 
 
-void lock(simple_futex *futex) {
+void lock(simple_futex_t *futex) {
     unsigned number = __atomic_fetch_add(&futex->number, 1, __ATOMIC_SEQ_CST);
     unsigned turn = futex->turn;
 
@@ -31,7 +31,7 @@ void lock(simple_futex *futex) {
     }
 }
 
-void unlock(simple_futex *futex) {
+void unlock(simple_futex_t *futex) {
     int current = __atomic_add_fetch(&futex->turn, 1, __ATOMIC_RELEASE);
     if (futex->number >= current) {
         syscall(__NR_futex, &futex->turn, FUTEX_WAKE, INT_MAX, NULL, 0, 0);
@@ -40,7 +40,7 @@ void unlock(simple_futex *futex) {
 /* END FUTEX */
 
 int counter = 0;
-simple_futex mutex;
+simple_futex_t mutex;
 
 
 void *count(void *ptr) {

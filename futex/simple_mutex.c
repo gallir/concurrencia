@@ -18,9 +18,9 @@ struct tdata {
 typedef struct simple_futex {
     int locked; // it takes 0 or 1
     int waiters; // The number of processes in the futex queue
-} simple_futex;
+} simple_futex_t;
 
-void lock(struct simple_futex *futex) {
+void lock(simple_futex_t *futex) {
     int local;
 
     while (1) {
@@ -33,7 +33,7 @@ void lock(struct simple_futex *futex) {
     }
 }
 
-void unlock(struct simple_futex *futex) {
+void unlock(simple_futex_t *futex) {
     __atomic_store_n(&futex->locked, 0, __ATOMIC_RELEASE);
     if (futex->waiters > 0) {
         syscall(__NR_futex, &futex->locked, FUTEX_WAKE, 1, NULL, 0, 0);
@@ -41,7 +41,7 @@ void unlock(struct simple_futex *futex) {
 }
 /* END FUTEX */
 
-struct simple_futex mutex;
+simple_futex_t mutex;
 int counter = 0;
 
 void *count(void *ptr) {
