@@ -24,12 +24,14 @@ typedef struct simple_futex {
     unsigned current;
 } simple_futex_t;
 
+#define MASK(N) 1<<((N)%32)
+
 void lock(simple_futex_t *futex) {
     unsigned number = __atomic_fetch_add(&futex->number, 1, __ATOMIC_SEQ_CST);
     unsigned turn = futex->turn;
 
     while (number != turn) {
-        syscall(__NR_futex, &futex->turn, FUTEX_WAIT_BITSET, turn, NULL, 0, 1 << (number % 32));
+        syscall(__NR_futex, &futex->turn, FUTEX_WAIT_BITSET, turn, NULL, 0, MASK(number));
         turn = futex->turn;
     }
     futex->current = number;
@@ -38,7 +40,7 @@ void lock(simple_futex_t *futex) {
 void unlock(simple_futex_t *futex) {
     int current = __atomic_add_fetch(&futex->turn, 1, __ATOMIC_RELEASE);
     if (futex->number >= current) {
-        syscall(__NR_futex, &futex->turn, FUTEX_WAKE_BITSET, INT_MAX, NULL, 0,  1 << (current % 32));
+        syscall(__NR_futex, &futex->turn, FUTEX_WAKE_BITSET, INT_MAX, NULL, 0,  MASK(current));
     }
 }
 /* END FUTEX */
