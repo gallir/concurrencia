@@ -25,7 +25,7 @@ void lock(int i) {
 
     states[i] = 1;
     turn = j;
-    __sync_synchronize(); // Memory barrier
+    __atomic_thread_fence(__ATOMIC_SEQ_CST); // Full memory barrier
     while (states[j] && turn == j);
 }
 
