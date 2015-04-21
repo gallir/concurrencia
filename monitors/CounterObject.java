@@ -1,4 +1,4 @@
-public class Counter implements Runnable {
+public class CounterObject implements Runnable {
     static final int THREADS = 4;
     static final int MAX_COUNT = 10000000;
 
@@ -21,7 +21,7 @@ public class Counter implements Runnable {
         Thread[] threads = new Thread[THREADS];
         int i;
 
-        Counter c = new Counter();
+        CounterObject c = new CounterObject();
 
         for (i=0; i< THREADS; i++) {
             threads[i] = new Thread(c);
