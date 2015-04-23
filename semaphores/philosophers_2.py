@@ -15,10 +15,14 @@ class Philosopher(threading.Thread):
     status = []
     sync = []
     philosophers = []
+    count = 0
 
-    def __init__(self, id):
+    def __init__(self):
         super(Philosopher, self).__init__()
-        self.id = id
+        self.id = Philosopher.count
+        Philosopher.count += 1
+        Philosopher.status.append(THINKING)
+        Philosopher.sync.append(threading.Semaphore(0))
 
     def right(self, i):
         return (i - 1) % PHILOSOPHERS
@@ -62,18 +66,17 @@ class Philosopher(threading.Thread):
 
 def main():
 
-    # Initialize status', sync semaphores and philosophers threads
+    philosophers = []
+
     for i in range(PHILOSOPHERS):
-        Philosopher.status.append(THINKING)
-        Philosopher.sync.append(threading.Semaphore(0))
-        Philosopher.philosophers.append(Philosopher(i))
+        philosophers.append(Philosopher())
 
     # Start all threads
-    for p in Philosopher.philosophers:
+    for p in philosophers:
         p.start()
 
     # Wait for all threads to complete
-    for p in Philosopher.philosophers:
+    for p in philosophers:
         p.join()
 
 

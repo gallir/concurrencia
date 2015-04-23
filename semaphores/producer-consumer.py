@@ -2,53 +2,61 @@
 
 import threading
 import time
+import collections
 
 TO_PRODUCE = 1000
 BUFFER_SIZE = 10
 PRODUCERS = 2
 CONSUMERS = 2
 
-buffer = []
-mutex = threading.Lock()
-notFull = threading.Semaphore(BUFFER_SIZE)
-notEmpty = threading.Semaphore(0)
+class ProducerConsumer(object):
+    def __init__(self, size):
+        self.buffer = collections.deque([], size)
+        self.mutex = threading.Lock()
+        self.notFull = threading.Semaphore(size)
+        self.notEmpty = threading.Semaphore(0)
+
+    def append(self, data):
+        self.notFull.acquire()
+        with self.mutex:
+            self.buffer.append(data)
+        self.notEmpty.release()
+
+    def take(self):
+        self.notEmpty.acquire()
+        with self.mutex:
+            data = self.buffer.popleft()
+        self.notFull.release()
+        return data
 
 
-class Producer(threading.Thread):
-    def run(self):
-        global counter
-        myName = threading.currentThread().getName()
-        print("Producer {}".format(myName))
+def producer(buffer):
+    id = threading.current_thread().name
+    print("Producer {}".format(id))
 
-        for i in range(TO_PRODUCE):
-            data = "{} i: {}".format(myName, i)
-            notFull.acquire()
-            with mutex:
-                buffer.append(data)
-            notEmpty.release()
+    for i in range(TO_PRODUCE):
+        data = "{} i: {}".format(id, i)
+        buffer.append(data)
 
-class Consumer(threading.Thread):
-    def run(self):
-        global counter
-        myName = threading.currentThread().getName()
-        print("Consumer {}".format(myName))
+def consumer(buffer):
+    id = threading.current_thread().name
+    print("Consumer {}".format(id))
 
-        for i in range(TO_PRODUCE):
-            notEmpty.acquire()
-            with mutex:
-                data = buffer.pop(0)
-                print("{} read: {}".format(myName, data))
-            notFull.release()
+    for i in range(TO_PRODUCE):
+        data = buffer.take()
+        print("{} read: {}".format(id, data))
+
 
 def main():
     threads = []
 
+    buffer = ProducerConsumer(BUFFER_SIZE)
     for i in range(CONSUMERS):
-        c = Consumer()
+        c = threading.Thread(target=consumer, args=(buffer,))
         threads.append(c)
 
     for i in range(PRODUCERS):
-        p = Producer()
+        p = threading.Thread(target=producer, args=(buffer,))
         threads.append(p)
 
     # Start all threads

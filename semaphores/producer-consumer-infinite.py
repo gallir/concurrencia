@@ -12,40 +12,36 @@ mutex = threading.Lock()
 notEmpty = threading.Semaphore(0)
 
 
-class Producer(threading.Thread):
-    def run(self):
-        global counter
-        myName = threading.currentThread().getName()
-        print("Producer {}".format(myName))
+def producer():
+    id = threading.current_thread().name
+    print("Producer {}".format(id))
 
-        for i in range(TO_PRODUCE):
-            data = "{} i: {}".format(myName, i)
-            with mutex:
-                buffer.append(data)
-            notEmpty.release()
+    for i in range(TO_PRODUCE):
+        data = "{} i: {}".format(id, i)
+        with mutex:
+            buffer.append(data)
+        notEmpty.release()
 
 
-class Consumer(threading.Thread):
-    def run(self):
-        global counter
-        myName = threading.currentThread().getName()
-        print("Consumer {}".format(myName))
+def consumer():
+    id = threading.current_thread().name
+    print("Consumer {}".format(id))
 
-        for i in range(TO_PRODUCE):
-            notEmpty.acquire()
-            with mutex:
-                data = buffer.pop(0)
-                print("{} read: {}".format(myName, data))
+    for i in range(TO_PRODUCE):
+        notEmpty.acquire()
+        with mutex:
+            data = buffer.pop(0)
+            print("{} read: {}".format(id, data))
 
 def main():
     threads = []
 
     for i in range(CONSUMERS):
-        c = Consumer()
+        c = threading.Thread(target=consumer)
         threads.append(c)
 
     for i in range(PRODUCERS):
-        p = Producer()
+        p = threading.Thread(target=producer)
         threads.append(p)
 
     # Start all threads

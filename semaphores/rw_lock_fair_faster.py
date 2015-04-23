@@ -6,66 +6,66 @@ import time
 THREADS = 4
 MAX_COUNT = 10000000
 
-
-
-class RW(threading.Thread):
-    writer = threading.Lock()
-    entry = threading.Lock()
-    exit = threading.Lock()
-
-    readers_in = 0
-    readers_out = 0
-    wait = False
-
-    counter = 0
-    def __init__(self, threadID):
-        super(RW, self).__init__()
-        self.threadID = threadID
+class ReaderWriterFaster(object):
+    def __init__(self):
+        self.writer = threading.Lock()
+        self.mx = threading.Lock()
+        self.entry = threading.Lock()
+        self.exit = threading.Lock()
+        self.readers_in = 0
+        self.readers_out = 0
+        self.wait = False
 
     def reader_lock(self):
-        RW.entry.acquire()
-        RW.readers_in += 1
-        RW.entry.release()
+        self.entry.acquire()
+        self.readers_in += 1
+        self.entry.release()
 
     def reader_unlock(self):
-        RW.exit.acquire()
-        RW.readers_out += 1
-        if RW.wait and RW.readers_in == RW.readers_out:
-            RW.writer.release()
-        RW.exit.release()
+        self.exit.acquire()
+        self.readers_out += 1
+        if self.wait and self.readers_in == self.readers_out:
+            self.writer.release()
+        self.exit.release()
 
     def writer_lock(self):
-        RW.entry.acquire()
-        RW.exit.acquire()
-        if RW.readers_in == RW.readers_out:
-            RW.exit.release()
+        self.entry.acquire()
+        self.exit.acquire()
+        if self.readers_in == self.readers_out:
+            self.exit.release()
         else:
-            RW.wait = True
-            RW.exit.release()
-            RW.writer.acquire()
-            RW.wait = False
+            self.wait = True
+            self.exit.release()
+            self.writer.acquire()
+            self.wait = False
 
     def writer_unlock(self):
-        RW.entry.release()
+        self.entry.release()
 
-    def run(self):
-        print("Thread {}".format(self.threadID))
 
-        for i in range(MAX_COUNT/THREADS):
-            if i % 10:
-                self.reader_lock()
-                c = RW.counter
-                self.reader_unlock()
-            else:
-                self.writer_lock()
-                RW.counter += 1
-                self.writer_unlock()
+counter = 0
+
+def thread(rw):
+    global counter
+
+    print("Thread {}".format(threading.current_thread().name))
+
+    for i in range(MAX_COUNT/THREADS):
+        if i % 10:
+            rw.reader_lock()
+            c = counter
+            rw.reader_unlock()
+        else:
+            rw.writer_lock()
+            counter += 1
+            rw.writer_unlock()
 
 def main():
     threads = []
+    rw = ReaderWriterFaster()
 
     for i in range(THREADS):
-        t = RW(i)
+        t = threading.Thread(target=thread, args=(rw,))
         threads.append(t)
 
     # Start all threads
@@ -76,7 +76,7 @@ def main():
     for t in threads:
         t.join()
 
-    print("Counter value: %d Expected: %d\n" % (RW.counter, int(MAX_COUNT/10)))
+    print("Counter value: %d Expected: %d\n" % (counter, int(MAX_COUNT/10)))
 
 
 if __name__ == "__main__":

@@ -10,58 +10,55 @@ PHASES  =   20
 """ Note we use mutex not only for incrementing and decrementing counter
     but also for printing, so the text don't get mangled in the console """
 
-class Barrier(threading.Thread):
-    counter = 0
-    mutex = threading.Lock()
-    arrival = threading.Semaphore(1)
-    departure = threading.Semaphore(0)
+class Barrier(object):
+    def __init__(self, n):
+        self.n = n
+        self.counter = 0
+        self.mutex = threading.Lock()
+        self.arrival = threading.Semaphore(1)
+        self.departure = threading.Semaphore(0)
 
-    def __init__(self, threadID):
-        super(Barrier, self).__init__()
-        self.threadID = threadID
+    def barrier(self):
+        self.arrival.acquire()
+        with self.mutex:
+            self.counter += 1
 
-    def barrier(self, n):
-        Barrier.arrival.acquire()
-        with Barrier.mutex:
-            Barrier.counter += 1
-
-        if Barrier.counter < n:
-            Barrier.arrival.release()
+        if self.counter < self.n:
+            self.arrival.release()
         else:
-            Barrier.departure.release()
+            self.departure.release()
 
-        Barrier.departure.acquire()
+        self.departure.acquire()
 
-        with Barrier.mutex:
-            Barrier.counter -= 1
+        with self.mutex:
+            self.counter -= 1
 
-        if Barrier.counter > 0:
-            Barrier.departure.release()
+        if self.counter > 0:
+            self.departure.release()
         else:
-            Barrier.arrival.release()
+            self.arrival.release()
 
 
-    def run(self):
-        with Barrier.mutex:
-            print("Start thread {}".format(self.threadID))
 
-        for i in range(PHASES):
-            time.sleep(random.random())
-            self.barrier(THREADS)
-            with Barrier.mutex:
-                print("{} finished phase {}".format(self.threadID, i))
+def thread(barrier):
+    id = threading.current_thread().name
+    print("Start thread {}".format(id))
 
-        self.barrier(THREADS)
-        with Barrier.mutex:
-            print("Finished thread {}".format(self.threadID))
+    for i in range(PHASES):
+        time.sleep(random.random())
+        barrier.barrier()
+        print("{} finished phase {}".format(id, i))
 
+    barrier.barrier()
+    print("Finished thread {}".format(id))
 
 def main():
     threads = []
+    barrier = Barrier(THREADS)
 
     for i in range(THREADS):
         # Create new threads
-        t = Barrier(i)
+        t = threading.Thread(target=thread, args=(barrier,))
         threads.append(t)
 
     # Start all threads

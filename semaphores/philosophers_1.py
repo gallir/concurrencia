@@ -8,11 +8,13 @@ EAT_COUNT = 100
 
 class Philosopher(threading.Thread):
     forks = []
-    philosophers = []
+    count = 0
 
-    def __init__(self, id):
+    def __init__(self):
         super(Philosopher, self).__init__()
-        self.id = id
+        self.id = Philosopher.count
+        Philosopher.count += 1
+        Philosopher.forks.append(threading.Lock())
 
     def right(self):
         return (self.id + 1) % PHILOSOPHERS
@@ -46,18 +48,17 @@ class Philosopher(threading.Thread):
             self.releaseForks()
 
 def main():
+    philosophers = []
 
-    # Initialize forks locks and philosophers threads
     for i in range(PHILOSOPHERS):
-        Philosopher.forks.append(threading.Lock())
-        Philosopher.philosophers.append(Philosopher(i))
+        philosophers.append(Philosopher())
 
     # Start all threads
-    for p in Philosopher.philosophers:
+    for p in philosophers:
         p.start()
 
     # Wait for all threads to complete
-    for p in Philosopher.philosophers:
+    for p in philosophers:
         p.join()
 
 

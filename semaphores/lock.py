@@ -7,27 +7,24 @@ THREADS = 4
 MAX_COUNT = 10000000
 
 
+counter = 0
+mutex = threading.Lock()
 
-class Lock(threading.Thread):
-    mutex = threading.Lock()
-    counter = 0
-    def __init__(self, threadID):
-        super(Lock, self).__init__()
-        self.threadID = threadID
+def thread():
+    global counter
 
-    def run(self):
-        print("Thread {}".format(self.threadID))
+    print("Thread {}".format(threading.current_thread().name))
 
-        for i in range(MAX_COUNT/THREADS):
-            Lock.mutex.acquire()
-            Lock.counter += 1
-            Lock.mutex.release()
+    for i in range(MAX_COUNT/THREADS):
+        mutex.acquire()
+        counter += 1
+        mutex.release()
 
 def main():
     threads = []
 
     for i in range(THREADS):
-        t = Lock(i)
+        t = threading.Thread(target=thread)
         threads.append(t)
 
     # Start all threads
@@ -38,7 +35,7 @@ def main():
     for t in threads:
         t.join()
 
-    print("Counter value: %d Expected: %d\n" % (Lock.counter, MAX_COUNT))
+    print("Counter value: %d Expected: %d\n" % (counter, MAX_COUNT))
 
 
 if __name__ == "__main__":
