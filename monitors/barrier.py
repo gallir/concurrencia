@@ -7,47 +7,44 @@ import random
 THREADS =   10
 PHASES  =   20
 
-class Barrier(threading.Thread):
-    arrived = 0
-    mutex = threading.Lock()
-    allArrived = threading.Condition(mutex)
+class Barrier(object):
+    def __init__(self, n):
+        self.arrived = 0
+        self.n = n
+        self.mutex = threading.Lock()
+        self.allArrived = threading.Condition(self.mutex)
 
-    def __init__(self, threadID):
-        super(Barrier, self).__init__()
-        self.threadID = threadID
+    def barrier(self):
+        with self.mutex:
+            self.arrived += 1
 
-    def barrier(self, n):
-        with Barrier.mutex:
-            Barrier.arrived += 1
-
-            if Barrier.arrived == n:
-                Barrier.arrived = 0
-                Barrier.allArrived.notify_all()
+            if self.arrived == self.n:
+                self.arrived = 0
+                self.allArrived.notify_all()
             else:
-                Barrier.allArrived.wait()
+                self.allArrived.wait()
 
 
-    def run(self):
-        with Barrier.mutex:
-            print("Start thread {}".format(self.threadID))
+def thread(barrier):
+    id = threading.current_thread().name
+    print("Start thread {}".format(id))
 
-        for i in range(PHASES):
-            time.sleep(random.random())
-            self.barrier(THREADS)
-            with Barrier.mutex:
-                print("{} finished phase {}".format(self.threadID, i))
+    for i in range(PHASES):
+        time.sleep(random.random())
+        barrier.barrier()
+        print("{} finished phase {}".format(id, i))
 
-        self.barrier(THREADS)
-        with Barrier.mutex:
-            print("Finished thread {}".format(self.threadID))
+    barrier.barrier()
+    print("Finished thread {}".format(id))
 
 
 def main():
     threads = []
 
+    barrier = Barrier(THREADS)
     for i in range(THREADS):
         # Create new threads
-        t = Barrier(i)
+        t = threading.Thread(target=thread, args=(barrier,))
         threads.append(t)
 
     # Start all threads

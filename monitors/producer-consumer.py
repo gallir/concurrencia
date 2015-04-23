@@ -9,57 +9,57 @@ BUFFER_SIZE = 10
 PRODUCERS = 2
 CONSUMERS = 2
 
-buffer = collections.deque([], BUFFER_SIZE)
-mutex = threading.Lock()
-notFull = threading.Condition(mutex)
-notEmpty = threading.Condition(mutex)
 
+class ProducerConsumer(object):
+    def __init__(self, size):
+        self.buffer = collections.deque([], size)
+        self.mutex = threading.Lock()
+        self.notFull = threading.Condition(self.mutex)
+        self.notEmpty = threading.Condition(self.mutex)
 
-class Producer(threading.Thread):
     def append(self, data):
-        with mutex:
-            while len(buffer) == buffer.maxlen:
-                notFull.wait()
-            buffer.append(data)
-            notEmpty.notify()
+        with self.mutex:
+            while len(self.buffer) == self.buffer.maxlen:
+                self.notFull.wait()
+            self.buffer.append(data)
+            self.notEmpty.notify()
 
-    def run(self):
-        global counter
-        myName = threading.currentThread().getName()
-        print("Producer {}".format(myName))
-
-        for i in range(TO_PRODUCE):
-            data = "{} i: {}".format(myName, i)
-            self.append(data)
-
-class Consumer(threading.Thread):
     def take(self):
-        with mutex:
-            while not buffer:
-                notEmpty.wait()
-            data = buffer.popleft()
-            notFull.notify()
+        with self.mutex:
+            while not self.buffer:
+                self.notEmpty.wait()
+            data = self.buffer.popleft()
+            self.notFull.notify()
         return data
 
 
-    def run(self):
-        global counter
-        myName = threading.currentThread().getName()
-        print("Consumer {}".format(myName))
+def producer(buffer):
+    id = threading.current_thread().name
+    print("Producer {}".format(id))
 
-        for i in range(TO_PRODUCE):
-            data = self.take()
-            print("{} read: {}".format(myName, data))
+    for i in range(TO_PRODUCE):
+        data = "{} i: {}".format(id, i)
+        buffer.append(data)
+
+def consumer(buffer):
+    id = threading.current_thread().name
+    print("Consumer {}".format(id))
+
+    for i in range(TO_PRODUCE):
+        data = buffer.take()
+        print("{} read: {}".format(id, data))
+
 
 def main():
     threads = []
 
+    buffer = ProducerConsumer(BUFFER_SIZE)
     for i in range(CONSUMERS):
-        c = Consumer()
+        c = threading.Thread(target=consumer, args=(buffer,))
         threads.append(c)
 
     for i in range(PRODUCERS):
-        p = Producer()
+        p = threading.Thread(target=producer, args=(buffer,))
         threads.append(p)
 
     # Start all threads
