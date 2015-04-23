@@ -30,7 +30,7 @@ class ProducerConsumer(object):
                 self.notEmpty.wait()
             data = self.buffer.popleft()
             self.notFull.notify()
-        return data
+            return data
 
 
 def producer(buffer):

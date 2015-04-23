@@ -9,7 +9,7 @@ MAX_COUNT = 10000000
 class ReaderWriter(object):
     def __init__(self):
         self.readers = 0
-        self.writers = 0
+        self.writing = False
         self.mutex = threading.Lock()
         self.canRead = threading.Condition(self.mutex)
         self.canWrite = threading.Condition(self.mutex)
@@ -17,8 +17,8 @@ class ReaderWriter(object):
 
     def reader_lock(self):
         with self.mutex:
-            if self.writers or self.canWrite._Condition__waiters:
-                self.canWrite.wait()
+            while self.writing:
+                self.canRead.wait()
             self.readers += 1
             self.canRead.notify()
 
@@ -30,18 +30,16 @@ class ReaderWriter(object):
 
     def writer_lock(self):
         with self.mutex:
-            if self.writers or self.readers:
+            while self.writing or self.readers:
                 self.canWrite.wait()
-            self.writers += 1
+            self.writing = True
 
     def writer_unlock(self):
         with self.mutex:
-            self.writers -= 1
-            if not self.canRead._Condition__waiters:
-                self.canWrite.notify()
-            else:
-                self.canRead.notify()
-
+            self.writing = False
+            # we don't give priority to readers or writers
+            self.canRead.notify()
+            self.canWrite.notify()
 
 
 counter = 0

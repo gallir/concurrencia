@@ -15,7 +15,7 @@ public class CounterSemaphore implements Runnable {
     public void run() {
         int max = MAX_COUNT/THREADS;
         System.out.printf("Thread %d\n", id);
-        for (int i =0; i < max; i++) {
+        for (int i = 0; i < max; i++) {
             try {
                 mutex.acquire();
             } catch (InterruptedException e) {}
