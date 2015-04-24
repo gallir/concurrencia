@@ -1,5 +1,3 @@
-// Compiled with gcc -O -pthread -o threads threads.c 
-
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
