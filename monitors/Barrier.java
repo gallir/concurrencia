@@ -34,10 +34,9 @@ public class Barrier implements Runnable {
             } catch (InterruptedException e) {}
 
             barrier(THREADS);
-
             System.out.printf("%d finished phase %d\n", id, i);
         }
-
+        barrier(THREADS);
         System.out.printf("Finished thread %d\n", id);
 
     }
