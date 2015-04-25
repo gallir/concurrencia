@@ -1,6 +1,5 @@
 import java.util.Arrays;
 
-
 public class Philosopher implements Runnable {
     static final int PHILOSOPHERS = 5;
     static final int EAT_COUNT = 100;
@@ -57,11 +56,11 @@ public class Philosopher implements Runnable {
 }
 
 class Table {
-    Boolean forks[];
+    boolean forks[];
 
     public Table(int forks) {
-        this.forks = new Boolean[forks];
-        Arrays.fill(this.forks, Boolean.TRUE);
+        this.forks = new boolean[forks];
+        Arrays.fill(this.forks, true);
     }
 
     synchronized void pickForks(int left, int right) {
@@ -70,13 +69,13 @@ class Table {
                 wait();
             } catch (InterruptedException e) {}
         }
-        forks[left] = Boolean.FALSE;
-        forks[right] = Boolean.FALSE;
+        forks[left] = false;
+        forks[right] = false;
     }
 
     synchronized void releaseForks(int left, int right) {
-        forks[left] = Boolean.TRUE;
-        forks[right] = Boolean.TRUE;
+        forks[left] = true;
+        forks[right] = true;
         notifyAll();
     }
 }
