@@ -41,21 +41,21 @@ public class CounterMutex implements Runnable {
 }
 
 class Mutex {
-    int lock = 0;
+    boolean lock = false;
 
     synchronized void lock() {
-        while (lock != 0) {
+        while (lock) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        lock = 1;
+        lock = true;
     }
 
     synchronized void unlock() {
-        lock = 0;
+        lock = false;
         notify();
     }
 }
