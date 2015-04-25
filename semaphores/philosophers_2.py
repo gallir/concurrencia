@@ -14,7 +14,6 @@ class Philosopher(threading.Thread):
     mutex = threading.Lock()
     status = []
     sync = []
-    philosophers = []
     count = 0
 
     def __init__(self):

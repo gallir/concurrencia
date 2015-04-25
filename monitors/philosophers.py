@@ -6,13 +6,9 @@ import time
 PHILOSOPHERS = 5
 EAT_COUNT = 100
 
-THINKING = 0
-HUNGRY = 1
-EATING = 2
-
 class Philosopher(threading.Thread):
     mutex = threading.Lock()
-    forks = []
+    forks = [] #forks available for each philosopher
     canEat = []
     count = 0
 
@@ -24,8 +20,6 @@ class Philosopher(threading.Thread):
         Philosopher.count += 1
         Philosopher.forks.append(2)
         Philosopher.canEat.append(threading.Condition(Philosopher.mutex))
-
-
 
     def pickForks(self):
         with Philosopher.mutex:
