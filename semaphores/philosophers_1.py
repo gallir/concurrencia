@@ -19,7 +19,7 @@ class Philosopher(threading.Thread):
     def right(self):
         return (self.id + 1) % PHILOSOPHERS
 
-    def pickForks(self):
+    def pick(self):
         if self.id < self.right():
             Philosopher.forks[self.id].acquire()
             Philosopher.forks[self.right()].acquire()
@@ -27,7 +27,7 @@ class Philosopher(threading.Thread):
             Philosopher.forks[self.right()].acquire()
             Philosopher.forks[self.id].acquire()
 
-    def releaseForks(self):
+    def release(self):
         Philosopher.forks[self.id].release()
         Philosopher.forks[self.right()].release()
 
@@ -43,9 +43,9 @@ class Philosopher(threading.Thread):
     def run(self):
         for i in range(EAT_COUNT):
             self.think()
-            self.pickForks()
+            self.pick()
             self.eat()
-            self.releaseForks()
+            self.release()
 
 def main():
     philosophers = []

@@ -34,14 +34,14 @@ class Philosopher(threading.Thread):
             Philosopher.status[i] = EATING
             Philosopher.sync[i].release()
 
-    def pickForks(self):
+    def pick(self):
         Philosopher.mutex.acquire()
         Philosopher.status[self.id] = HUNGRY
         self.checkNeighbors(self.id)
         Philosopher.mutex.release()
         Philosopher.sync[self.id].acquire()
 
-    def releaseForks(self):
+    def release(self):
         Philosopher.mutex.acquire()
         Philosopher.status[self.id] = THINKING
         self.checkNeighbors(self.left(self.id))
@@ -59,9 +59,9 @@ class Philosopher(threading.Thread):
     def run(self):
         for i in range(EAT_COUNT):
             self.think()
-            self.pickForks()
+            self.pick()
             self.eat()
-            self.releaseForks()
+            self.release()
 
 def main():
 

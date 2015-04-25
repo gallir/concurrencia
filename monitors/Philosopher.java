@@ -32,9 +32,9 @@ public class Philosopher implements Runnable {
     public void run() {
         for (int i = 0; i < EAT_COUNT; i++) {
             think();
-            table.pickForks(leftFork, rightFork);
+            table.pick(leftFork, rightFork);
             eat();
-            table.releaseForks(leftFork, rightFork);
+            table.release(leftFork, rightFork);
         }
 
     }
@@ -63,7 +63,7 @@ class Table {
         Arrays.fill(this.forks, true);
     }
 
-    synchronized void pickForks(int left, int right) {
+    synchronized void pick(int left, int right) {
         while (! forks[left] || ! forks[right]) {
             try {
                 wait();
@@ -73,7 +73,7 @@ class Table {
         forks[right] = false;
     }
 
-    synchronized void releaseForks(int left, int right) {
+    synchronized void release(int left, int right) {
         forks[left] = true;
         forks[right] = true;
         notifyAll();

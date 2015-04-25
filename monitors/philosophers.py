@@ -21,7 +21,7 @@ class Philosopher(threading.Thread):
         Philosopher.forks.append(2)
         Philosopher.canEat.append(threading.Condition(Philosopher.mutex))
 
-    def pickForks(self):
+    def pick(self):
         with Philosopher.mutex:
             while Philosopher.forks[self.id] != 2:
                 Philosopher.canEat[self.id].wait()
@@ -29,7 +29,7 @@ class Philosopher(threading.Thread):
             Philosopher.forks[self.left] -= 1
             Philosopher.forks[self.right] -= 1
 
-    def releaseForks(self):
+    def release(self):
         with Philosopher.mutex:
             Philosopher.forks[self.left] += 1
             Philosopher.forks[self.right] += 1
@@ -50,9 +50,9 @@ class Philosopher(threading.Thread):
     def run(self):
         for i in range(EAT_COUNT):
             self.think()
-            self.pickForks()
+            self.pick()
             self.eat()
-            self.releaseForks()
+            self.release()
 
 def main():
 
