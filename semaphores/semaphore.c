@@ -34,7 +34,7 @@ int main (int argc, char *argv[]) {
     int rc, i;
     struct tdata id[NUM_THREADS];
 
-    sem_init(&mutex, 0, 1); // Semaphore initialización
+    sem_init(&mutex, 0, 1); // Semaphore initialization
     for(i=0; i<NUM_THREADS; i++){
         id[i].tid = i;
         rc = pthread_create(&threads[i], NULL, count, (void *) &id[i]);

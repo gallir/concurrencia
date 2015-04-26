@@ -5,7 +5,7 @@ public class CounterLock implements Runnable {
     static final int THREADS = 4;
     static final int MAX_COUNT = 10000000;
     static volatile int counter = 0;
-    static Lock mutex = new ReentrantLock(true);
+    static Lock mutex = new ReentrantLock();
     int id;
 
     public CounterLock(int id) {
