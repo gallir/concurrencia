@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class PhilosopherConditions implements Runnable {
-    static final int PHILOSOPHERS = 100;
+    static final int PHILOSOPHERS = 5;
     static final int EAT_COUNT = 100;
     TableConditions table;
     int id;
@@ -81,7 +81,6 @@ class TableConditions {
         lock.lock();
         try {
             while (forks[i] != 2) {
-                System.out.printf("%s wait %d\n", Thread.currentThread().getName(), i);
                 canEat.get(i).await();
             }
             forks[left(i)]--;
