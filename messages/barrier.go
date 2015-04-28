@@ -15,8 +15,9 @@ const (
 type Empty struct{}
 
 type Barrier struct {
-    arrival, departure chan int
-    n                  int
+    arrival   chan int
+    departure chan int
+    n         int
 }
 
 func NewBarrier(value int) *Barrier {

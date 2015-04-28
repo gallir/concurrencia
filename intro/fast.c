@@ -45,7 +45,6 @@ start:
 }
 
 void unlock(int i) {
-    //__atomic_thread_fence(__ATOMIC_SEQ_CST);
     y = -1;
     b[i] = 0;
 }
