@@ -11,29 +11,47 @@ import (
 
 const (
     MAX_COUNT  = 10000000
-    GOROUTINES = 2
+    GOROUTINES = 4
 )
+
+type Empty struct{}
+type Semaphore chan Empty
+
+func NewSemaphore(value int) Semaphore {
+    s := make(Semaphore, 256) // Max
+    for i := 0; i < value; i++ {
+        s <- Empty{}
+    }
+    return s
+}
+
+func (s Semaphore) Wait() {
+    <-s
+}
+
+func (s Semaphore) Signal() {
+    s <- Empty{}
+}
 
 var counter = 0
 
-func run(id, counts int, done, mutex chan bool) {
+func run(id, counts int, done chan Empty, sem Semaphore) {
     for i := 0; i < counts; i++ {
-        <-mutex
+        sem.Wait()
         counter++
-        mutex <- true
+        sem.Signal()
     }
     fmt.Printf("End %d counter: %d\n", id, counter)
-    done <- true
+    done <- Empty{}
 }
 
 func main() {
     runtime.GOMAXPROCS(GOROUTINES)
-    done, mutex := make(chan bool, 1), make(chan bool, 1)
-
-    mutex <- true
+    done := make(chan Empty, 1)
+    sem := NewSemaphore(1)
 
     for i := 0; i < GOROUTINES; i++ {
-        go run(i, MAX_COUNT/GOROUTINES, done, mutex)
+        go run(i, MAX_COUNT/GOROUTINES, done, sem)
     }
 
     for i := 0; i < GOROUTINES; i++ {
