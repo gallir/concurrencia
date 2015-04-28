@@ -1,7 +1,3 @@
-/* Implements mutual exclusion using messages
- * WARN: it works but it's not recommended, it has more overhead that sync/mutex
- */
-
 package main
 
 import (
