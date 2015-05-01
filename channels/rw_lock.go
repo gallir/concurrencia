@@ -34,7 +34,6 @@ func (l RWLock) readerLock() {
         <- l.writer
     }
     l.readers <- readers
-    //fmt.Printf("reader in %d\n", readers)
 }
 
 func (l RWLock) readerUnlock() {
@@ -44,19 +43,14 @@ func (l RWLock) readerUnlock() {
         l.writer <- Empty{}
     }
     l.readers <- readers
-    //fmt.Printf("reader out\n")
-
 }
 
 func (l RWLock) writerLock() {
     <- l.writer
-    //fmt.Printf("writer in\n")
 }
 
 func (l RWLock) writerUnlock() {
     l.writer <- Empty{}
-    //fmt.Printf("writer out\n")
-
 }
 
 var counter = 0
