@@ -24,6 +24,7 @@ type RowResult struct {
 }
 
 func matrix1() [3]Row {
+    /* First matrix */
     var m [DIM]Row
     m[0] = Row{1, 2, 3}
     m[1] = Row{4, 5, 6}
@@ -32,7 +33,8 @@ func matrix1() [3]Row {
 }
 
 func matrix2() [3]Row {
-    var m [3]Row
+    /* Second matrix */
+    var m [DIM]Row
     m[0] = Row{1, 0, 2}
     m[1] = Row{0, 1, 2}
     m[2] = Row{1, 0, 0}
@@ -88,13 +90,12 @@ func main() {
     m1 := matrix1()
     m2 := matrix2()
 
+    /* Create the required channels */
     for i := 0; i < DIM; i++ {
         for j := 0; j < DIM; j++ {
             if i == 0 {
                 /* First row elements need a new a north channel */
                 north[i][j] = make(chan int)
-                /* and a surce for a row of the second matrix */
-                go source(m2[j], north[i][j])
             } else {
                 /* This' north if the south of the above element */
                 north[i][j] = south[i-1][j]
@@ -103,8 +104,6 @@ func main() {
             if j == 0 {
                 /* First column's elements need a new west channel */
                 west[i][j] = make(chan int)
-                /* and also the recipient for the row result */
-                go result(i, west[i][j], done)
             } else {
                 /* otherwise reuse the east channel of the its western element */
                 west[i][j] = east[i][j-1]
@@ -112,8 +111,25 @@ func main() {
 
             east[i][j] = make(chan int)
             south[i][j] = make(chan int)
+        }
+    }
 
-            go multiplier(m1[i][j], north[i][j], east[i][j], south[i][j], west[i][j])
+    /* Now we start the different processes
+     * (in a differente traversals just for clarity
+     * furthermore the channeld could be reused for
+     * additional multiplications )
+    */
+    for i := 0; i < DIM; i++ {
+        for j := 0; j < DIM; j++ {
+            /* The source of the second matrix's rows */
+            if i == 0 {
+                go source(m2[j], north[i][j])
+            }
+
+            /* The recipient for the row result */
+            if j == 0 {
+                go result(i, west[i][j], done)
+            }
 
             /* Last column's elements need a zero sum "provider" */
             if j == DIM-1 {
@@ -124,9 +140,13 @@ func main() {
             if i == DIM-1 {
                 go sink(south[i][j])
             }
+
+            /* This is the one doing the real job */
+            go multiplier(m1[i][j], north[i][j], east[i][j], south[i][j], west[i][j])
         }
     }
 
+    /* Wait for the results */
     var results [DIM]Row
     for i := 0; i < DIM; i++ {
         r := <-done
