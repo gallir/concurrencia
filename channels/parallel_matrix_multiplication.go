@@ -1,3 +1,8 @@
+/* Parallel Matrix Multiplication using synchronous channels
+ * as described by M. Ben-Ari in Principles of Concurrent and Distributed Programming
+ * http://goo.gl/uwXu5H
+ */
+
 package main
 
 import (
@@ -86,16 +91,22 @@ func main() {
     for i := 0; i < DIM; i++ {
         for j := 0; j < DIM; j++ {
             if i == 0 {
+                /* First row elements need a new a north channel */
                 north[i][j] = make(chan int)
+                /* and a surce for a row of the second matrix */
                 go source(m2[j], north[i][j])
             } else {
+                /* This' north if the south of the above element */
                 north[i][j] = south[i-1][j]
             }
 
             if j == 0 {
+                /* First column's elements need a new west channel */
                 west[i][j] = make(chan int)
+                /* and also the recipient for the row result */
                 go result(i, west[i][j], done)
             } else {
+                /* otherwise reuse the east channel of the its western element */
                 west[i][j] = east[i][j-1]
             }
 
@@ -104,10 +115,12 @@ func main() {
 
             go multiplier(m1[i][j], north[i][j], east[i][j], south[i][j], west[i][j])
 
+            /* Last column's elements need a zero sum "provider" */
             if j == DIM-1 {
                 go zero(east[i][j])
             }
 
+            /* And last row's elements need a sink to avoid deadlock */
             if i == DIM-1 {
                 go sink(south[i][j])
             }
