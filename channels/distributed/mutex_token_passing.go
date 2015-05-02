@@ -17,14 +17,13 @@ type Message struct {
 
 const (
     MAX_COUNT  = 10000000
-    NODES = 4
+    NODES      = 4
     GOROUTINES = 4
 )
 
 var counter = 0
 
-
-func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies[NODES]chan [NODES]int) {
+func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies [NODES]chan [NODES]int) {
     var requested [NODES]int
     var granted [NODES]int
     myNumber := 0
@@ -51,12 +50,12 @@ func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies
     /* This is the asynchronous thread to receive requests from othe nodes*/
     receiver := func() {
         for {
-            m := <- requests[id]
+            m := <-requests[id]
             if m.number > requested[m.source] {
                 requested[m.source] = m.number
             }
             mutex.Lock()
-            if haveToken && ! inCS {
+            if haveToken && !inCS {
                 sendToken()
             }
             mutex.Unlock()
@@ -68,7 +67,7 @@ func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies
 
     lock := func() {
         mutex.Lock()
-        if ! haveToken {
+        if !haveToken {
             myNumber++
             mutex.Unlock()
             for i := range requests {
@@ -77,7 +76,7 @@ func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies
                 }
                 requests[i] <- Message{source: id, number: myNumber}
             }
-            granted = <- replies[id]
+            granted = <-replies[id]
             mutex.Lock()
             haveToken = true
         }

@@ -17,12 +17,11 @@ type Message struct {
 
 const (
     MAX_COUNT  = 10000000
-    NODES = 4
+    NODES      = 4
     GOROUTINES = 4
 )
 
 var counter = 0
-
 
 func node(id, counts int, done chan Empty, requests, replies [NODES]chan Message) {
     myNumber := 0
@@ -31,16 +30,15 @@ func node(id, counts int, done chan Empty, requests, replies [NODES]chan Message
     requestCS := false
     mutex := new(sync.Mutex)
 
-
     /* This is the asynchronous thread to receive requests from othe nodes*/
     receiver := func() {
         for {
-            m := <- requests[id]
+            m := <-requests[id]
             mutex.Lock()
             if m.number > highestNum {
                 highestNum = m.number
             }
-            if ! requestCS || (m.number < myNumber ||
+            if !requestCS || (m.number < myNumber ||
                 (m.number == myNumber && m.source < id)) {
                 mutex.Unlock()
                 replies[m.source] <- Message{source: id}
@@ -48,10 +46,8 @@ func node(id, counts int, done chan Empty, requests, replies [NODES]chan Message
                 deferred <- m.source
                 mutex.Unlock()
             }
-
         }
     }
-
 
     // Launch the receiver
     go receiver()
@@ -68,7 +64,7 @@ func node(id, counts int, done chan Empty, requests, replies [NODES]chan Message
             requests[i] <- Message{source: id, number: myNumber}
         }
         for i := 0; i < NODES-1; i++ {
-            <- replies[id]
+            <-replies[id]
         }
     }
 
@@ -77,8 +73,8 @@ func node(id, counts int, done chan Empty, requests, replies [NODES]chan Message
         mutex.Lock()
         n := len(deferred)
         mutex.Unlock()
-        for i:= 0; i < n; i++ {
-            src := <- deferred
+        for i := 0; i < n; i++ {
+            src := <-deferred
             replies[src] <- Message{source: id}
         }
     }

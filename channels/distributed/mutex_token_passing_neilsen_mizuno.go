@@ -1,4 +1,4 @@
-/* The Neilsen-Mizuno token passing distributed  algorithm */
+/* The Neilsen-Mizuno token passing distributed algorithm */
 
 package main
 
@@ -11,19 +11,18 @@ import (
 type Empty struct{}
 
 type Message struct {
-    source int
+    source     int
     originator int
 }
 
 const (
     MAX_COUNT  = 10000000
-    NODES = 4
+    NODES      = 4
     GOROUTINES = 4
-    NONE = -1
+    NONE       = -1
 )
 
 var counter = 0
-
 
 func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies [NODES]chan Empty) {
     var parent int
@@ -42,7 +41,7 @@ func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies
     /* This is the asynchronous thread to receive requests from othe nodes*/
     receiver := func() {
         for {
-            m := <- requests[id]
+            m := <-requests[id]
             mutex.Lock()
             if parent == NONE {
                 if holding {
@@ -64,10 +63,10 @@ func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies
 
     lock := func() {
         mutex.Lock()
-        if ! holding {
+        if !holding {
             requests[parent] <- Message{id, id}
             parent = NONE
-            <- replies[id]
+            <-replies[id]
         }
         holding = false
         mutex.Unlock()

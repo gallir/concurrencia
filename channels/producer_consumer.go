@@ -6,10 +6,10 @@ import (
 )
 
 const (
-    GOROUTINES = 4
-    TO_PRODUCE = 1000
-    PRODUCERS = 2
-    CONSUMERS = 2
+    GOROUTINES  = 4
+    TO_PRODUCE  = 1000
+    PRODUCERS   = 2
+    CONSUMERS   = 2
     BUFFER_SIZE = 10
 )
 
@@ -17,7 +17,7 @@ type Empty struct{}
 
 func consumer(id int, done chan Empty, buffer chan string) {
     for i := 0; i < TO_PRODUCE; i++ {
-        data := <- buffer
+        data := <-buffer
         fmt.Printf("%d read: %s\n", id, data)
     }
     done <- Empty{}

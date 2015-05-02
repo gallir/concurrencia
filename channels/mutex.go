@@ -24,7 +24,7 @@ func NewMutex() Mutex {
 }
 
 func (m Mutex) Lock() {
-    <- m
+    <-m
 }
 
 func (m Mutex) Unlock() {

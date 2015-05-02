@@ -14,7 +14,7 @@ const (
 
 type Empty struct{}
 type RWLock struct {
-    writer chan Empty
+    writer  chan Empty
     readers chan int
 }
 
@@ -28,16 +28,16 @@ func NewRWLock() RWLock {
 }
 
 func (l RWLock) readerLock() {
-    readers := <- l.readers
+    readers := <-l.readers
     readers++
     if readers == 1 {
-        <- l.writer
+        <-l.writer
     }
     l.readers <- readers
 }
 
 func (l RWLock) readerUnlock() {
-    readers := <- l.readers
+    readers := <-l.readers
     readers--
     if readers == 0 {
         l.writer <- Empty{}
@@ -46,7 +46,7 @@ func (l RWLock) readerUnlock() {
 }
 
 func (l RWLock) writerLock() {
-    <- l.writer
+    <-l.writer
 }
 
 func (l RWLock) writerUnlock() {
@@ -57,7 +57,7 @@ var counter = 0
 
 func run(id, counts int, done chan Empty, rwlock RWLock) {
     for i := 0; i < counts; i++ {
-        if i % 10 > 0 {
+        if i%10 > 0 {
             rwlock.readerLock()
             // c := counter
             rwlock.readerUnlock()

@@ -118,7 +118,7 @@ func main() {
      * (in a differente traversals just for clarity
      * furthermore the channeld could be reused for
      * additional multiplications )
-    */
+     */
     for i := 0; i < DIM; i++ {
         for j := 0; j < DIM; j++ {
             /* The source of the second matrix's rows */
