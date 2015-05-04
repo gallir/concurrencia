@@ -5,15 +5,14 @@ import (
 )
 
 const (
-    PHASES     = 20
+    PHASES = 20
 )
-
 
 func A(done, a, b chan bool) {
     for i := 0; i < PHASES; i++ {
         a <- true
         fmt.Println("A finished phase", i)
-        <- b
+        <-b
     }
     fmt.Println("Finished thread A")
     done <- true
@@ -21,14 +20,13 @@ func A(done, a, b chan bool) {
 
 func B(done, a, b chan bool) {
     for i := 0; i < PHASES; i++ {
-        <- a
+        <-a
         b <- true
         fmt.Println("B finished phase", i)
     }
     fmt.Println("Finished thread B")
     done <- true
 }
-
 
 func main() {
     done := make(chan bool)
@@ -38,8 +36,8 @@ func main() {
     go A(done, a, b)
     go B(done, a, b)
 
-    <- done
-    <- done
+    <-done
+    <-done
 
     fmt.Printf("End\n")
 }
