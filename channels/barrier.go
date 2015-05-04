@@ -8,6 +8,7 @@ import (
 )
 
 const (
+    PROCS      = 4
     PHASES     = 20
     GOROUTINES = 10
 )
@@ -65,7 +66,7 @@ func run(id int, done chan Empty, b *Barrier) {
 }
 
 func main() {
-    runtime.GOMAXPROCS(GOROUTINES)
+    runtime.GOMAXPROCS(PROCS)
     done := make(chan Empty, 1)
     barrier := NewBarrier(GOROUTINES)
 

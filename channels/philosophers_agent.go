@@ -7,7 +7,7 @@ import (
 )
 
 const (
-    GOROUTINES   = 10
+    PROCS        = 4
     PHILOSOPHERS = 5
     EAT_COUNT    = 100
 
@@ -94,7 +94,7 @@ func table(channel chan PhiloInfo) {
 }
 
 func main() {
-    runtime.GOMAXPROCS(GOROUTINES)
+    runtime.GOMAXPROCS(PROCS)
     done := make(chan Empty, 1)
     tableChan := make(chan PhiloInfo)
 

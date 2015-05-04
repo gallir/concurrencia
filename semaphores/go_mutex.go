@@ -9,6 +9,7 @@ import (
 )
 
 const (
+    PROCS      = 4
     MAX_COUNT  = 10000000
     GOROUTINES = 4
 )
@@ -26,7 +27,7 @@ func run(id, counts int, done chan bool, mutex *sync.Mutex) {
 }
 
 func main() {
-    runtime.GOMAXPROCS(GOROUTINES)
+    runtime.GOMAXPROCS(PROCS)
     done := make(chan bool, 1)
     mutex := new(sync.Mutex)
 

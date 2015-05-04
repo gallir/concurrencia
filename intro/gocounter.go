@@ -6,6 +6,7 @@ import (
 )
 
 const (
+    PROCS      = 4
     MAX_COUNT  = 10000000
     GOROUTINES = 2
 )
@@ -21,7 +22,7 @@ func run(id, counts int, done chan bool) {
 }
 
 func main() {
-    runtime.GOMAXPROCS(GOROUTINES)
+    runtime.GOMAXPROCS(PROCS)
     done := make(chan bool, 1)
 
     for i := 0; i < GOROUTINES; i++ {

@@ -9,6 +9,7 @@ import (
 )
 
 const (
+    PROCS      = 4
     MAX_COUNT  = 10000000
     GOROUTINES = 4
 )
@@ -20,7 +21,7 @@ var (
 
 func lock() {
     for atomic.SwapInt32(&mutex, 1) == 1 {
-    }   // While it returns 1
+    } // While it returns 1
 }
 
 func unlock() {
@@ -38,7 +39,7 @@ func run(id, counts int, done chan bool) {
 }
 
 func main() {
-    runtime.GOMAXPROCS(GOROUTINES)
+    runtime.GOMAXPROCS(PROCS)
     done := make(chan bool, 1)
 
     for i := 0; i < GOROUTINES; i++ {

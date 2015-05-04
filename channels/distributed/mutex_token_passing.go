@@ -16,9 +16,9 @@ type Message struct {
 }
 
 const (
-    MAX_COUNT  = 10000000
-    NODES      = 4
-    GOROUTINES = 4
+    PROCS     = 4
+    MAX_COUNT = 10000000
+    NODES     = 4
 )
 
 var counter = 0
@@ -103,7 +103,7 @@ func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies
 }
 
 func main() {
-    runtime.GOMAXPROCS(GOROUTINES)
+    runtime.GOMAXPROCS(PROCS)
     done := make(chan Empty, 1)
 
     var requests [NODES]chan Message

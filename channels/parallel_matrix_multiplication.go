@@ -11,8 +11,8 @@ import (
 )
 
 const (
-    GOROUTINES = 9
-    DIM        = 3
+    PROCS = 4
+    DIM   = 3
 )
 
 type Empty struct{}
@@ -79,7 +79,7 @@ func multiplier(first int, north, east, south, west chan int) {
 }
 
 func main() {
-    runtime.GOMAXPROCS(GOROUTINES)
+    runtime.GOMAXPROCS(PROCS)
     done := make(chan RowResult, 1)
 
     var north [DIM][DIM]chan int
