@@ -20,8 +20,12 @@ type Semaphore struct {
 func NewSemaphore(value int) Semaphore {
     var s Semaphore
 
+    if value < 0 {
+        // Don't allow negative initialization
+        value = 0
+    }
     s.value = make(chan int, 1)
-    s.queue = make(chan Empty, 1)
+    s.queue = make(chan Empty, 0)
     s.value <- value
     return s
 }
