@@ -56,14 +56,21 @@ func philosopher(id int, done chan Empty, forks Forks) {
     done <- Empty{}
 }
 
+func fork(id int, ch chan Empty) {
+    for {
+        ch <- Empty{}
+        <-ch
+    }
+}
+
 func main() {
     runtime.GOMAXPROCS(PROCS)
     done := make(chan Empty, 1)
     var forks Forks
 
     for i := range forks {
-        forks[i] = make(chan Empty, 1)
-        forks[i] <- Empty{}
+        forks[i] = make(chan Empty)
+        go fork(i, forks[i])
     }
 
     for i := 0; i < PHILOSOPHERS; i++ {

@@ -25,7 +25,7 @@ func NewSemaphore(value int) Semaphore {
         value = 0
     }
     s.value = make(chan int, 1)
-    s.queue = make(chan Empty, 0)
+    s.queue = make(chan Empty, 1)
     s.value <- value
     return s
 }
@@ -42,10 +42,10 @@ func (s Semaphore) Wait() {
 func (s Semaphore) Signal() {
     v := <-s.value
     v++
+    s.value <- v
     if v <= 0 {
         s.queue <- Empty{}
     }
-    s.value <- v
 }
 
 var counter = 0
