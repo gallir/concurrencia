@@ -14,8 +14,6 @@ struct tdata {
     int tid;
 };
 
-
-
 /* BARRIER by Drepper http://www.akkadia.org/drepper/futex.pdf */
 
 typedef struct barrier {
@@ -87,7 +85,6 @@ void *run(void *ptr) {
 
     barrier_wait(&barrier);
     printf("Finished thread %d\n", tid);
-    pthread_exit(NULL);
 }
 
 int main (int argc, char *argv[]) {
@@ -98,10 +95,6 @@ int main (int argc, char *argv[]) {
     for(i=0; i<NUM_THREADS; i++){
         id[i].tid = i;
         rc = pthread_create(&threads[i], NULL, run, (void *) &id[i]);
-        if (rc){
-            printf("ERROR; return code from pthread_create() is %d\n", rc);
-            exit(-1);
-        }
     }
 
     for(i=0; i<NUM_THREADS; i++){

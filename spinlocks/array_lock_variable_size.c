@@ -13,7 +13,6 @@ struct tdata {
     int tid;
 };
 
-
 uint16_t tail;
 uint8_t *flag;
 unsigned SIZE, PADDING;
@@ -42,9 +41,7 @@ void *count(void *ptr) {
         counter += 1;
         unlock(&my_index);
     }
-
     printf("End %d counter: %d\n", tid, counter);
-    pthread_exit(NULL);
 }
 
 int main (int argc, char *argv[]) {
@@ -63,10 +60,6 @@ int main (int argc, char *argv[]) {
     for(i=0; i<NUM_THREADS; i++){
         id[i].tid = i;
         rc = pthread_create(&threads[i], NULL, count, (void *) &id[i]);
-        if (rc){
-            printf("ERROR; return code from pthread_create() is %d\n", rc);
-            exit(-1);
-        }
     }
 
     for(i=0; i<NUM_THREADS; i++){

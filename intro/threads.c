@@ -17,7 +17,6 @@ void *count(void *ptr) {
     int tid = ((struct tdata *) ptr)->tid;
 
     printf("Hi, I'm thread %d\n", tid);
-    pthread_exit(NULL);
 }
 
 int main (int argc, char *argv[]) {
@@ -36,4 +35,3 @@ int main (int argc, char *argv[]) {
 
     return 0;
 }
-

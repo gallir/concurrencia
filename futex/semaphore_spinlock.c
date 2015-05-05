@@ -34,7 +34,6 @@ void spin_unlock(futex_sem_t *sem) {
     __atomic_store_n(&sem->spinlock, 0, __ATOMIC_RELEASE);
 }
 
-
 void wait(futex_sem_t *sem) {
     spin_lock(sem);
     if (sem->waiters > 0 || sem->value <= 0) {
@@ -74,9 +73,7 @@ void *count(void *ptr) {
         counter += 1;
         signal(&mutex);
     }
-
     printf("End %d counter: %d\n", tid, counter);
-    pthread_exit(NULL);
 }
 
 int main (int argc, char *argv[]) {
@@ -87,10 +84,6 @@ int main (int argc, char *argv[]) {
     for(i=0; i<NUM_THREADS; i++){
         id[i].tid = i;
         rc = pthread_create(&threads[i], NULL, count, (void *) &id[i]);
-        if (rc){
-            printf("ERROR; return code from pthread_create() is %d\n", rc);
-            exit(-1);
-        }
     }
 
     for(i=0; i<NUM_THREADS; i++){

@@ -64,9 +64,7 @@ void *add_elements(void *ptr) {
             printf("Error in %d it shouldn't be empty\n", tid);
         }
     }
-
     printf("End %d\n", tid);
-    pthread_exit(NULL);
 }
 
 int main (int argc, char *argv[]) {

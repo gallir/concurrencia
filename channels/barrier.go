@@ -35,17 +35,16 @@ func (b *Barrier) Barrier() {
     var v int
 
     v = <-b.arrival
-    v--
-    if v > 0 {
+    if v > 1 {
+        v--
         b.arrival <- v
     } else {
         b.departure <- b.n
     }
 
     v = <-b.departure
-
-    v--
-    if v > 0 {
+    if v > 1 {
+        v--
         b.departure <- v
     } else {
         b.arrival <- b.n
@@ -61,7 +60,6 @@ func run(id int, done chan Empty, b *Barrier) {
 
     b.Barrier()
     fmt.Printf("Finished thread %d\n", id)
-
     done <- Empty{}
 }
 
