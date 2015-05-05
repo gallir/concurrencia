@@ -24,38 +24,38 @@ type PhiloInfo struct {
     state int
 }
 
-func think(id int) {
-    time.Sleep(50 * time.Millisecond)
-}
-
-func eat(id int) {
-    fmt.Printf("%d start eat\n", id)
-    time.Sleep(100 * time.Millisecond)
-    fmt.Printf("%d end eat\n", id)
-}
-
-func pick(id int, table chan PhiloInfo, myChan chan Empty) {
-    table <- PhiloInfo{id: id, c: myChan, state: HUNGRY}
-    <-myChan
-}
-
-func release(id int, table chan PhiloInfo, myChan chan Empty) {
-    table <- PhiloInfo{id: id, c: myChan, state: THINKING}
-}
-
-func philosopher(id int, done chan Empty, table chan PhiloInfo) {
+func philosopher(id int, done chan Empty, provider chan PhiloInfo) {
     myChan := make(chan Empty)
 
+    think := func() {
+        time.Sleep(50 * time.Millisecond)
+    }
+
+    eat := func() {
+        fmt.Printf("%d start eat\n", id)
+        time.Sleep(100 * time.Millisecond)
+        fmt.Printf("%d end eat\n", id)
+    }
+
+    pick := func() {
+        provider <- PhiloInfo{id: id, c: myChan, state: HUNGRY}
+        <-myChan
+    }
+
+    release := func() {
+        provider <- PhiloInfo{id: id, c: myChan, state: THINKING}
+    }
+
     for i := 0; i < EAT_COUNT; i++ {
-        think(id)
-        pick(id, table, myChan)
-        eat(id)
-        release(id, table, myChan)
+        think()
+        pick()
+        eat()
+        release()
     }
     done <- Empty{}
 }
 
-func table(channel chan PhiloInfo) {
+func provider(channel chan PhiloInfo) {
     var philosophers [PHILOSOPHERS]PhiloInfo
 
     right := func(i int) int {
@@ -96,12 +96,12 @@ func table(channel chan PhiloInfo) {
 func main() {
     runtime.GOMAXPROCS(PROCS)
     done := make(chan Empty, 1)
-    tableChan := make(chan PhiloInfo)
+    providerChan := make(chan PhiloInfo)
 
-    go table(tableChan)
+    go provider(providerChan)
 
     for i := 0; i < PHILOSOPHERS; i++ {
-        go philosopher(i, done, tableChan)
+        go philosopher(i, done, providerChan)
     }
 
     for i := 0; i < PHILOSOPHERS; i++ {
