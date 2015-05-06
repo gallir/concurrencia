@@ -8,21 +8,20 @@ import (
 
 const (
     PROCS        = 4
-    GOROUTINES   = 10
-    PHILOSOPHERS = 5
-    EAT_COUNT    = 100
+    Philosophers = 5
+    EatCount     = 100
 )
 
 type Empty struct{}
 type Fork chan Empty
-type Forks [PHILOSOPHERS]Fork
+type Forks [Philosophers]Fork
 
 func think(id int) {
     time.Sleep(50 * time.Millisecond)
 }
 
 func right(i int) int {
-    return (i + 1) % PHILOSOPHERS
+    return (i + 1) % Philosophers
 }
 
 func pick(id int, forks Forks) {
@@ -47,7 +46,7 @@ func release(id int, forks Forks) {
 }
 
 func philosopher(id int, done chan Empty, forks Forks) {
-    for i := 0; i < EAT_COUNT; i++ {
+    for i := 0; i < EatCount; i++ {
         think(id)
         pick(id, forks)
         eat(id)
@@ -73,11 +72,11 @@ func main() {
         go fork(forks[i])
     }
 
-    for i := 0; i < PHILOSOPHERS; i++ {
+    for i := 0; i < Philosophers; i++ {
         go philosopher(i, done, forks)
     }
 
-    for i := 0; i < PHILOSOPHERS; i++ {
+    for i := 0; i < Philosophers; i++ {
         <-done
     }
 

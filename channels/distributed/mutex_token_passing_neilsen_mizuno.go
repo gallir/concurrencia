@@ -16,22 +16,22 @@ type Message struct {
 }
 
 const (
-    PROCS     = 4
-    MAX_COUNT = 10000000
-    NODES     = 4
-    NONE      = -1
+    PROCS    = 4
+    MaxCount = 10000000
+    Nodes    = 4
+    None     = -1
 )
 
 var counter = 0
 
-func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies [NODES]chan Empty) {
+func node(id, counts int, done chan Empty, requests [Nodes]chan Message, replies [Nodes]chan Empty) {
     var parent int
     var holding bool
     deferred := -1
 
     if id == 0 {
         holding = true
-        parent = NONE
+        parent = None
     } else {
         holding = false
         parent = 0
@@ -43,7 +43,7 @@ func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies
         for {
             m := <-requests[id]
             mutex.Lock()
-            if parent == NONE {
+            if parent == None {
                 if holding {
                     replies[m.originator] <- Empty{}
                     holding = false
@@ -65,7 +65,7 @@ func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies
         mutex.Lock()
         if !holding {
             requests[parent] <- Message{id, id}
-            parent = NONE
+            parent = None
             <-replies[id]
         }
         holding = false
@@ -74,9 +74,9 @@ func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies
 
     unlock := func() {
         mutex.Lock()
-        if deferred != NONE {
+        if deferred != None {
             replies[deferred] <- Empty{}
-            deferred = NONE
+            deferred = None
         } else {
             holding = true
         }
@@ -97,21 +97,21 @@ func main() {
     runtime.GOMAXPROCS(PROCS)
     done := make(chan Empty, 1)
 
-    var requests [NODES]chan Message
-    var replies [NODES]chan Empty
+    var requests [Nodes]chan Message
+    var replies [Nodes]chan Empty
 
     for i := range replies {
         requests[i] = make(chan Message)
         replies[i] = make(chan Empty)
     }
 
-    for i := 0; i < NODES; i++ {
-        go node(i, MAX_COUNT/NODES, done, requests, replies)
+    for i := 0; i < Nodes; i++ {
+        go node(i, MaxCount/Nodes, done, requests, replies)
     }
 
-    for i := 0; i < NODES; i++ {
+    for i := 0; i < Nodes; i++ {
         <-done
     }
 
-    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT)
+    fmt.Printf("Counter value: %d Expected: %d\n", counter, MaxCount)
 }

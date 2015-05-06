@@ -9,8 +9,8 @@ import (
 
 const (
     PROCS      = 4
-    MAX_COUNT  = 10000000
-    GOROUTINES = 4
+    MaxCount   = 10000000
+    Goroutines = 4
 )
 
 type Empty struct{}
@@ -77,13 +77,13 @@ func main() {
     done := make(chan Empty, 1)
     rwlock := NewRWLock()
 
-    for i := 0; i < GOROUTINES; i++ {
-        go run(i, MAX_COUNT/GOROUTINES, done, rwlock)
+    for i := 0; i < Goroutines; i++ {
+        go run(i, MaxCount/Goroutines, done, rwlock)
     }
 
-    for i := 0; i < GOROUTINES; i++ {
+    for i := 0; i < Goroutines; i++ {
         <-done
     }
 
-    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT/10)
+    fmt.Printf("Counter value: %d Expected: %d\n", counter, MaxCount/10)
 }

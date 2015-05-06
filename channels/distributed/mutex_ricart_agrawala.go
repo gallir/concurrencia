@@ -16,16 +16,16 @@ type Message struct {
 }
 
 const (
-    PROCS     = 4
-    MAX_COUNT = 10000000
-    NODES     = 4
+    PROCS    = 4
+    MaxCount = 10000000
+    Nodes    = 4
 )
 
 var counter = 0
 
-func node(id, counts int, done chan Empty, requests, replies [NODES]chan Message) {
+func node(id, counts int, done chan Empty, requests, replies [Nodes]chan Message) {
     myNumber := 0
-    deferred := make(chan int, NODES)
+    deferred := make(chan int, Nodes)
     highestNum := 0
     requestCS := false
     mutex := new(sync.Mutex)
@@ -63,7 +63,7 @@ func node(id, counts int, done chan Empty, requests, replies [NODES]chan Message
             }
             requests[i] <- Message{source: id, number: myNumber}
         }
-        for i := 0; i < NODES-1; i++ {
+        for i := 0; i < Nodes-1; i++ {
             <-replies[id]
         }
     }
@@ -93,20 +93,20 @@ func main() {
     runtime.GOMAXPROCS(PROCS)
     done := make(chan Empty, 1)
 
-    var requests, replies [NODES]chan Message
+    var requests, replies [Nodes]chan Message
 
     for i := range replies {
         requests[i] = make(chan Message)
         replies[i] = make(chan Message)
     }
 
-    for i := 0; i < NODES; i++ {
-        go node(i, MAX_COUNT/NODES, done, requests, replies)
+    for i := 0; i < Nodes; i++ {
+        go node(i, MaxCount/Nodes, done, requests, replies)
     }
 
-    for i := 0; i < NODES; i++ {
+    for i := 0; i < Nodes; i++ {
         <-done
     }
 
-    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT)
+    fmt.Printf("Counter value: %d Expected: %d\n", counter, MaxCount)
 }

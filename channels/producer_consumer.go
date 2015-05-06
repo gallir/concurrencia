@@ -6,17 +6,17 @@ import (
 )
 
 const (
-    PROCS       = 4
-    TO_PRODUCE  = 1000
-    PRODUCERS   = 2
-    CONSUMERS   = 2
-    BUFFER_SIZE = 10
+    PROCS      = 4
+    ToProduce  = 1000
+    Producers  = 2
+    Consumers  = 2
+    BufferSize = 10
 )
 
 type Empty struct{}
 
 func consumer(id int, done chan Empty, buffer chan string) {
-    for i := 0; i < TO_PRODUCE; i++ {
+    for i := 0; i < ToProduce; i++ {
         data := <-buffer
         fmt.Printf("%d read: %s\n", id, data)
     }
@@ -24,7 +24,7 @@ func consumer(id int, done chan Empty, buffer chan string) {
 }
 
 func producer(id int, done chan Empty, buffer chan string) {
-    for i := 0; i < TO_PRODUCE; i++ {
+    for i := 0; i < ToProduce; i++ {
         data := fmt.Sprintf("%d i: %d", id, i)
         buffer <- data
     }
@@ -33,17 +33,17 @@ func producer(id int, done chan Empty, buffer chan string) {
 func main() {
     runtime.GOMAXPROCS(PROCS)
     done := make(chan Empty, 1)
-    buffer := make(chan string, BUFFER_SIZE)
+    buffer := make(chan string, BufferSize)
 
-    for i := 0; i < PRODUCERS; i++ {
+    for i := 0; i < Producers; i++ {
         go producer(i, done, buffer)
     }
 
-    for i := 0; i < CONSUMERS; i++ {
+    for i := 0; i < Consumers; i++ {
         go consumer(i, done, buffer)
     }
 
-    for i := 0; i < CONSUMERS; i++ {
+    for i := 0; i < Consumers; i++ {
         <-done
     }
 

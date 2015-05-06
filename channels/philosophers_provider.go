@@ -8,23 +8,23 @@ import (
 
 const (
     PROCS        = 4
-    PHILOSOPHERS = 5
-    EAT_COUNT    = 100
+    Philosophers = 5
+    EatCount     = 100
 
-    THINKING = iota
-    HUNGRY
-    EATING
+    Thinking = iota
+    Hungry
+    Eating
 )
 
 type Empty struct{}
 
-type PhiloInfo struct {
-    c     chan Empty
-    id    int
-    state int
+type Request struct {
+    c      chan Empty
+    id     int
+    status int
 }
 
-func philosopher(id int, done chan Empty, provider chan PhiloInfo) {
+func philosopher(id int, done chan Empty, provider chan Request) {
     myChan := make(chan Empty)
 
     think := func() {
@@ -38,15 +38,15 @@ func philosopher(id int, done chan Empty, provider chan PhiloInfo) {
     }
 
     pick := func() {
-        provider <- PhiloInfo{id: id, c: myChan, state: HUNGRY}
+        provider <- Request{id: id, c: myChan, status: Hungry}
         <-myChan
     }
 
     release := func() {
-        provider <- PhiloInfo{id: id, c: myChan, state: THINKING}
+        provider <- Request{id: id, c: myChan, status: Thinking}
     }
 
-    for i := 0; i < EAT_COUNT; i++ {
+    for i := 0; i < EatCount; i++ {
         think()
         pick()
         eat()
@@ -55,36 +55,36 @@ func philosopher(id int, done chan Empty, provider chan PhiloInfo) {
     done <- Empty{}
 }
 
-func provider(channel chan PhiloInfo) {
-    var philosophers [PHILOSOPHERS]PhiloInfo
+func provider(channel chan Request) {
+    var philosophers [Philosophers]Request
 
     right := func(i int) int {
-        return (i + 1) % PHILOSOPHERS
+        return (i + 1) % Philosophers
     }
 
     left := func(i int) int {
-        return (i + PHILOSOPHERS - 1) % PHILOSOPHERS
+        return (i + Philosophers - 1) % Philosophers
     }
 
-    canEat := func(id int) {
-        r := right(id)
-        l := left(id)
-        if philosophers[id].state == HUNGRY &&
-            philosophers[l].state != EATING &&
-            philosophers[r].state != EATING {
-            philosophers[id].state = EATING
-            philosophers[id].c <- Empty{}
+    canEat := func(i int) {
+        r := right(i)
+        l := left(i)
+        if philosophers[i].status == Hungry &&
+            philosophers[l].status != Eating &&
+            philosophers[r].status != Eating {
+            philosophers[i].status = Eating
+            philosophers[i].c <- Empty{}
         }
     }
 
     for i := range philosophers {
-        philosophers[i].state = THINKING
+        philosophers[i].status = Thinking
     }
 
     for {
         m := <-channel
         philosophers[m.id] = m
-        if m.state == HUNGRY {
+        if m.status == Hungry {
             canEat(m.id)
         } else {
             canEat(left(m.id))
@@ -96,15 +96,15 @@ func provider(channel chan PhiloInfo) {
 func main() {
     runtime.GOMAXPROCS(PROCS)
     done := make(chan Empty, 1)
-    providerChan := make(chan PhiloInfo)
+    providerChan := make(chan Request)
 
     go provider(providerChan)
 
-    for i := 0; i < PHILOSOPHERS; i++ {
+    for i := 0; i < Philosophers; i++ {
         go philosopher(i, done, providerChan)
     }
 
-    for i := 0; i < PHILOSOPHERS; i++ {
+    for i := 0; i < Philosophers; i++ {
         <-done
     }
 

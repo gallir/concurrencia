@@ -9,8 +9,8 @@ import (
 
 const (
     PROCS      = 4
-    PHASES     = 20
-    GOROUTINES = 10
+    Phases     = 20
+    Goroutines = 10
 )
 
 type Empty struct{}
@@ -52,7 +52,7 @@ func (b *Barrier) Barrier() {
 }
 
 func run(id int, done chan Empty, b *Barrier) {
-    for i := 0; i < PHASES; i++ {
+    for i := 0; i < Phases; i++ {
         time.Sleep(time.Duration(rand.Intn(1000)) * time.Millisecond)
         b.Barrier()
         fmt.Printf("%d finished phase %d\n", id, i)
@@ -66,13 +66,13 @@ func run(id int, done chan Empty, b *Barrier) {
 func main() {
     runtime.GOMAXPROCS(PROCS)
     done := make(chan Empty, 1)
-    barrier := NewBarrier(GOROUTINES)
+    barrier := NewBarrier(Goroutines)
 
-    for i := 0; i < GOROUTINES; i++ {
+    for i := 0; i < Goroutines; i++ {
         go run(i, done, barrier)
     }
 
-    for i := 0; i < GOROUTINES; i++ {
+    for i := 0; i < Goroutines; i++ {
         <-done
     }
 

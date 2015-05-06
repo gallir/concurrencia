@@ -5,11 +5,11 @@ import (
 )
 
 const (
-    PHASES = 20
+    Phases = 20
 )
 
 func A(done, a, b chan bool) {
-    for i := 0; i < PHASES; i++ {
+    for i := 0; i < Phases; i++ {
         a <- true
         fmt.Println("A finished phase", i)
         <-b
@@ -19,7 +19,7 @@ func A(done, a, b chan bool) {
 }
 
 func B(done, a, b chan bool) {
-    for i := 0; i < PHASES; i++ {
+    for i := 0; i < Phases; i++ {
         b <- true
         fmt.Println("B finished phase", i)
         <-a

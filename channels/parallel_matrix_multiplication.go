@@ -12,12 +12,12 @@ import (
 
 const (
     PROCS = 4
-    DIM   = 3
+    Dim   = 3
 )
 
 type Empty struct{}
-type Row [DIM]int
-type Matrix [DIM]Row
+type Row [Dim]int
+type Matrix [Dim]Row
 type RowResult struct {
     i   int
     row Row
@@ -25,7 +25,7 @@ type RowResult struct {
 
 func matrix1() [3]Row {
     /* First matrix */
-    var m [DIM]Row
+    var m [Dim]Row
     m[0] = Row{1, 2, 3}
     m[1] = Row{4, 5, 6}
     m[2] = Row{7, 8, 9}
@@ -34,7 +34,7 @@ func matrix1() [3]Row {
 
 func matrix2() [3]Row {
     /* Second matrix */
-    var m [DIM]Row
+    var m [Dim]Row
     m[0] = Row{1, 0, 2}
     m[1] = Row{0, 1, 2}
     m[2] = Row{1, 0, 0}
@@ -42,21 +42,21 @@ func matrix2() [3]Row {
 }
 
 func zero(west chan int) {
-    for i := 0; i < DIM; i++ {
+    for i := 0; i < Dim; i++ {
         west <- 0
     }
 }
 
 func sink(north chan int) {
-    for i := 0; i < DIM; i++ {
+    for i := 0; i < Dim; i++ {
         <-north
     }
 }
 
 func result(rowNum int, east chan int, done chan RowResult) {
-    var row [DIM]int
+    var row [Dim]int
 
-    for i := 0; i < DIM; i++ {
+    for i := 0; i < Dim; i++ {
         row[i] = <-east
     }
     done <- RowResult{rowNum, row}
@@ -69,7 +69,7 @@ func source(row Row, south chan int) {
 }
 
 func multiplier(first int, north, east, south, west chan int) {
-    for i := 0; i < DIM; i++ {
+    for i := 0; i < Dim; i++ {
         second := <-north
         sum := <-east
         sum = sum + first*second
@@ -82,17 +82,17 @@ func main() {
     runtime.GOMAXPROCS(PROCS)
     done := make(chan RowResult, 1)
 
-    var north [DIM][DIM]chan int
-    var east [DIM][DIM]chan int
-    var south [DIM][DIM]chan int
-    var west [DIM][DIM]chan int
+    var north [Dim][Dim]chan int
+    var east [Dim][Dim]chan int
+    var south [Dim][Dim]chan int
+    var west [Dim][Dim]chan int
 
     m1 := matrix1()
     m2 := matrix2()
 
     /* Create the required channels */
-    for i := 0; i < DIM; i++ {
-        for j := 0; j < DIM; j++ {
+    for i := 0; i < Dim; i++ {
+        for j := 0; j < Dim; j++ {
             if i == 0 {
                 /* First row elements need a new a north channel */
                 north[i][j] = make(chan int)
@@ -119,8 +119,8 @@ func main() {
      * furthermore the channeld could be reused for
      * additional multiplications )
      */
-    for i := 0; i < DIM; i++ {
-        for j := 0; j < DIM; j++ {
+    for i := 0; i < Dim; i++ {
+        for j := 0; j < Dim; j++ {
             /* The source of the second matrix's rows */
             if i == 0 {
                 go source(m2[j], north[i][j])
@@ -132,12 +132,12 @@ func main() {
             }
 
             /* Last column's elements need a zero sum "provider" */
-            if j == DIM-1 {
+            if j == Dim-1 {
                 go zero(east[i][j])
             }
 
             /* And last row's elements need a sink to avoid deadlock */
-            if i == DIM-1 {
+            if i == Dim-1 {
                 go sink(south[i][j])
             }
 
@@ -147,8 +147,8 @@ func main() {
     }
 
     /* Wait for the results */
-    var results [DIM]Row
-    for i := 0; i < DIM; i++ {
+    var results [Dim]Row
+    for i := 0; i < Dim; i++ {
         r := <-done
         results[r.i] = r.row
     }

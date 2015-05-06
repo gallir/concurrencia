@@ -16,16 +16,16 @@ type Message struct {
 }
 
 const (
-    PROCS     = 4
-    MAX_COUNT = 10000000
-    NODES     = 4
+    PROCS    = 4
+    MaxCount = 10000000
+    Nodes    = 4
 )
 
 var counter = 0
 
-func node(id, counts int, done chan Empty, requests [NODES]chan Message, replies [NODES]chan [NODES]int) {
-    var requested [NODES]int
-    var granted [NODES]int
+func node(id, counts int, done chan Empty, requests [Nodes]chan Message, replies [Nodes]chan [Nodes]int) {
+    var requested [Nodes]int
+    var granted [Nodes]int
     myNumber := 0
     inCS := false
     var haveToken bool
@@ -106,21 +106,21 @@ func main() {
     runtime.GOMAXPROCS(PROCS)
     done := make(chan Empty, 1)
 
-    var requests [NODES]chan Message
-    var replies [NODES]chan [NODES]int
+    var requests [Nodes]chan Message
+    var replies [Nodes]chan [Nodes]int
 
     for i := range replies {
         requests[i] = make(chan Message)
-        replies[i] = make(chan [NODES]int)
+        replies[i] = make(chan [Nodes]int)
     }
 
-    for i := 0; i < NODES; i++ {
-        go node(i, MAX_COUNT/NODES, done, requests, replies)
+    for i := 0; i < Nodes; i++ {
+        go node(i, MaxCount/Nodes, done, requests, replies)
     }
 
-    for i := 0; i < NODES; i++ {
+    for i := 0; i < Nodes; i++ {
         <-done
     }
 
-    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT)
+    fmt.Printf("Counter value: %d Expected: %d\n", counter, MaxCount)
 }
