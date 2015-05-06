@@ -35,9 +35,9 @@ func matrix1() [3]Row {
 func matrix2() [3]Row {
     /* Second matrix */
     var m [Dim]Row
-    m[0] = Row{1, 0, 2}
+    m[0] = Row{1, 2, 3}
     m[1] = Row{0, 1, 2}
-    m[2] = Row{1, 0, 0}
+    m[2] = Row{1, 2, 3}
     return m
 }
 
@@ -68,13 +68,11 @@ func source(row Row, south chan int) {
     }
 }
 
-func multiplier(first int, north, east, south, west chan int) {
+func processor(first int, north, east, south, west chan int) {
     for i := 0; i < Dim; i++ {
         second := <-north
-        sum := <-east
-        sum = sum + first*second
-        west <- sum
         south <- second
+        west <- <-east + first*second
     }
 }
 
@@ -142,7 +140,7 @@ func main() {
             }
 
             /* This is the one doing the real job */
-            go multiplier(m1[i][j], north[i][j], east[i][j], south[i][j], west[i][j])
+            go processor(m1[i][j], north[i][j], east[i][j], south[i][j], west[i][j])
         }
     }
 
