@@ -42,13 +42,13 @@ func matrix2() [3]Row {
 }
 
 func zero(west chan int) {
-    for i := 0; i < Dim; i++ {
+    for {
         west <- 0
     }
 }
 
 func sink(north chan int) {
-    for i := 0; i < Dim; i++ {
+    for {
         <-north
     }
 }
@@ -68,11 +68,12 @@ func source(row Row, south chan int) {
     }
 }
 
-func processor(first int, north, east, south, west chan int) {
-    for i := 0; i < Dim; i++ {
+func multiplier(first int, north, east, south, west chan int) {
+    for {
         second := <-north
         south <- second
-        west <- <-east + first*second
+        sum := <-east 
+        west <- sum + first*second
     }
 }
 
@@ -119,6 +120,10 @@ func main() {
      */
     for i := 0; i < Dim; i++ {
         for j := 0; j < Dim; j++ {
+
+            /* This is the one doing the real job */
+            go multiplier(m1[i][j], north[i][j], east[i][j], south[i][j], west[i][j])
+
             /* The source of the second matrix's rows */
             if i == 0 {
                 go source(m2[j], north[i][j])
@@ -138,9 +143,6 @@ func main() {
             if i == Dim-1 {
                 go sink(south[i][j])
             }
-
-            /* This is the one doing the real job */
-            go processor(m1[i][j], north[i][j], east[i][j], south[i][j], west[i][j])
         }
     }
 
