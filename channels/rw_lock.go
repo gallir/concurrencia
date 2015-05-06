@@ -8,7 +8,7 @@ import (
 )
 
 const (
-    PROCS      = 4
+    Procs      = 4
     MaxCount   = 10000000
     Goroutines = 4
 )
@@ -73,7 +73,7 @@ func run(id, counts int, done chan Empty, rwlock RWLock) {
 }
 
 func main() {
-    runtime.GOMAXPROCS(PROCS)
+    runtime.GOMAXPROCS(Procs)
     done := make(chan Empty, 1)
     rwlock := NewRWLock()
 

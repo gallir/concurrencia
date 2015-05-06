@@ -7,7 +7,7 @@ import (
 )
 
 const (
-    PROCS        = 4
+    Procs        = 4
     Philosophers = 5
     EatCount     = 100
 )
@@ -56,7 +56,7 @@ func philosopher(id int, done chan Empty, forks Forks) {
 }
 
 func main() {
-    runtime.GOMAXPROCS(PROCS)
+    runtime.GOMAXPROCS(Procs)
     done := make(chan Empty, 1)
     var forks Forks
 

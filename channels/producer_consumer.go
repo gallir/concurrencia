@@ -6,7 +6,7 @@ import (
 )
 
 const (
-    PROCS      = 4
+    Procs      = 4
     ToProduce  = 1000
     Producers  = 2
     Consumers  = 2
@@ -31,7 +31,7 @@ func producer(id int, done chan Empty, buffer chan string) {
 }
 
 func main() {
-    runtime.GOMAXPROCS(PROCS)
+    runtime.GOMAXPROCS(Procs)
     done := make(chan Empty, 1)
     buffer := make(chan string, BufferSize)
 

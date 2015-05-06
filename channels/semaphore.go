@@ -6,7 +6,7 @@ import (
 )
 
 const (
-    PROCS      = 4
+    Procs      = 4
     MAX_COUNT  = 10000000
     GOROUTINES = 4
 )
@@ -43,7 +43,7 @@ func run(id, counts int, done chan Empty, sem Semaphore) {
 }
 
 func main() {
-    runtime.GOMAXPROCS(PROCS)
+    runtime.GOMAXPROCS(Procs)
     done := make(chan Empty, 1)
     sem := NewSemaphore(1)
 

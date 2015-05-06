@@ -11,7 +11,7 @@ import (
 )
 
 const (
-    PROCS = 4
+    Procs = 4
     Dim   = 3
 )
 
@@ -79,7 +79,7 @@ func multiplier(first int, north, east, south, west chan int) {
 }
 
 func main() {
-    runtime.GOMAXPROCS(PROCS)
+    runtime.GOMAXPROCS(Procs)
     done := make(chan RowResult, 1)
 
     var north [Dim][Dim]chan int
