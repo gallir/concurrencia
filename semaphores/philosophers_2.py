@@ -29,7 +29,7 @@ class Philosopher(threading.Thread):
     def left(self, i):
         return (i + 1) % PHILOSOPHERS
 
-    def checkNeighbors(self, i):
+    def canEat(self, i):
         if Philosopher.status[i] == HUNGRY and Philosopher.status[self.left(i)] != EATING and Philosopher.status[self.right(i)] != EATING:
             Philosopher.status[i] = EATING
             Philosopher.sync[i].release()
@@ -37,15 +37,15 @@ class Philosopher(threading.Thread):
     def pick(self):
         Philosopher.mutex.acquire()
         Philosopher.status[self.id] = HUNGRY
-        self.checkNeighbors(self.id)
+        self.canEat(self.id)
         Philosopher.mutex.release()
         Philosopher.sync[self.id].acquire()
 
     def release(self):
         Philosopher.mutex.acquire()
         Philosopher.status[self.id] = THINKING
-        self.checkNeighbors(self.left(self.id))
-        self.checkNeighbors(self.right(self.id))
+        self.canEat(self.left(self.id))
+        self.canEat(self.right(self.id))
         Philosopher.mutex.release()
 
     def think(self):
