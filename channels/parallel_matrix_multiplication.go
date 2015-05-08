@@ -72,7 +72,7 @@ func multiplier(first int, north, east, south, west chan int) {
     for {
         second := <-north
         south <- second
-        sum := <-east 
+        sum := <-east
         west <- sum + first*second
     }
 }

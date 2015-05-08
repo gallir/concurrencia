@@ -7,9 +7,9 @@ import (
 )
 
 const (
-    PROCS      = 4
-    MAX_COUNT  = 10000000
-    GOROUTINES = 4
+    Procs      = 4
+    MaxCount   = 10000000
+    Goroutines = 4
 )
 
 var (
@@ -26,16 +26,16 @@ func run(id, counts int, done chan bool) {
 }
 
 func main() {
-    runtime.GOMAXPROCS(PROCS)
+    runtime.GOMAXPROCS(Procs)
     done := make(chan bool, 1)
 
-    for i := 0; i < GOROUTINES; i++ {
-        go run(i, MAX_COUNT/GOROUTINES, done)
+    for i := 0; i < Goroutines; i++ {
+        go run(i, MaxCount/Goroutines, done)
     }
 
-    for i := 0; i < GOROUTINES; i++ {
+    for i := 0; i < Goroutines; i++ {
         <-done
     }
 
-    fmt.Printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT)
+    fmt.Printf("Counter value: %d Expected: %d\n", counter, MaxCount)
 }
