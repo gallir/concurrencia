@@ -2,7 +2,7 @@
 
 import threading
 
-THREADS = 4
+THREADS = 2
 MAX_COUNT = 10000000
 
 counter = 0

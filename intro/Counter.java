@@ -1,5 +1,5 @@
 public class Counter implements Runnable {
-    static final int THREADS = 4;
+    static final int THREADS = 2;
     static final int MAX_COUNT = 10000000;
     static volatile int counter = 0;
     int id;

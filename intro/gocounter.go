@@ -6,7 +6,7 @@ import (
 )
 
 const (
-    Procs      = 4
+    Procs      = 2
     MaxCount   = 10000000
     Goroutines = 2
 )
