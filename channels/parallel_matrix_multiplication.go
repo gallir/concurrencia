@@ -104,7 +104,7 @@ func main() {
                 /* First column's elements need a new west channel */
                 west[i][j] = make(chan int)
             } else {
-                /* otherwise reuse the east channel of the its western element */
+                /* otherwise reuse the east channel of its left neighbour for its western element */
                 west[i][j] = east[i][j-1]
             }
 
@@ -115,7 +115,7 @@ func main() {
 
     /* Now we start the different processes
      * (in a differente traversals just for clarity
-     * furthermore the channeld could be reused for
+     * furthermore the channels could be reused for
      * additional multiplications )
      */
     for i := 0; i < Dim; i++ {
