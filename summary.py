@@ -76,7 +76,7 @@ def alginfo(line):
     return None
 
 def times(line):
-    r = re.match(r'\s*times: +real +0:([\d\.]+), +user +([\d\.]+), +sys ([\d\.]+)', line)
+    r = re.match(r'\s*times: +real +\d:([\d\.]+), +user +([\d\.]+), +sys ([\d\.]+)', line)
     if not r:
         r = re.match(r'\s*real\s+0m([\d\.]+)s\s+user\s+0m([\d\.]+)s\s+sys\s+0m([\d\.]+)s', line)
     if r:
