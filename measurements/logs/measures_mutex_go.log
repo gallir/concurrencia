@@ -1,0 +1,155 @@
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2520M CPU @ 2.50GHz
+stepping	: 7
+microcode	: 0x28
+cpu MHz		: 949.218
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid xsaveopt
+bugs		:
+bogomips	: 4983.79
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2520M CPU @ 2.50GHz
+stepping	: 7
+microcode	: 0x28
+cpu MHz		: 1045.410
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid xsaveopt
+bugs		:
+bogomips	: 4983.79
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2520M CPU @ 2.50GHz
+stepping	: 7
+microcode	: 0x28
+cpu MHz		: 1262.792
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid xsaveopt
+bugs		:
+bogomips	: 4983.79
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2520M CPU @ 2.50GHz
+stepping	: 7
+microcode	: 0x28
+cpu MHz		: 1494.628
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid xsaveopt
+bugs		:
+bogomips	: 4983.79
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+-----------
+
+-- [go_mutex] --
+Counter value: 100000000 Expected: 100000000
+ times: real 0:11.40, user 23.11, sys 0.16
+Counter value: 100000000 Expected: 100000000
+ times: real 0:12.37, user 25.68, sys 0.16
+Counter value: 100000000 Expected: 100000000
+ times: real 0:12.29, user 25.53, sys 0.15
+Counter value: 100000000 Expected: 100000000
+ times: real 0:12.21, user 25.19, sys 0.19
+Counter value: 100000000 Expected: 100000000
+ times: real 0:12.03, user 24.92, sys 0.14
+Counter value: 100000000 Expected: 100000000
+ times: real 0:12.19, user 25.24, sys 0.14
+Counter value: 100000000 Expected: 100000000
+ times: real 0:11.98, user 24.64, sys 0.13
+Counter value: 100000000 Expected: 100000000
+ times: real 0:11.70, user 23.78, sys 0.14
+Counter value: 100000000 Expected: 100000000
+ times: real 0:11.67, user 23.85, sys 0.17
+Counter value: 100000000 Expected: 100000000
+ times: real 0:11.76, user 24.19, sys 0.12
+---
+
+-- [mutex] --
+Counter value: 100000000 Expected: 100000000
+ times: real 0:08.32, user 11.31, sys 1.37
+Counter value: 100000000 Expected: 100000000
+ times: real 0:08.19, user 10.82, sys 1.29
+Counter value: 100000000 Expected: 100000000
+ times: real 0:08.24, user 11.33, sys 1.46
+Counter value: 100000000 Expected: 100000000
+ times: real 0:08.47, user 11.30, sys 1.32
+Counter value: 100000000 Expected: 100000000
+ times: real 0:09.91, user 13.82, sys 2.26
+Counter value: 100000000 Expected: 100000000
+ times: real 0:09.76, user 13.67, sys 2.10
+Counter value: 100000000 Expected: 100000000
+ times: real 0:11.05, user 15.28, sys 2.56
+Counter value: 100000000 Expected: 100000000
+ times: real 0:10.88, user 15.28, sys 2.67
+Counter value: 100000000 Expected: 100000000
+ times: real 0:09.23, user 12.66, sys 1.72
+Counter value: 100000000 Expected: 100000000
+ times: real 0:09.28, user 12.82, sys 1.84
+---
