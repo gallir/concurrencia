@@ -21,7 +21,7 @@ int counter[NUM_THREADS];
 void lock() {
     while(__atomic_exchange_n(&mutex, 1, __ATOMIC_ACQUIRE|__ATOMIC_HLE_ACQUIRE)) {
         _mm_pause(); /* Abort failed transaction */
-     }
+    }
 }
 
 void unlock() {

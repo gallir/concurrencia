@@ -24,7 +24,7 @@ void *count(void *ptr) {
     for (i=0; i < max; i++) {
         __transaction_atomic {
             for (j=0; j<NUM_THREADS; j++) {
-               counter[j]++;
+                counter[j]++;
             }
         }
     }
