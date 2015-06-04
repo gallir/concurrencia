@@ -13,17 +13,21 @@ ifeq ($(findstring armv7l,$(UNAME)),armv7l)
 endif
 
 SOURCES=$(wildcard *.c)
+HEADERS=$(wildcard *.h)
 PROGS=$(patsubst %.c,%,$(SOURCES))
 
 
-all: $(PROGS)
+all: $(PROGS) intel
 
-%: %.c $(STM)
+%: %.c $(STM) $(HEADERS)
 	- $(CC) $(CFLAGS) -o $@ $< $(STM)
 
 $(STM):
 	mkdir -p tinySTM/lib
 	$(MAKE) -C tinySTM
+
+intel:
+	$(MAKE) -C intel clean
 
 EXES=$(basename $(wildcard *.c ))
 

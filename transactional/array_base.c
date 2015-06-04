@@ -15,9 +15,7 @@ int mutex = 0;
 int counter[ARRAY_SIZE];
 
 inline void lock() {
-    while(__atomic_exchange_n(&mutex, 1, __ATOMIC_SEQ_CST)) {
-        PAUSE;
-    }
+    while(__atomic_exchange_n(&mutex, 1, __ATOMIC_SEQ_CST));
 }
 
 inline void unlock() {

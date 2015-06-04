@@ -11,7 +11,7 @@ ifeq ($(findstring armv7l,$(UNAME)),armv7l)
 endif
 
 SOURCES=$(wildcard *.c)
-HEADERS=$(wildcard *.h)
+HEADERS=$(wildcard *.h, ../*.h)
 PROGS=$(patsubst %.c,%,$(SOURCES))
 
 GO_SOURCES=$(wildcard *.go)
