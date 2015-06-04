@@ -1,9 +1,9 @@
 CC=gcc
-CFLAGS=-pthread -fgnu-tm
+CFLAGS=-pthread -fgnu-tm -mrtm
 
 UNAME := $(shell uname -a)
 ifeq ($(findstring x86_64,$(UNAME)),x86_64)
-    CFLAGS += -mcx16
+    CFLAGS += 
 endif
 
 ifeq ($(findstring armv7l,$(UNAME)),armv7l)
@@ -11,6 +11,7 @@ ifeq ($(findstring armv7l,$(UNAME)),armv7l)
 endif
 
 SOURCES=$(wildcard *.c)
+HEADERS=$(wildcard *.h)
 PROGS=$(patsubst %.c,%,$(SOURCES))
 
 GO_SOURCES=$(wildcard *.go)
@@ -21,7 +22,7 @@ JAVA_PROGS=$(patsubst %.java,%.class,$(JAVA_SOURCES))
 
 all: $(PROGS) $(GO_PROGS) $(JAVA_PROGS)
 
-%: %.c
+%: %.c $(HEADERS)
 	- $(CC) $(CFLAGS) -o $@ $<
 
 %.class: %.java

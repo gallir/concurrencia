@@ -6,8 +6,7 @@
 #include <immintrin.h> // For _mm_pause
 
 
-#define NUM_THREADS      4
-#define MAX_COUNT 100000000
+#include "defs.h"
 
 // Just used to send the index of the id
 struct tdata {
@@ -16,32 +15,28 @@ struct tdata {
 
 int mutex = 0;
 
-int counter[NUM_THREADS];
+int counter[ARRAY_SIZE];
 
-void lock() {
+inline void lock() {
     while(__atomic_exchange_n(&mutex, 1, __ATOMIC_ACQUIRE|__ATOMIC_HLE_ACQUIRE)) {
-        _mm_pause(); /* Abort failed transaction */
+        PAUSE;
     }
 }
 
-void unlock() {
+inline void unlock() {
      __atomic_store_n(&mutex, 0, __ATOMIC_RELEASE|__ATOMIC_HLE_RELEASE);
 }
 
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
     int tid = ((struct tdata *) ptr)->tid;
-    int j;
 
     for (i=0; i < max; i++) {
         lock();
-        for (j=0; j<NUM_THREADS; j++) {
-           counter[j]++;
-        }
-
+        counter[i % ARRAY_SIZE]++;
         unlock();
     }
-    printf("End %d counter: %d\n", tid, counter[0]);
+    printf("End %d counter: %d\n", tid, SUM(counter));
 }
 
 int main (int argc, char *argv[]) {
@@ -58,6 +53,6 @@ int main (int argc, char *argv[]) {
         pthread_join(threads[i], NULL);
     }
 
-    printf("Counter value: %d Expected: %d\n", counter[0], MAX_COUNT);
+    printf("Counter value: %d Expected: %d\n", SUM(counter), MAX_COUNT);
     return 0;
 }
