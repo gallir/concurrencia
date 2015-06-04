@@ -1,6 +1,8 @@
 CC=gcc
 CFLAGS=-pthread -fgnu-tm
 
+STM=tinySTM/lib/libstm.a
+
 UNAME := $(shell uname -a)
 ifeq ($(findstring x86_64,$(UNAME)),x86_64)
     CFLAGS += -mcx16
@@ -13,28 +15,21 @@ endif
 SOURCES=$(wildcard *.c)
 PROGS=$(patsubst %.c,%,$(SOURCES))
 
-GO_SOURCES=$(wildcard *.go)
-GO_PROGS=$(patsubst %.go,%,$(GO_SOURCES))
 
-JAVA_SOURCES=$(wildcard *.java)
-JAVA_PROGS=$(patsubst %.java,%.class,$(JAVA_SOURCES))
+all: $(PROGS)
 
-all: $(PROGS) $(GO_PROGS) $(JAVA_PROGS)
+%: %.c $(STM)
+	- $(CC) $(CFLAGS) -o $@ $< $(STM)
 
-%: %.c
-	- $(CC) $(CFLAGS) -o $@ $<
+$(STM):
+	$(MAKE) -C tinySTM
 
-%.class: %.java
-	- javac $<
-
-%: %.go
-	- go build $<
-
-EXES=$(basename $(wildcard *.c *.go ))
+EXES=$(basename $(wildcard *.c ))
 
 .PHONY: clean
 clean:
 	-rm -f $(PROGS) $(EXES) *.class *~
+	$(MAKE) -C tinySTM clean
 
 print-%:
 	@echo $* = $($*)
