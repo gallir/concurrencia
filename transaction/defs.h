@@ -4,7 +4,4 @@
 
 #define SUM(x) ({ int i, sum=0; for (i=0;i<ARRAY_SIZE;i++) sum += x[i]; sum;})
 
-#include <immintrin.h> // For _mm_pause
-#define PAUSE _mm_pause() /* Abort failed transaction */
-
 

@@ -22,6 +22,7 @@ all: $(PROGS)
 	- $(CC) $(CFLAGS) -o $@ $< $(STM)
 
 $(STM):
+	mkdir -p tinySTM/lib
 	$(MAKE) -C tinySTM
 
 EXES=$(basename $(wildcard *.c ))
@@ -30,6 +31,7 @@ EXES=$(basename $(wildcard *.c ))
 clean:
 	-rm -f $(PROGS) $(EXES) *.class *~
 	$(MAKE) -C tinySTM clean
+	$(MAKE) -C intel clean
 
 print-%:
 	@echo $* = $($*)
