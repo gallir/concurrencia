@@ -15,10 +15,8 @@ int counter[ARRAY_SIZE];
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
     int tid = ((struct tdata *) ptr)->tid;
-    int j = 0;
 
     for (i=0; i < max; i++) {
-        j = (j+1) % ARRAY_SIZE;
         __transaction_atomic {
             counter[i % ARRAY_SIZE]++;
         }
