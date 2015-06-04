@@ -1,0 +1,32 @@
+OVERVIEW:
+
+TinySTM is a lightweight but efficient word-based STM implementation.
+This distribution includes three versions of TinySTM: write-back
+(updates are buffered until commit time), write-through (updates are
+directly written to memory), and commit-time locking (locks are only
+acquired upon commit).  The version can be selected by editing the
+makefile, which documents all the different compilation options.
+
+TinySTM compiles and runs on 32 or 64-bit architectures.  It was tested
+on various flavors of Unix, on Mac OS X, and on Windows using cygwin.
+It comes with a few test applications, notably a linked list, a skip
+list, and a red-black tree.
+
+INSTALLATION:
+
+TinySTM requires the atomic_ops library, freely available from
+http://www.hpl.hp.com/research/linux/atomic_ops/.  A stripped-down
+version of the library is included in the TinySTM distribution.  If you
+wish to use another version, you must set the environment variable
+LIBAO_HOME to the installation directory of atomic_ops.
+
+If your system does not support GCC thread-local storage, set the
+environment variable NOTLS to a non-empty value before compilation.
+
+To compile TinySTM libraries, execute 'make' in the main directory.  To
+compile test applications, execute 'make test'.
+
+CONTACT:
+
+    E-mail : tinystm@tinystm.org
+    Web    : http://tinystm.org
