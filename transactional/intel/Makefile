@@ -14,16 +14,13 @@ SOURCES=$(wildcard *.c)
 HEADERS=$(wildcard *.h, ../*.h)
 PROGS=$(patsubst %.c,%,$(SOURCES))
 
-GO_SOURCES=$(wildcard *.go)
-GO_PROGS=$(patsubst %.go,%,$(GO_SOURCES))
+all: $(PROGS) 
 
-JAVA_SOURCES=$(wildcard *.java)
-JAVA_PROGS=$(patsubst %.java,%.class,$(JAVA_SOURCES))
-
-all: $(PROGS) $(GO_PROGS) $(JAVA_PROGS)
+array_rtm_tinystm: array_rtm_tinystm.c $(HEADERS)
+	- $(CC) $(CFLAGS) -o $@ $< ../tinySTM/lib/libstm.a
 
 %: %.c $(HEADERS)
-	- $(CC) $(CFLAGS) -o $@ $<
+	- $(CC) $(CFLAGS) -o $@ $< 
 
 %.class: %.java
 	- javac $<

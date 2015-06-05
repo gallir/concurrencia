@@ -11,6 +11,7 @@ struct tdata {
 };
 
 int mutex = 0;
+int padding[64]; /* To avoid false sharing with counter */
 
 int counter[ARRAY_SIZE];
 
@@ -48,6 +49,6 @@ int main (int argc, char *argv[]) {
         pthread_join(threads[i], NULL);
     }
 
-    printf("Counter value: %d Expected: %d\n", counter[0], MAX_COUNT);
+    printf("Counter value: %d Expected: %d\n", SUM(counter), MAX_COUNT);
     return 0;
 }

@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-pthread -fgnu-tm
+CFLAGS=-pthread -fgnu-tm 
 
 STM=tinySTM/lib/libstm.a
 
@@ -26,12 +26,12 @@ $(STM):
 	mkdir -p tinySTM/lib
 	$(MAKE) -C tinySTM
 
-intel:
-	$(MAKE) -C intel clean
+intel: $(HEADERS)
+	$(MAKE) -C intel 
 
 EXES=$(basename $(wildcard *.c ))
 
-.PHONY: clean
+.PHONY: clean intel
 clean:
 	-rm -f $(PROGS) $(EXES) *.class *~
 	$(MAKE) -C tinySTM clean

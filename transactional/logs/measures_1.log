@@ -1,374 +1,199 @@
-processor	: 0
-vendor_id	: GenuineIntel
-cpu family	: 6
-model		: 60
-model name	: Intel(R) Xeon(R) CPU E3-1246 v3 @ 3.50GHz
-stepping	: 3
-microcode	: 0x19
-cpu MHz		: 3917.812
-cache size	: 8192 KB
-physical id	: 0
-siblings	: 8
-core id		: 0
-cpu cores	: 4
-apicid		: 0
-initial apicid	: 0
-fpu		: yes
-fpu_exception	: yes
-cpuid level	: 13
-wp		: yes
-flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm
-bogomips	: 7000.11
-clflush size	: 64
-cache_alignment	: 64
-address sizes	: 39 bits physical, 48 bits virtual
-power management:
-
-processor	: 1
-vendor_id	: GenuineIntel
-cpu family	: 6
-model		: 60
-model name	: Intel(R) Xeon(R) CPU E3-1246 v3 @ 3.50GHz
-stepping	: 3
-microcode	: 0x19
-cpu MHz		: 3917.812
-cache size	: 8192 KB
-physical id	: 0
-siblings	: 8
-core id		: 1
-cpu cores	: 4
-apicid		: 2
-initial apicid	: 2
-fpu		: yes
-fpu_exception	: yes
-cpuid level	: 13
-wp		: yes
-flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm
-bogomips	: 7000.11
-clflush size	: 64
-cache_alignment	: 64
-address sizes	: 39 bits physical, 48 bits virtual
-power management:
-
-processor	: 2
-vendor_id	: GenuineIntel
-cpu family	: 6
-model		: 60
-model name	: Intel(R) Xeon(R) CPU E3-1246 v3 @ 3.50GHz
-stepping	: 3
-microcode	: 0x19
-cpu MHz		: 3917.812
-cache size	: 8192 KB
-physical id	: 0
-siblings	: 8
-core id		: 2
-cpu cores	: 4
-apicid		: 4
-initial apicid	: 4
-fpu		: yes
-fpu_exception	: yes
-cpuid level	: 13
-wp		: yes
-flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm
-bogomips	: 7000.11
-clflush size	: 64
-cache_alignment	: 64
-address sizes	: 39 bits physical, 48 bits virtual
-power management:
-
-processor	: 3
-vendor_id	: GenuineIntel
-cpu family	: 6
-model		: 60
-model name	: Intel(R) Xeon(R) CPU E3-1246 v3 @ 3.50GHz
-stepping	: 3
-microcode	: 0x19
-cpu MHz		: 3917.812
-cache size	: 8192 KB
-physical id	: 0
-siblings	: 8
-core id		: 3
-cpu cores	: 4
-apicid		: 6
-initial apicid	: 6
-fpu		: yes
-fpu_exception	: yes
-cpuid level	: 13
-wp		: yes
-flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm
-bogomips	: 7000.11
-clflush size	: 64
-cache_alignment	: 64
-address sizes	: 39 bits physical, 48 bits virtual
-power management:
-
-processor	: 4
-vendor_id	: GenuineIntel
-cpu family	: 6
-model		: 60
-model name	: Intel(R) Xeon(R) CPU E3-1246 v3 @ 3.50GHz
-stepping	: 3
-microcode	: 0x19
-cpu MHz		: 3917.812
-cache size	: 8192 KB
-physical id	: 0
-siblings	: 8
-core id		: 0
-cpu cores	: 4
-apicid		: 1
-initial apicid	: 1
-fpu		: yes
-fpu_exception	: yes
-cpuid level	: 13
-wp		: yes
-flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm
-bogomips	: 7000.11
-clflush size	: 64
-cache_alignment	: 64
-address sizes	: 39 bits physical, 48 bits virtual
-power management:
-
-processor	: 5
-vendor_id	: GenuineIntel
-cpu family	: 6
-model		: 60
-model name	: Intel(R) Xeon(R) CPU E3-1246 v3 @ 3.50GHz
-stepping	: 3
-microcode	: 0x19
-cpu MHz		: 3917.812
-cache size	: 8192 KB
-physical id	: 0
-siblings	: 8
-core id		: 1
-cpu cores	: 4
-apicid		: 3
-initial apicid	: 3
-fpu		: yes
-fpu_exception	: yes
-cpuid level	: 13
-wp		: yes
-flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm
-bogomips	: 7000.11
-clflush size	: 64
-cache_alignment	: 64
-address sizes	: 39 bits physical, 48 bits virtual
-power management:
-
-processor	: 6
-vendor_id	: GenuineIntel
-cpu family	: 6
-model		: 60
-model name	: Intel(R) Xeon(R) CPU E3-1246 v3 @ 3.50GHz
-stepping	: 3
-microcode	: 0x19
-cpu MHz		: 3917.812
-cache size	: 8192 KB
-physical id	: 0
-siblings	: 8
-core id		: 2
-cpu cores	: 4
-apicid		: 5
-initial apicid	: 5
-fpu		: yes
-fpu_exception	: yes
-cpuid level	: 13
-wp		: yes
-flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm
-bogomips	: 7000.11
-clflush size	: 64
-cache_alignment	: 64
-address sizes	: 39 bits physical, 48 bits virtual
-power management:
-
-processor	: 7
-vendor_id	: GenuineIntel
-cpu family	: 6
-model		: 60
-model name	: Intel(R) Xeon(R) CPU E3-1246 v3 @ 3.50GHz
-stepping	: 3
-microcode	: 0x19
-cpu MHz		: 3917.812
-cache size	: 8192 KB
-physical id	: 0
-siblings	: 8
-core id		: 3
-cpu cores	: 4
-apicid		: 7
-initial apicid	: 7
-fpu		: yes
-fpu_exception	: yes
-cpuid level	: 13
-wp		: yes
-flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm
-bogomips	: 7000.11
-clflush size	: 64
-cache_alignment	: 64
-address sizes	: 39 bits physical, 48 bits virtual
-power management:
-
 -----------
 
 -- [array_base] --
-End 1 counter: 25001198
-End 0 counter: 50016680
-End 2 counter: 99269672
-End 3 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:06.10, user 19.35, sys 0.00
-End 2 counter: 83924747
-End 0 counter: 84341450
-End 1 counter: 99544565
-End 3 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:11.84, user 46.35, sys 0.00
-End 1 counter: 54871172
-End 3 counter: 62789707
-End 0 counter: 76454705
+End 1 counter: 25001758
+End 0 counter: 63416784
+End 3 counter: 99974084
 End 2 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:08.26, user 29.71, sys 0.00
-End 1 counter: 25071522
-End 3 counter: 50071885
-End 0 counter: 99201343
-End 2 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:06.19, user 19.72, sys 0.00
-End 1 counter: 48353798
-End 0 counter: 72235036
-End 2 counter: 99481312
+ times: real 0:04.66, user 14.63, sys 0.00
+End 0 counter: 93171733
+End 1 counter: 94611272
+End 2 counter: 98217131
 End 3 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:09.42, user 34.03, sys 0.00
+ times: real 0:07.67, user 30.45, sys 0.00
+End 0 counter: 69425575
+End 2 counter: 70206326
+End 1 counter: 99306460
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:05.97, user 22.60, sys 0.00
+End 2 counter: 32346045
+End 1 counter: 55983744
+End 0 counter: 99402604
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:03.63, user 11.63, sys 0.00
+End 3 counter: 31130031
+End 1 counter: 55023779
+End 0 counter: 99774982
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:03.57, user 11.37, sys 0.00
 ---
 
 -- [array_tinystm] --
-End 3 counter: 54774023
-End 2 counter: 68000241
-End 0 counter: 79127894
-End 1 counter: 79747044
-Counter value: 79747044 Expected: 100000000
- times: real 0:11.38, user 39.87, sys 0.00
-End 2 counter: 68105995
-End 1 counter: 70588410
-End 0 counter: 77851253
-End 3 counter: 77966208
-Counter value: 77966208 Expected: 100000000
- times: real 0:12.23, user 46.09, sys 0.00
-End 2 counter: 66237358
-End 3 counter: 68261756
-End 1 counter: 75887342
-End 0 counter: 78170368
-Counter value: 78170368 Expected: 100000000
- times: real 0:11.95, user 44.45, sys 0.00
-End 3 counter: 60932945
-End 2 counter: 61045234
-End 0 counter: 87997590
-End 1 counter: 89500900
-Counter value: 89500900 Expected: 100000000
- times: real 0:10.47, user 38.08, sys 0.00
-End 1 counter: 71438938
-End 3 counter: 71690497
-End 2 counter: 88330739
-End 0 counter: 88373048
-Counter value: 88373048 Expected: 100000000
- times: real 0:11.41, user 43.40, sys 0.00
+End 0 counter: 57957619
+End 1 counter: 75526004
+End 3 counter: 89899566
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:09.72, user 33.47, sys 0.00
+End 0 counter: 70688019
+End 3 counter: 86836631
+End 2 counter: 89559844
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:10.52, user 38.91, sys 0.00
+End 0 counter: 54123153
+End 2 counter: 89695705
+End 3 counter: 91021495
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:10.61, user 37.72, sys 0.00
+End 0 counter: 77743979
+End 2 counter: 92046766
+End 3 counter: 98910752
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:10.86, user 40.68, sys 0.00
+End 2 counter: 73125879
+End 1 counter: 78456748
+End 3 counter: 99099689
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:10.22, user 38.12, sys 0.00
 ---
 
 -- [intel/array_transaction] --
-End 0 counter: 97418124
-End 3 counter: 97928952
-End 2 counter: 99590110
+End 1 counter: 91827017
+End 3 counter: 95486828
+End 0 counter: 99432817
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:07.51, user 16.81, sys 9.85
+End 3 counter: 95371253
+End 1 counter: 96886237
+End 0 counter: 97551035
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:07.61, user 17.08, sys 10.19
+End 0 counter: 97503504
+End 3 counter: 99424268
+End 1 counter: 99715448
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:07.62, user 16.84, sys 10.71
+End 0 counter: 97068997
+End 1 counter: 97112165
+End 3 counter: 97586108
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:07.48, user 16.89, sys 10.09
+End 2 counter: 94579842
+End 0 counter: 95130921
+End 3 counter: 98453595
 End 1 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:07.44, user 17.15, sys 9.67
-End 1 counter: 94039558
-End 0 counter: 95648937
-End 3 counter: 98418832
-End 2 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:07.56, user 16.38, sys 10.60
-End 1 counter: 69550794
-End 0 counter: 96143590
-End 2 counter: 99115172
-End 3 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:06.91, user 14.56, sys 8.66
-End 3 counter: 94736536
-End 0 counter: 95205147
-End 1 counter: 99462145
-End 2 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:07.39, user 16.80, sys 9.59
-End 1 counter: 94373249
-End 2 counter: 97609186
-End 0 counter: 98137342
-End 3 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:07.42, user 16.48, sys 10.18
+ times: real 0:07.52, user 17.21, sys 9.72
 ---
 
 -- [intel/array_hle] --
-End 2 counter: 93099986
-End 0 counter: 93487201
-End 3 counter: 96718575
-End 1 counter: 100000000
+End 0 counter: 64228093
+End 1 counter: 68611485
+End 3 counter: 99696900
+End 2 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:10.09, user 39.93, sys 0.00
-End 3 counter: 84795456
-End 0 counter: 95258766
-End 2 counter: 97054195
-End 1 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:09.68, user 37.68, sys 0.00
-End 0 counter: 85466565
-End 3 counter: 85630967
-End 2 counter: 98774634
-End 1 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:08.15, user 31.92, sys 0.00
-End 1 counter: 61894574
-End 0 counter: 63611175
-End 2 counter: 99887195
+ times: real 0:08.60, user 31.53, sys 0.00
+End 1 counter: 68839014
+End 2 counter: 72314712
+End 0 counter: 99705695
 End 3 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:07.12, user 25.64, sys 0.00
-End 2 counter: 93726420
-End 0 counter: 94444088
-End 3 counter: 98686380
+ times: real 0:07.33, user 27.77, sys 0.00
+End 2 counter: 71149170
+End 3 counter: 73453943
+End 0 counter: 97989995
 End 1 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:08.47, user 33.53, sys 0.00
+ times: real 0:08.88, user 32.24, sys 0.00
+End 0 counter: 80337180
+End 2 counter: 90024165
+End 3 counter: 98216590
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:11.51, user 44.13, sys 0.00
+End 0 counter: 63893701
+End 2 counter: 66811614
+End 1 counter: 99902100
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:07.29, user 27.39, sys 0.00
 ---
 
 -- [intel/array_rtm] --
-End 2 counter: 50010818
-End 3 counter: 50011546
-End 0 counter: 93203866
+End 3 counter: 79252973
+End 0 counter: 81696418
+End 2 counter: 95858558
 End 1 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:06.71, user 23.72, sys 0.00
-End 2 counter: 50035829
-End 3 counter: 50053005
-End 0 counter: 91598472
-End 1 counter: 100000000
+ times: real 0:09.49, user 35.10, sys 0.00
+End 3 counter: 83856937
+End 1 counter: 86486632
+End 0 counter: 95936213
+End 2 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:08.66, user 31.16, sys 0.00
-End 1 counter: 58710405
-End 0 counter: 58769788
-End 2 counter: 89791168
-End 3 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:09.41, user 35.06, sys 0.00
-End 2 counter: 57275871
-End 1 counter: 64124795
-End 3 counter: 95716708
+ times: real 0:13.44, user 51.58, sys 0.00
+End 1 counter: 84601020
+End 2 counter: 86025803
+End 3 counter: 97346129
 End 0 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:09.40, user 34.68, sys 0.00
-End 1 counter: 94059987
-End 2 counter: 94181764
-End 0 counter: 98048257
+ times: real 0:10.69, user 40.56, sys 0.00
+End 1 counter: 79624531
+End 0 counter: 93414149
+End 3 counter: 94615420
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:12.47, user 47.88, sys 0.00
+End 1 counter: 86018453
+End 0 counter: 95602547
+End 2 counter: 97056326
 End 3 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:12.83, user 51.02, sys 0.00
+ times: real 0:12.22, user 47.37, sys 0.00
+---
+
+-- [intel/array_rtm_tinystm] --
+End 2 counter: 53380356
+End 0 counter: 53443881
+End 1 counter: 99927453
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:13.69, user 41.23, sys 0.00
+End 0 counter: 76262550
+End 3 counter: 77611434
+End 2 counter: 99941005
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:14.59, user 51.98, sys 0.00
+End 1 counter: 95182879
+End 3 counter: 96347336
+End 0 counter: 98230563
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:15.65, user 61.87, sys 0.00
+End 1 counter: 52766586
+End 3 counter: 52968979
+End 0 counter: 99631884
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:13.36, user 40.12, sys 0.00
+End 2 counter: 63684130
+End 3 counter: 64008465
+End 1 counter: 99654317
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:13.98, user 45.87, sys 0.00
 ---
