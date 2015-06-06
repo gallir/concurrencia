@@ -1,0 +1,34 @@
+-----------
+
+-- [array_mutex] --
+End 0 counter: 89513151
+End 3 counter: 90528197
+End 1 counter: 99813983
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:14.72, user 12.55, sys 40.93
+End 3 counter: 92325071
+End 2 counter: 95366680
+End 1 counter: 99394287
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:16.62, user 13.79, sys 46.36
+End 2 counter: 96911560
+End 0 counter: 97007095
+End 1 counter: 99539766
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:16.41, user 14.13, sys 45.90
+End 1 counter: 96324077
+End 2 counter: 97843071
+End 3 counter: 99975595
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:17.00, user 14.76, sys 47.33
+End 1 counter: 93693447
+End 2 counter: 95023492
+End 0 counter: 99663675
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:16.27, user 14.17, sys 45.02
+---
