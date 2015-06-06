@@ -1,9 +1,9 @@
 #! /bin/bash
 
 #EXES="array_base array_tinystm intel/array_transaction intel/array_hle intel/array_rtm"
-EXES="rw_spinlock rw_tinystm rw_transaction intel/rw_hle"
+EXES="rw_spinlock rw_tinystm rw_transaction intel/rw_hle intel/rw_rtm"
 N=$1
-OUT=logs/measures_i5_rw.log
+OUT=logs/measures_rw.log
 
 #cp d$N.h defs.h
 

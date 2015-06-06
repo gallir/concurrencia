@@ -1,0 +1,34 @@
+-----------
+
+-- [intel/array_rtm] --
+End 2 counter: 95217422
+End 0 counter: 97349527
+End 3 counter: 99979526
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:10.83, user 42.99, sys 0.00
+End 3 counter: 77184127
+End 2 counter: 77860179
+End 0 counter: 99255074
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:06.44, user 24.58, sys 0.00
+End 0 counter: 62017755
+End 1 counter: 62150424
+End 2 counter: 97932603
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:05.97, user 21.73, sys 0.00
+End 2 counter: 72114077
+End 0 counter: 72485038
+End 3 counter: 97930866
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:06.25, user 23.72, sys 0.00
+End 2 counter: 93742633
+End 3 counter: 95106758
+End 1 counter: 96187473
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:09.82, user 38.91, sys 0.00
+---

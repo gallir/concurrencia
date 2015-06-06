@@ -43,7 +43,7 @@ void *count(void *ptr) {
     int tid = ((struct tdata *) ptr)->tid;
 
     for (i=0; i < max; i++) {
-        if (_xbegin() == _XBEGIN_STARTED) {
+        if (! mutex && _xbegin() == _XBEGIN_STARTED) {
             if (mutex) {
                 _xabort(1); /* Lock busy */
             }
