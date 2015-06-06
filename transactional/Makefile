@@ -23,6 +23,9 @@ all: $(PROGS) $(ARCH)
 array_tinystm: array_tinystm.c $(STM) $(HEADERS)
 	- $(CC) $(CFLAGS) -o $@ $< $(STM)
 
+rw_tinystm: rw_tinystm.c $(STM) $(HEADERS)
+	- $(CC) $(CFLAGS) -o $@ $< $(STM)
+
 %: %.c $(HEADERS)
 	- $(CC) $(CFLAGS) -o $@ $< 
 

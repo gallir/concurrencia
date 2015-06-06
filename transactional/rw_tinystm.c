@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
-#include <stdint.h>
+
+#include "tinySTM/include/stm.h"
 
 #include "defs.h"
 
@@ -11,41 +12,42 @@ struct tdata {
     int tid;
 };
 
-int counter = 0;
-int padding[64]; /* To avoid false sharing with counter */
-int mutex;
+#define TM_START(tid, ro)               { stm_tx_attr_t _a = {{.id = tid, .read_only = ro}}; sigjmp_buf *_e = stm_start(_a); if (_e != NULL) sigsetjmp(*_e, 0)
+#define TM_COMMIT                       stm_commit(); }
+
+#define TM_INIT                         stm_init(); mod_ab_init(0, NULL)
+#define TM_EXIT                         stm_exit()
 
 
-inline void lock() {
-    while(__atomic_exchange_n(&mutex, 1, __ATOMIC_SEQ_CST));
-}
-
-inline void unlock() {
-    __atomic_store_n(&mutex, 0, __ATOMIC_RELEASE);
-}
+int counter;
 
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
     int tid = ((struct tdata *) ptr)->tid;
     int c;
 
+    stm_init_thread();
+
     for (i=0; i < max; i++) {
-        lock();
-        if (i % 10) {
-            // 90% of probability of being a reader
-            c = counter; // Just copy the value
-        } else {
-            counter += 1;
+        TM_START(0, 0);
+        c = stm_load_int(&counter);
+        if (i % 10 == 0) {
+            c++;
+            stm_store_int(&counter, c);
         }
-        unlock();
+        TM_COMMIT;
     }
     printf("End %d counter: %d\n", tid, counter);
+    stm_exit_thread();
 }
 
 int main (int argc, char *argv[]) {
     pthread_t threads[NUM_THREADS];
     int rc, i;
     struct tdata id[NUM_THREADS];
+
+    /* Init tinySTM */
+    stm_init();
 
     for(i=0; i<NUM_THREADS; i++){
         id[i].tid = i;
@@ -57,5 +59,6 @@ int main (int argc, char *argv[]) {
     }
 
     printf("Counter value: %d Expected: %d\n", counter, MAX_COUNT/10);
+    stm_exit();
     return 0;
 }

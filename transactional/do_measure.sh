@@ -1,11 +1,11 @@
 #! /bin/bash
 
 #EXES="array_base array_tinystm intel/array_transaction intel/array_hle intel/array_rtm"
-EXES="array_mutex"
+EXES="rw_spinlock rw_tinystm rw_transaction intel/rw_hle"
 N=$1
-OUT=logs/measures_i5_mutex_$N.log
+OUT=logs/measures_i5_rw.log
 
-cp d$N.h defs.h
+#cp d$N.h defs.h
 
 make all > /dev/null
 

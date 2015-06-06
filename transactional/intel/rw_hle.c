@@ -4,8 +4,6 @@
 #include <sys/types.h>
 #include <stdint.h>
 
-#define NUM_THREADS      4
-#define MAX_COUNT 10000000
 #include "defs.h"
 
 
@@ -15,9 +13,9 @@ struct tdata {
     int tid;
 };
 
-int mutex = 0;
-int padding[64]; /* To avoid false sharing with counter */
 int counter = 0;
+int padding[64]; /* To avoid false sharing with counter */
+int mutex = 0;
 
 inline void lock() {
     while(__atomic_exchange_n(&mutex, 1, __ATOMIC_ACQUIRE|__ATOMIC_HLE_ACQUIRE)) {
