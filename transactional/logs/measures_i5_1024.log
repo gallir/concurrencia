@@ -1,0 +1,146 @@
+-----------
+
+-- [array_base] --
+End 0 counter: 58638537
+End 1 counter: 58830184
+End 3 counter: 99999936
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:13.05, user 35.73, sys 0.00
+End 0 counter: 53831824
+End 1 counter: 53984894
+End 3 counter: 99920105
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:13.60, user 36.76, sys 0.00
+End 0 counter: 53721845
+End 1 counter: 54103077
+End 2 counter: 99975198
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:13.29, user 36.51, sys 0.00
+End 0 counter: 53868340
+End 1 counter: 54007115
+End 3 counter: 99980174
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:12.49, user 35.25, sys 0.00
+End 0 counter: 58947025
+End 1 counter: 59137163
+End 3 counter: 99976901
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:12.88, user 38.73, sys 0.00
+---
+
+-- [array_tinystm] --
+End 2 counter: 99953924
+End 1 counter: 99964772
+End 0 counter: 99977364
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:05.66, user 22.60, sys 0.00
+End 0 counter: 99886256
+End 1 counter: 99921461
+End 3 counter: 99973745
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:06.00, user 24.00, sys 0.00
+End 0 counter: 99940806
+End 2 counter: 99955202
+End 3 counter: 99993939
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:06.10, user 24.40, sys 0.00
+End 1 counter: 99975943
+End 2 counter: 99975996
+End 3 counter: 99998013
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:06.08, user 24.31, sys 0.00
+End 0 counter: 99919737
+End 2 counter: 99928736
+End 1 counter: 99975945
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:06.10, user 24.38, sys 0.00
+---
+
+-- [intel/array_transaction] --
+End 2 counter: 99975225
+End 0 counter: 99982468
+End 3 counter: 99999983
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:14.17, user 56.64, sys 0.00
+End 0 counter: 99965899
+End 2 counter: 99987140
+End 1 counter: 99988043
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:14.27, user 57.04, sys 0.00
+End 3 counter: 99858741
+End 2 counter: 99903682
+End 0 counter: 99913969
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:13.66, user 54.50, sys 0.00
+End 1 counter: 99950308
+End 0 counter: 99967214
+End 2 counter: 99996534
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:13.64, user 54.54, sys 0.00
+End 0 counter: 99953948
+End 2 counter: 99995949
+End 1 counter: 99999609
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:13.61, user 54.42, sys 0.00
+---
+
+-- [intel/array_hle] --
+End 1 counter: 50614609
+End 0 counter: 51457107
+End 2 counter: 99976245
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:07.72, user 27.51, sys 0.00
+End 0 counter: 50872387
+End 1 counter: 51353068
+End 2 counter: 83854865
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:09.01, user 29.84, sys 0.00
+End 3 counter: 63414115
+End 2 counter: 81541503
+End 1 counter: 82427072
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:11.18, user 42.35, sys 0.00
+End 0 counter: 62477127
+End 3 counter: 63264585
+End 1 counter: 99982100
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:10.56, user 39.70, sys 0.00
+End 2 counter: 62583473
+End 3 counter: 63466144
+End 1 counter: 99949760
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:10.65, user 40.06, sys 0.00
+---
+
+-- [intel/array_rtm] --
+Command terminated by signal 4
+ times: real 0:00.17, user 0.00, sys 0.00
+Command terminated by signal 4
+ times: real 0:00.12, user 0.00, sys 0.00
+Command terminated by signal 4
+ times: real 0:00.10, user 0.00, sys 0.00
+Command terminated by signal 4
+ times: real 0:00.10, user 0.00, sys 0.00
+Command terminated by signal 4
+ times: real 0:00.10, user 0.00, sys 0.00
+---
