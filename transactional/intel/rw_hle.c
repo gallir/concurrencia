@@ -16,6 +16,7 @@ struct tdata {
 };
 
 int mutex = 0;
+int padding[64]; /* To avoid false sharing with counter */
 int counter = 0;
 
 inline void lock() {

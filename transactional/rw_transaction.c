@@ -4,8 +4,7 @@
 #include <sys/types.h>
 #include <stdint.h>
 
-#define NUM_THREADS      4
-#define MAX_COUNT 10000000
+#include "defs.h"
 
 // Just used to send the index of the id
 struct tdata {
