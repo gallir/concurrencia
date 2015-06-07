@@ -20,6 +20,9 @@ endif
 
 all: $(PROGS) $(ARCH)
 
+mutex_tinystm: mutex_tinystm.c $(STM) $(HEADERS)
+	- $(CC) $(CFLAGS) -o $@ $< $(STM)
+
 array_tinystm: array_tinystm.c $(STM) $(HEADERS)
 	- $(CC) $(CFLAGS) -o $@ $< $(STM)
 
