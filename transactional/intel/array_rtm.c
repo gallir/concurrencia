@@ -26,25 +26,30 @@ inline void unlock() {
     __atomic_store_n(&mutex, 0, __ATOMIC_RELEASE);
 }
 
+
+inline void rtm_lock() {
+    if (_xbegin() == _XBEGIN_STARTED) {
+        if (! mutex) return; /* It's available */
+        _xabort(0xff);
+    }
+    lock();
+}
+
+void rtm_unlock(lock) {
+    if (! mutex)
+        _xend();		/* Commit transaction */
+    else
+        unlock();
+}
+
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
     int tid = ((struct tdata *) ptr)->tid;
-    int position;
-
 
     for (i=0; i < max; i++) {
-        position = i % ARRAY_SIZE;
-        if (_xbegin() == _XBEGIN_STARTED) {
-            if (mutex) {
-                _xabort(1); /* Lock busy */
-            }
-            counter[position]++;
-            _xend();
-        } else {
-            lock();
-            counter[position]++;
-            unlock();
-        }
+        rtm_lock();
+        counter[i % ARRAY_SIZE]++;
+        rtm_unlock();
     }
     printf("End %d counter: %d\n", tid, SUM(counter));
 }
