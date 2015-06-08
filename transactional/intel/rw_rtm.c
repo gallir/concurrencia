@@ -35,7 +35,7 @@ inline void rtm_lock() {
     lock();
 }
 
-void rtm_unlock(lock) {
+inline void rtm_unlock(lock) {
     if (! mutex)
         _xend();		/* Commit transaction */
     else
