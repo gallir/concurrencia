@@ -27,33 +27,35 @@ inline void unlock() {
      __atomic_store_n(&mutex, 0, __ATOMIC_RELEASE|__ATOMIC_HLE_RELEASE);
 }
 
-inline void operation(int i) {
-    int c;
-
-    if (i % 10) {
-        // 90% of probability of being a reader
-        c = counter; // Just copy the value
-    } else {
-        counter += 1;
+inline void rtm_lock() {
+    if (_xbegin() == _XBEGIN_STARTED) {
+        if (! mutex) return; /* It's available */
+        _xabort(0xff);
     }
+    lock();
+}
+
+void rtm_unlock(lock) {
+    if (! mutex)
+        _xend();		/* Commit transaction */
+    else
+        unlock();
 }
 
 void *count(void *ptr) {
     long i, max = MAX_COUNT/NUM_THREADS;
     int tid = ((struct tdata *) ptr)->tid;
+    int c;
 
     for (i=0; i < max; i++) {
-        if (! mutex && _xbegin() == _XBEGIN_STARTED) {
-            if (mutex) {
-                _xabort(1); /* Lock busy */
-            }
-            operation(i);
-            _xend();
+        rtm_lock();
+        if (i % 10) {
+            // 90% of probability of being a reader
+            c = counter; // Just copy the value
         } else {
-            lock();
-            operation(i);
-            unlock();
+            counter += 1;
         }
+        rtm_unlock();
     }
     printf("End %d counter: %d\n", tid, counter);
 }
