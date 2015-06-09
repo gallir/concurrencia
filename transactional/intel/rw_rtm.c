@@ -25,15 +25,22 @@ inline void unlock() {
      __atomic_store_n(&mutex, 0, __ATOMIC_RELEASE|__ATOMIC_HLE_RELEASE);
 }
 
+/* Better example of lock with RTM */
 inline void rtm_lock() {
-    int c = 0;
+    int c = 0, status;
 retry:
-    if (_xbegin() == _XBEGIN_STARTED) {
+    if ((status = _xbegin()) == _XBEGIN_STARTED) {
         if (! mutex) return; /* It's available */
         _xabort(0xff);
     }
+    if (c < 10) {
+        // We check that the abort reason was the explicit abort due to mutex, 
+        // status has no info or it was a transient problem
+        if (_XABORT_CODE(status) == 0xff || ! status || status & _XABORT_RETRY) {
+            goto retry;
+        }
+    }
     c++;
-    if (c < 10) goto retry;
     lock();
 }
 
