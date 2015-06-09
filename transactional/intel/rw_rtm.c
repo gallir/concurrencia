@@ -32,7 +32,7 @@ retry:
         if (! mutex) return; /* It's available */
         _xabort(0xff);
     }
-    i++;
+    c++;
     if (c < 10) goto retry;
     lock();
 }
