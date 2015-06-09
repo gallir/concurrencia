@@ -1,166 +1,196 @@
 -----------
 
 -- [rw_spinlock] --
-End 2 counter: 2543828
-End 1 counter: 6450274
-End 0 counter: 9989720
-End 3 counter: 10000000
-Counter value: 10000000 Expected: 10000000
- times: real 0:04.09, user 12.76, sys 0.00
-End 0 counter: 6379976
-End 1 counter: 6515751
-End 3 counter: 8347073
+End 0 counter: 7340213
+End 1 counter: 7352233
+End 3 counter: 9973077
 End 2 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:06.66, user 24.58, sys 0.00
-End 2 counter: 4196718
-End 0 counter: 7158936
-End 1 counter: 9982435
+ times: real 0:06.01, user 22.90, sys 0.00
+End 1 counter: 9436617
+End 0 counter: 9666699
+End 2 counter: 9705719
 End 3 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:05.04, user 17.38, sys 0.00
-End 3 counter: 7545282
-End 1 counter: 7586123
-End 0 counter: 9458138
+ times: real 0:08.44, user 33.54, sys 0.00
+End 1 counter: 3733008
+End 3 counter: 8617239
+End 0 counter: 9505202
 End 2 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:07.54, user 28.18, sys 0.00
-End 1 counter: 6588973
-End 2 counter: 6591591
-End 3 counter: 9978443
+ times: real 0:06.85, user 23.14, sys 0.00
+End 3 counter: 8478015
+End 1 counter: 9803841
+End 2 counter: 9807722
 End 0 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:04.89, user 18.07, sys 0.00
+ times: real 0:07.92, user 30.71, sys 0.00
+End 2 counter: 7979670
+End 0 counter: 9462474
+End 1 counter: 9471942
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:07.49, user 29.23, sys 0.00
+End 2 counter: 9119039
+End 0 counter: 9213963
+End 1 counter: 9942922
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:08.25, user 32.37, sys 0.00
 ---
 
 -- [rw_tinystm] --
-End 0 counter: 7906480
-End 2 counter: 8224537
-End 1 counter: 9999615
-End 3 counter: 10000000
+End 0 counter: 9890983
+End 3 counter: 9896258
+End 1 counter: 9941149
+End 2 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:01.60, user 5.77, sys 0.00
-End 2 counter: 9691776
-End 1 counter: 9908746
-End 3 counter: 9994931
+ times: real 0:01.59, user 6.35, sys 0.00
+End 1 counter: 8181536
+End 2 counter: 8207352
+End 3 counter: 9999788
 End 0 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:01.56, user 6.19, sys 0.00
-End 0 counter: 8129010
-End 2 counter: 8149218
-End 3 counter: 9998640
-End 1 counter: 10000000
+ times: real 0:01.61, user 5.82, sys 0.00
+End 1 counter: 8144169
+End 3 counter: 8338948
+End 0 counter: 9997024
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.60, user 5.81, sys 0.00
+End 0 counter: 8327640
+End 2 counter: 8412063
+End 1 counter: 9980170
+End 3 counter: 10000000
 Counter value: 10000000 Expected: 10000000
  times: real 0:01.61, user 5.83, sys 0.00
-End 3 counter: 7829933
-End 0 counter: 8054081
-End 2 counter: 9995057
-End 1 counter: 10000000
+End 1 counter: 7929895
+End 0 counter: 8043237
+End 2 counter: 9990683
+End 3 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:01.61, user 5.76, sys 0.00
-End 3 counter: 7887344
-End 2 counter: 8086156
-End 0 counter: 9992495
-End 1 counter: 10000000
+ times: real 0:01.59, user 5.70, sys 0.00
+End 0 counter: 7905676
+End 1 counter: 8020365
+End 2 counter: 9997900
+End 3 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:01.59, user 5.68, sys 0.00
+ times: real 0:01.60, user 5.72, sys 0.00
 ---
 
 -- [rw_transaction] --
-End 1 counter: 8700704
-End 2 counter: 8883062
-End 3 counter: 9995709
-End 0 counter: 10000000
-Counter value: 10000000 Expected: 10000000
- times: real 0:02.31, user 6.30, sys 1.90
-End 0 counter: 9525186
-End 1 counter: 9860616
-End 3 counter: 9883416
-End 2 counter: 10000000
-Counter value: 10000000 Expected: 10000000
- times: real 0:01.91, user 5.80, sys 1.22
-End 0 counter: 9239839
-End 3 counter: 9566257
-End 2 counter: 9934000
+End 3 counter: 9837332
+End 2 counter: 9884628
+End 0 counter: 9912056
 End 1 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:02.08, user 6.04, sys 1.53
-End 0 counter: 8604421
-End 1 counter: 8605001
-End 3 counter: 9982475
+ times: real 0:01.98, user 5.73, sys 1.57
+End 3 counter: 8986019
+End 1 counter: 8995592
+End 0 counter: 9846539
 End 2 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:02.29, user 6.34, sys 1.71
-End 2 counter: 9002211
-End 1 counter: 9161562
-End 0 counter: 9906404
+ times: real 0:02.25, user 6.35, sys 1.63
+End 2 counter: 8955961
+End 1 counter: 8996706
+End 0 counter: 9871720
 End 3 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:02.36, user 6.41, sys 2.03
+ times: real 0:02.41, user 6.42, sys 2.11
+End 1 counter: 8779352
+End 0 counter: 8784058
+End 3 counter: 9971997
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.31, user 6.47, sys 1.69
+End 2 counter: 9091297
+End 1 counter: 9110245
+End 0 counter: 9896104
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.32, user 6.48, sys 1.82
+End 3 counter: 8566331
+End 1 counter: 8827850
+End 0 counter: 9966353
+End 2 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:02.34, user 6.43, sys 1.84
 ---
 
 -- [intel/rw_hle] --
-End 3 counter: 8881754
-End 0 counter: 9508593
-End 1 counter: 9971628
-End 2 counter: 10000000
-Counter value: 10000000 Expected: 10000000
- times: real 0:09.02, user 35.33, sys 0.00
-End 2 counter: 7863345
-End 3 counter: 8641385
-End 0 counter: 9940591
+End 2 counter: 9893482
+End 3 counter: 9899432
+End 0 counter: 9963116
 End 1 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:06.83, user 26.31, sys 0.00
-End 2 counter: 9373591
-End 0 counter: 9806088
-End 3 counter: 9969097
-End 1 counter: 10000000
-Counter value: 10000000 Expected: 10000000
- times: real 0:08.64, user 34.17, sys 0.00
-End 0 counter: 9208108
-End 3 counter: 9239047
-End 1 counter: 9888413
-End 2 counter: 10000000
-Counter value: 10000000 Expected: 10000000
- times: real 0:07.81, user 30.74, sys 0.00
-End 1 counter: 8707237
-End 3 counter: 8763578
-End 2 counter: 9930248
+ times: real 0:06.71, user 26.83, sys 0.00
+End 1 counter: 8402564
+End 3 counter: 8899260
+End 2 counter: 9975703
 End 0 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:07.06, user 27.62, sys 0.00
+ times: real 0:07.27, user 28.34, sys 0.00
+End 0 counter: 8720697
+End 3 counter: 8727391
+End 2 counter: 9922943
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:07.06, user 27.56, sys 0.00
+End 3 counter: 9291187
+End 1 counter: 9343923
+End 2 counter: 9809877
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:08.26, user 32.61, sys 0.00
+End 2 counter: 8736205
+End 1 counter: 9096844
+End 3 counter: 9976189
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:07.11, user 27.87, sys 0.00
+End 2 counter: 8564952
+End 1 counter: 8636152
+End 3 counter: 9985758
+End 0 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:07.05, user 27.53, sys 0.00
 ---
 
 -- [intel/rw_rtm] --
-End 1 counter: 8578018
-End 0 counter: 8902611
-End 2 counter: 9998380
-End 3 counter: 10000000
+End 0 counter: 8663991
+End 2 counter: 8837281
+End 3 counter: 9986228
+End 1 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:01.17, user 4.29, sys 0.00
-End 1 counter: 8652812
-End 3 counter: 8867893
-End 0 counter: 9995989
+ times: real 0:01.20, user 4.39, sys 0.00
+End 0 counter: 9978920
+End 3 counter: 9984237
+End 1 counter: 9991580
 End 2 counter: 10000000
 Counter value: 10000000 Expected: 10000000
- times: real 0:01.22, user 4.48, sys 0.00
-End 1 counter: 9847072
-End 2 counter: 9965157
-End 3 counter: 9984176
-End 0 counter: 10000000
-Counter value: 10000000 Expected: 10000000
- times: real 0:01.21, user 4.82, sys 0.00
-End 2 counter: 8799641
-End 3 counter: 8862989
-End 1 counter: 9978692
-End 0 counter: 10000000
-Counter value: 10000000 Expected: 10000000
- times: real 0:01.21, user 4.46, sys 0.00
-End 3 counter: 8626166
-End 2 counter: 8792328
-End 1 counter: 9987945
+ times: real 0:01.14, user 4.56, sys 0.00
+End 2 counter: 8739601
+End 1 counter: 8798663
+End 3 counter: 9985329
 End 0 counter: 10000000
 Counter value: 10000000 Expected: 10000000
  times: real 0:01.22, user 4.43, sys 0.00
+End 0 counter: 8740327
+End 2 counter: 8903925
+End 1 counter: 9998853
+End 3 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.20, user 4.37, sys 0.00
+End 0 counter: 8863057
+End 2 counter: 8875219
+End 3 counter: 9987280
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.22, user 4.46, sys 0.00
+End 2 counter: 8676658
+End 0 counter: 8817770
+End 3 counter: 9990143
+End 1 counter: 10000000
+Counter value: 10000000 Expected: 10000000
+ times: real 0:01.23, user 4.45, sys 0.00
 ---
