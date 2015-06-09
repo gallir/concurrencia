@@ -17,9 +17,7 @@ int padding[64]; /* To avoid false sharing with counter */
 int counter[ARRAY_SIZE];
 
 inline void lock() {
-    while(__atomic_exchange_n(&mutex, 1, __ATOMIC_SEQ_CST)) {
-        PAUSE;
-    }
+    while(__atomic_exchange_n(&mutex, 1, __ATOMIC_SEQ_CST));
 }
 
 inline void unlock() {
@@ -28,10 +26,13 @@ inline void unlock() {
 
 
 inline void rtm_lock() {
+    int c = 0;
+retry:
     if (_xbegin() == _XBEGIN_STARTED) {
         if (! mutex) return; /* It's available */
         _xabort(0xff);
     }
+    if (c < 10) goto retry;
     lock();
 }
 

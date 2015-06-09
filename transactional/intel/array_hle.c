@@ -19,9 +19,7 @@ int padding[64]; /* To avoid false sharing with counter */
 int counter[ARRAY_SIZE];
 
 inline void lock() {
-    while(__atomic_exchange_n(&mutex, 1, __ATOMIC_ACQUIRE|__ATOMIC_HLE_ACQUIRE)) {
-        PAUSE;
-    }
+    while(__atomic_exchange_n(&mutex, 1, __ATOMIC_ACQUIRE|__ATOMIC_HLE_ACQUIRE));
 }
 
 inline void unlock() {
