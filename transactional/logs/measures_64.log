@@ -1,199 +1,166 @@
 -----------
 
--- [array_base] --
-End 0 counter: 95040316
-End 3 counter: 96135294
-End 1 counter: 98669635
+-- [array_spinlock] --
+End 3 counter: 70179717
+End 0 counter: 70838701
+End 1 counter: 90673749
 End 2 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:09.47, user 37.62, sys 0.00
-End 2 counter: 25336328
-End 3 counter: 50360103
-End 0 counter: 99191680
+ times: real 0:07.41, user 27.84, sys 0.00
+End 2 counter: 86621416
+End 3 counter: 86627927
+End 1 counter: 86913710
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:08.07, user 31.96, sys 0.00
+End 2 counter: 83393111
+End 3 counter: 97627046
+End 0 counter: 99136265
 End 1 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:03.38, user 10.50, sys 0.00
-End 1 counter: 41302549
-End 3 counter: 79258937
-End 0 counter: 92556517
-End 2 counter: 100000000
+ times: real 0:09.33, user 36.19, sys 0.00
+End 3 counter: 25192449
+End 1 counter: 55803544
+End 2 counter: 99880353
+End 0 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:07.49, user 25.10, sys 0.00
-End 0 counter: 60963017
-End 1 counter: 61507531
-End 2 counter: 94527575
+ times: real 0:03.67, user 11.47, sys 0.00
+End 1 counter: 86307765
+End 2 counter: 86338134
+End 0 counter: 86824967
 End 3 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:07.59, user 26.54, sys 0.00
-End 0 counter: 55418959
-End 1 counter: 56006546
-End 2 counter: 82424446
-End 3 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:06.11, user 21.51, sys 0.00
+ times: real 0:08.09, user 32.01, sys 0.00
 ---
 
 -- [array_tinystm] --
-End 2 counter: 98749379
-End 1 counter: 98971041
-End 0 counter: 99842701
-End 3 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:06.72, user 26.75, sys 0.00
-End 1 counter: 82167162
-End 3 counter: 84802842
-End 2 counter: 99997288
+End 2 counter: 84601139
+End 1 counter: 84993764
+End 3 counter: 99991965
 End 0 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:05.88, user 22.36, sys 0.00
-End 1 counter: 81650113
-End 3 counter: 84751705
-End 0 counter: 99990871
-End 2 counter: 100000000
+ times: real 0:05.88, user 22.51, sys 0.00
+End 2 counter: 81145306
+End 1 counter: 91178483
+End 3 counter: 99745546
+End 0 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:05.87, user 22.33, sys 0.00
-End 2 counter: 80773617
-End 3 counter: 83985295
-End 0 counter: 99917592
+ times: real 0:06.52, user 24.21, sys 0.00
+End 3 counter: 80177137
+End 2 counter: 83791809
+End 0 counter: 99986418
 End 1 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:05.81, user 22.00, sys 0.00
-End 1 counter: 80742999
-End 2 counter: 81011994
-End 3 counter: 99999512
+ times: real 0:05.80, user 21.90, sys 0.00
+End 2 counter: 78790855
+End 1 counter: 82696735
+End 3 counter: 99992729
 End 0 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:05.78, user 21.85, sys 0.00
+ times: real 0:05.88, user 22.14, sys 0.00
+End 2 counter: 82970350
+End 3 counter: 94827862
+End 0 counter: 99402895
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:06.55, user 24.74, sys 0.00
 ---
 
--- [intel/array_transaction] --
-End 3 counter: 93683632
-End 1 counter: 98607815
-End 2 counter: 99554025
-End 0 counter: 100000000
+-- [array_transaction] --
+End 2 counter: 93768945
+End 0 counter: 98229008
+End 3 counter: 99232601
+End 1 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:04.23, user 10.14, sys 5.15
-End 3 counter: 97341746
-End 2 counter: 98879700
-End 1 counter: 99547493
-End 0 counter: 100000000
+ times: real 0:04.14, user 10.01, sys 4.94
+End 1 counter: 94907198
+End 2 counter: 97692523
+End 0 counter: 99994594
+End 3 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:04.24, user 10.32, sys 5.10
-End 0 counter: 95849574
-End 1 counter: 98631028
-End 3 counter: 98753121
+ times: real 0:04.17, user 10.27, sys 4.81
+End 2 counter: 96486097
+End 1 counter: 97743087
+End 0 counter: 99231202
+End 3 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:04.23, user 10.05, sys 5.20
+End 0 counter: 98729408
+End 1 counter: 99177697
+End 3 counter: 99467938
 End 2 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:04.24, user 10.31, sys 5.03
-End 0 counter: 94229816
-End 1 counter: 97857522
-End 3 counter: 98616165
+ times: real 0:04.31, user 9.91, sys 5.69
+End 0 counter: 95719757
+End 1 counter: 97187255
+End 3 counter: 99446757
 End 2 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:04.19, user 10.24, sys 4.89
-End 0 counter: 96076850
-End 3 counter: 98341620
-End 1 counter: 98556455
-End 2 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:04.22, user 10.08, sys 5.19
+ times: real 0:04.20, user 10.35, sys 4.85
 ---
 
 -- [intel/array_hle] --
-End 1 counter: 87042870
-End 0 counter: 96130485
-End 2 counter: 99979872
+End 2 counter: 54995154
+End 3 counter: 55086580
+End 1 counter: 99859037
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:05.31, user 17.43, sys 0.00
+End 3 counter: 92211227
+End 1 counter: 96254782
+End 2 counter: 99168097
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:10.25, user 40.55, sys 0.00
+End 2 counter: 95272783
+End 3 counter: 95512106
+End 1 counter: 99980444
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:07.87, user 31.33, sys 0.00
+End 0 counter: 91709828
+End 2 counter: 95190151
+End 3 counter: 99756288
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:07.76, user 30.68, sys 0.00
+End 1 counter: 97328932
+End 2 counter: 97974563
+End 0 counter: 99919486
 End 3 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:10.18, user 39.79, sys 0.00
-End 3 counter: 98319655
-End 2 counter: 98861775
-End 1 counter: 99797858
-End 0 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:06.32, user 25.24, sys 0.00
-End 3 counter: 97383161
-End 2 counter: 97450644
-End 1 counter: 99959764
-End 0 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:06.03, user 24.07, sys 0.00
-End 1 counter: 92864261
-End 3 counter: 97942247
-End 2 counter: 99628193
-End 0 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:08.94, user 35.25, sys 0.00
-End 1 counter: 59411779
-End 3 counter: 59807858
-End 2 counter: 99816673
-End 0 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:05.27, user 18.10, sys 0.00
+ times: real 0:06.43, user 25.63, sys 0.00
 ---
 
 -- [intel/array_rtm] --
-End 3 counter: 87546031
-End 2 counter: 94778162
-End 1 counter: 96422271
-End 0 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:13.19, user 51.56, sys 0.00
-End 0 counter: 96897613
-End 1 counter: 97540611
-End 3 counter: 99670447
-End 2 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:07.41, user 29.53, sys 0.00
-End 0 counter: 84649548
-End 1 counter: 86696971
-End 2 counter: 95685217
-End 3 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:11.33, user 43.89, sys 0.00
-End 2 counter: 87707489
-End 1 counter: 94560214
-End 3 counter: 98704768
-End 0 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:13.09, user 51.24, sys 0.00
-End 1 counter: 79594431
-End 0 counter: 80155585
-End 3 counter: 98354624
-End 2 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:09.10, user 33.48, sys 0.00
----
-
--- [intel/array_rtm_tinystm] --
-End 1 counter: 99741472
-End 0 counter: 99903855
-End 2 counter: 99990656
-End 3 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:09.68, user 38.74, sys 0.00
-End 2 counter: 98108094
-End 3 counter: 99919602
-End 1 counter: 99936576
-End 0 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:09.66, user 38.53, sys 0.00
-End 0 counter: 99766636
-End 3 counter: 99862178
-End 1 counter: 99919021
-End 2 counter: 100000000
-Counter value: 100000000 Expected: 100000000
- times: real 0:09.46, user 37.89, sys 0.00
-End 2 counter: 99624424
-End 0 counter: 99804678
-End 3 counter: 99891072
+End 2 counter: 69764103
+End 0 counter: 84920399
+End 3 counter: 99463256
 End 1 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:09.75, user 39.01, sys 0.00
-End 2 counter: 99623365
-End 0 counter: 99696567
-End 1 counter: 99874788
-End 3 counter: 100000000
+ times: real 0:02.98, user 11.12, sys 0.00
+End 3 counter: 76038359
+End 2 counter: 80410022
+End 1 counter: 99581940
+End 0 counter: 100000000
 Counter value: 100000000 Expected: 100000000
- times: real 0:09.48, user 37.91, sys 0.00
+ times: real 0:02.93, user 11.03, sys 0.00
+End 1 counter: 77232056
+End 0 counter: 90736496
+End 3 counter: 97071393
+End 2 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:03.68, user 13.91, sys 0.00
+End 3 counter: 97865973
+End 1 counter: 98190164
+End 2 counter: 99967074
+End 0 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:02.55, user 10.17, sys 0.00
+End 3 counter: 71328614
+End 2 counter: 79141471
+End 0 counter: 99638899
+End 1 counter: 100000000
+Counter value: 100000000 Expected: 100000000
+ times: real 0:02.91, user 10.84, sys 0.00
 ---
