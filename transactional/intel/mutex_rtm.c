@@ -25,20 +25,14 @@ inline void unlock() {
 
 /* Better example of lock with RTM */
 inline void rtm_lock() {
-    int c = 0, status;
-retry:
-    if ((status = _xbegin()) == _XBEGIN_STARTED) {
-        if (! mutex) return; /* It's available */
-        _xabort(0xff);
-    }
-    if (c < 10) {
-        // We check that the abort reason was the explicit abort due to mutex,
-        // status has no info or it was a transient problem
-        if (_XABORT_CODE(status) == 0xff || ! status || status & _XABORT_RETRY) {
-            goto retry;
+    int c = 0, status = 0;
+    while (c < 10 && (! status || _XABORT_CODE(status) || status & _XABORT_RETRY)) {
+        if ((status = _xbegin()) == _XBEGIN_STARTED) {
+            if (! mutex) return; /* It's available */
+            _xabort(0xff);
         }
+        c++;
     }
-    c++;
     lock();
 }
 
