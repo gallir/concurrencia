@@ -34,7 +34,7 @@ retry:
         _xabort(0xff);
     }
     if (c < 10) {
-        // We check that the abort reason was the explicit abort due to mutex, 
+        // We check that the abort reason was the explicit abort due to mutex,
         // status has no info or it was a transient problem
         if (_XABORT_CODE(status) == 0xff || ! status || status & _XABORT_RETRY) {
             goto retry;
@@ -44,7 +44,7 @@ retry:
     lock();
 }
 
-inline void rtm_unlock(lock) {
+inline void rtm_unlock() {
     if (! mutex)
         _xend();		/* Commit transaction */
     else
