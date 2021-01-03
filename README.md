@@ -1,4 +1,4 @@
-# Source code of the book "Principios y algoritmos de concurrencia"
+# Source code of the examples in the book "Principios y algoritmos de concurrencia"
 
 Amazon.com: https://www.amazon.com/Principios-y-algoritmos-concurrencia-Spanish-ebook/dp/B00ZLIYIE0
 
